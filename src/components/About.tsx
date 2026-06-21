@@ -3,25 +3,25 @@ const values = [
     titre: "Formateurs praticiens",
     description:
       "Tous nos formateurs exercent encore dans leur domaine. Pas de théorie déconnectée du terrain.",
-    color: "border-[#2e9e6b]",
+    color: "border-green",
   },
   {
     titre: "Certifications reconnues",
     description:
       "Nos programmes sont certifiants et reconnus par les organismes officiels du secteur télécoms et énergie.",
-    color: "border-[#1b4f72]",
+    color: "border-blue",
   },
   {
     titre: "Éco-responsable",
     description:
       "Centre engagé dans la transition énergétique — fibre optique, photovoltaïque, efficacité énergétique.",
-    color: "border-[#f97316]",
+    color: "border-orange",
   },
   {
     titre: "Sur mesure entreprise",
     description:
       "Programmes intra adaptés à votre contexte, vos équipes et vos enjeux métier spécifiques.",
-    color: "border-[#2e9e6b]",
+    color: "border-green",
   },
 ];
 
@@ -32,26 +32,26 @@ export default function About() {
 
         {/* Left */}
         <div>
-          <p className="text-[#2e9e6b] text-xs font-bold uppercase tracking-widest mb-3 flex items-center gap-2">
-            <span className="w-5 h-[2px] bg-[#2e9e6b]" />
+          <p className="text-green text-xs font-bold uppercase tracking-widest mb-3 flex items-center gap-2">
+            <span className="w-5 h-[2px] bg-green" />
             À propos de NovaLead
           </p>
           <h2 className="text-3xl lg:text-4xl font-black text-white tracking-tighter leading-tight mb-6">
-            La référence en formation <span className="text-[#f97316]">technique</span> en Tunisie
+            La référence en formation <span className="text-orange">technique</span> en Tunisie
           </h2>
-          <p className="text-[#7a96aa] text-sm leading-relaxed mb-6">
+          <p className="text-muted text-sm leading-relaxed mb-6">
             NovaLead est un centre de formation spécialisé dans les métiers techniques de la fibre
             optique, du photovoltaïque et des télécommunications. Fondé par des professionnels du
             secteur, notre mission est de former les techniciens et les entreprises aux compétences
             de demain.
           </p>
-          <p className="text-[#7a96aa] text-sm leading-relaxed mb-10">
+          <p className="text-muted text-sm leading-relaxed mb-10">
             Nous proposons des formations certifiantes en présentiel et à distance, conçues pour
             répondre aux besoins réels du marché tunisien et international. Chaque programme est
             pensé pour être directement applicable sur le terrain dès le lendemain.
           </p>
           <div className="flex gap-3">
-            <button className="bg-[#f97316] text-white font-semibold text-sm px-6 py-3 rounded-md hover:opacity-90 transition-opacity">
+            <button className="bg-orange text-white font-semibold text-sm px-6 py-3 rounded-md hover:opacity-90 transition-opacity">
               Nos formations
             </button>
             <button className="bg-transparent text-white font-medium text-sm px-5 py-3 rounded-md border border-white/20 hover:border-white/40 transition-colors">
@@ -65,10 +65,10 @@ export default function About() {
           {values.map((v, i) => (
             <div
               key={i}
-              className={`bg-[#111f2e] border-l-4 ${v.color} px-6 py-5 rounded-r-xl`}
+              className={`bg-surface border-l-4 ${v.color} px-6 py-5 rounded-r-xl`}
             >
               <h4 className="text-white font-bold text-sm mb-1">{v.titre}</h4>
-              <p className="text-[#7a96aa] text-xs leading-relaxed">{v.description}</p>
+              <p className="text-muted text-xs leading-relaxed">{v.description}</p>
             </div>
           ))}
         </div>

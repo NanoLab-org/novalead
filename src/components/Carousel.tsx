@@ -51,11 +51,11 @@ const formations = [
 ];
 
 const domainColors: Record<string, string> = {
-  "Fibre Optique": "bg-[#1b4f72]/20 text-[#7ab8d9] border-[#1b4f72]/40",
-  "Photovoltaïque": "bg-[#2e9e6b]/10 text-[#2e9e6b] border-[#2e9e6b]/25",
-  "Électricité": "bg-[#f97316]/10 text-[#f97316] border-[#f97316]/25",
-  "Télécoms": "bg-[#1b4f72]/20 text-[#7ab8d9] border-[#1b4f72]/40",
-  "Énergie": "bg-[#2e9e6b]/10 text-[#2e9e6b] border-[#2e9e6b]/25",
+  "Fibre Optique": "bg-blue/20 text-sky border-blue/40",
+  "Photovoltaïque": "bg-green/10 text-green border-green/25",
+  "Électricité": "bg-orange/10 text-orange border-orange/25",
+  "Télécoms": "bg-blue/20 text-sky border-blue/40",
+  "Énergie": "bg-green/10 text-green border-green/25",
 };
 
 export default function Carousel() {
@@ -79,15 +79,15 @@ export default function Carousel() {
 
       <div className="flex items-end justify-between mb-12">
         <div>
-          <p className="text-[#2e9e6b] text-xs font-bold uppercase tracking-widest mb-2 flex items-center gap-2">
-            <span className="w-5 h-[2px] bg-[#2e9e6b]" />
+          <p className="text-green text-xs font-bold uppercase tracking-widest mb-2 flex items-center gap-2">
+            <span className="w-5 h-[2px] bg-green" />
             Formations phares
           </p>
           <h2 className="text-3xl lg:text-4xl font-black text-white tracking-tighter">
-            Nos formations <span className="text-[#f97316]">phares</span>
+            Nos formations <span className="text-orange">phares</span>
           </h2>
         </div>
-        <a href="#catalogue" className="text-sm font-semibold text-[#7a96aa] hover:text-white transition-colors hidden md:block">
+        <a href="#catalogue" className="text-sm font-semibold text-muted hover:text-white transition-colors hidden md:block">
           Voir tout le catalogue
         </a>
       </div>
@@ -107,20 +107,20 @@ export default function Carousel() {
               }}
               className={`whitespace-nowrap text-sm font-semibold px-5 py-2 rounded-full border transition-all flex-shrink-0 ${
                 active === i % formations.length
-                  ? "bg-[#f97316] text-white border-[#f97316]"
-                  : "bg-transparent text-[#7a96aa] border-white/10 hover:border-white/30 hover:text-white"
+                  ? "bg-orange text-white border-orange"
+                  : "bg-transparent text-muted border-white/10 hover:border-white/30 hover:text-white"
               }`}
             >
               {f.titre}
             </button>
           ))}
         </div>
-        <div className="absolute left-0 top-0 h-full w-16 bg-gradient-to-r from-[#0d1b2a] to-transparent pointer-events-none" />
-        <div className="absolute right-0 top-0 h-full w-16 bg-gradient-to-l from-[#0d1b2a] to-transparent pointer-events-none" />
+        <div className="absolute left-0 top-0 h-full w-16 bg-gradient-to-r from-base to-transparent pointer-events-none" />
+        <div className="absolute right-0 top-0 h-full w-16 bg-gradient-to-l from-base to-transparent pointer-events-none" />
       </div>
 
       <div
-        className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-8 bg-[#111f2e] border border-white/10 rounded-xl p-8"
+        className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-8 bg-surface border border-white/10 rounded-xl p-8"
         onMouseEnter={() => setPaused(true)}
         onMouseLeave={() => setPaused(false)}
       >
@@ -131,16 +131,16 @@ export default function Carousel() {
           <h3 className="text-2xl font-black text-white tracking-tight mb-3">
             {formations[active].titre}
           </h3>
-          <p className="text-[#7a96aa] text-sm leading-relaxed max-w-xl mb-6">
+          <p className="text-muted text-sm leading-relaxed max-w-xl mb-6">
             {formations[active].description}
           </p>
-          <div className="flex gap-6 text-sm text-[#7a96aa] mb-8">
+          <div className="flex gap-6 text-sm text-muted mb-8">
             <span>{formations[active].duree}</span>
             <span>{formations[active].format}</span>
             <span>{formations[active].niveau}</span>
           </div>
           <div className="flex gap-3">
-            <button className="bg-[#f97316] text-white font-semibold text-sm px-6 py-3 rounded-md hover:opacity-90 transition-opacity">
+            <button className="bg-orange text-white font-semibold text-sm px-6 py-3 rounded-md hover:opacity-90 transition-opacity">
               S&apos;inscrire
             </button>
             <button className="bg-transparent text-white font-medium text-sm px-5 py-3 rounded-md border border-white/20 hover:border-white/40 transition-colors">
@@ -160,7 +160,7 @@ export default function Carousel() {
               }}
               className={`rounded-full transition-all ${
                 active === i
-                  ? "w-3 h-3 bg-[#f97316]"
+                  ? "w-3 h-3 bg-orange"
                   : "w-2 h-2 bg-white/20 hover:bg-white/40"
               }`}
             />
