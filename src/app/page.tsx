@@ -1,9 +1,7 @@
-import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
-import Carousel from "@/components/Carousel";
-import About from "@/components/About";
-import Location from "@/components/Location";
-import Footer from "@/components/Footer";
+import Hero from "@/components/home/Hero";
+import Carousel from "@/components/home/Carousel";
+import About from "@/components/home/About";
+import Location from "@/components/home/Location";
 
 export default function Home() {
   return (
@@ -12,7 +10,6 @@ export default function Home() {
       <Carousel />
       <About />
       <Location />
-      <Footer />
     </main>
   );
 }
