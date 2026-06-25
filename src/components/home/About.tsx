@@ -1,29 +1,5 @@
-const values = [
-  {
-    titre: "Formateurs praticiens",
-    description:
-      "Tous nos formateurs exercent encore dans leur domaine. Pas de théorie déconnectée du terrain.",
-    color: "border-green",
-  },
-  {
-    titre: "Certifications reconnues",
-    description:
-      "Nos programmes sont certifiants et reconnus par les organismes officiels du secteur télécoms et énergie.",
-    color: "border-blue",
-  },
-  {
-    titre: "Éco-responsable",
-    description:
-      "Centre engagé dans la transition énergétique — fibre optique, photovoltaïque, efficacité énergétique.",
-    color: "border-orange",
-  },
-  {
-    titre: "Sur mesure entreprise",
-    description:
-      "Programmes intra adaptés à votre contexte, vos équipes et vos enjeux métier spécifiques.",
-    color: "border-green",
-  },
-];
+import { values } from "@/constants";
+
 
 export default function About() {
   return (

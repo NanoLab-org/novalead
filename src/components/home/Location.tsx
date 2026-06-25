@@ -1,3 +1,4 @@
+import { contactInfo, openingHours } from "@/constants";
 export default function Location() {
   return (
     <section id="location" className="px-10 py-24 border-b border-white/10">

@@ -1,3 +1,4 @@
+import { heroTags } from "@/constants";
 export default function Hero() {
   return (
     <section className="flex flex-col justify-center min-h-screen px-10 pt-32 pb-20 border-b border-white/10">

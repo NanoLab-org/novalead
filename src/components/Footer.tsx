@@ -1,3 +1,5 @@
+import { footerLinks } from "@/constants";
+
 export default function Footer() {
   return (
     <footer className="px-10 py-12 bg-deep border-t border-white/10">
@@ -18,7 +20,7 @@ export default function Footer() {
         <div>
           <p className="text-white font-bold text-sm mb-4">Liens rapides</p>
           <ul className="flex flex-col gap-2">
-            {["Catalogue", "À propos", "Localisation", "Contact"].map((l) => (
+            {footerLinks.map((l) => (
               <li key={l}>
                 <a href={`#${l.toLowerCase()}`} className="text-muted text-sm hover:text-white transition-colors">
                   {l}
