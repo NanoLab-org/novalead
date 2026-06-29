@@ -99,3 +99,103 @@ export const openingHours = [
   { day: "Samedi", hours: "09h00 - 13h00", closed: false },
   { day: "Dimanche", hours: "Fermé", closed: true },
 ];
+
+
+// ─── Catalogue ───────────────────────────────────────────────────────────────
+
+export const CATEGORIES = [
+  {
+    id: "fibre",
+    label: "Fibre Optique",
+    description: "Installation, soudure, mesure et maintenance des réseaux fibre optique FTTH/FTTB.",
+    locked: false,
+    formations: [
+      {
+        id: 1,
+        titre: "Installation Fibre Optique FTTH",
+        duree: "5 jours",
+        niveau: "Débutant",
+        places: 12,
+        format: "Présentiel",
+        prix: "1200 TND",
+        description: "Maîtrisez l'installation complète d'un réseau fibre optique FTTH, du tirage jusqu'au raccordement.",
+        objectifs: [
+          "Comprendre l'architecture des réseaux FTTH",
+          "Maîtriser les techniques de tirage et de pose",
+          "Effectuer les raccordements fibre optique",
+          "Réaliser les mesures OTDR",
+        ],
+        programme: [
+          { jour: "Jour 1", contenu: "Introduction aux réseaux fibre optique et architecture FTTH" },
+          { jour: "Jour 2", contenu: "Techniques de tirage et pose des câbles" },
+          { jour: "Jour 3", contenu: "Raccordement et soudure par fusion" },
+          { jour: "Jour 4", contenu: "Mesures et tests OTDR" },
+          { jour: "Jour 5", contenu: "Mise en situation réelle et évaluation" },
+        ],
+        prerequis: "Aucun prérequis technique nécessaire.",
+        certification: "Attestation de formation certifiante NovaLead",
+      },
+      {
+        id: 2,
+        titre: "Soudure et Mesure Fibre",
+        duree: "3 jours",
+        niveau: "Intermédiaire",
+        places: 8,
+        format: "Présentiel",
+        prix: "900 TND",
+        description: "Techniques de soudure par fusion et réflectométrie OTDR pour les techniciens fibre.",
+        objectifs: [
+          "Maîtriser la soudure par fusion",
+          "Utiliser un réflectomètre OTDR",
+          "Analyser les courbes OTDR",
+          "Diagnostiquer les défauts réseau",
+        ],
+        programme: [
+          { jour: "Jour 1", contenu: "Principes de la soudure par fusion et préparation des fibres" },
+          { jour: "Jour 2", contenu: "Pratique intensive de soudure et contrôle qualité" },
+          { jour: "Jour 3", contenu: "Réflectométrie OTDR et analyse des résultats" },
+        ],
+        prerequis: "Avoir des notions de base en fibre optique.",
+        certification: "Attestation de formation certifiante NovaLead",
+      },
+      {
+        id: 3,
+        titre: "Maintenance Réseau Fibre",
+        duree: "4 jours",
+        niveau: "Avancé",
+        places: 6,
+        format: "Présentiel",
+        prix: "1100 TND",
+        description: "Diagnostic, dépannage et maintenance préventive des infrastructures fibre déployées.",
+        objectifs: [
+          "Diagnostiquer les pannes réseau fibre",
+          "Mettre en place un plan de maintenance préventive",
+          "Gérer les interventions d'urgence",
+          "Rédiger des rapports d'intervention",
+        ],
+        programme: [
+          { jour: "Jour 1", contenu: "Méthodologie de diagnostic et outils de mesure" },
+          { jour: "Jour 2", contenu: "Identification et résolution des pannes courantes" },
+          { jour: "Jour 3", contenu: "Maintenance préventive et planification" },
+          { jour: "Jour 4", contenu: "Gestion des incidents et documentation" },
+        ],
+        prerequis: "Expérience en installation fibre optique requise.",
+        certification: "Attestation de formation certifiante NovaLead",
+      },
+    ],
+  },
+  {
+    id: "telecom",
+    label: "Télécoms",
+    description: "Antennes, VoIP, câblage structuré et équipements de télécommunication.",
+    locked: true,
+    formations: [],
+  },
+  {
+    id: "solaire",
+    label: "Énergie Solaire",
+    description: "Dimensionnement, installation et maintenance des systèmes photovoltaïques.",
+    locked: true,
+    formations: [],
+  },
+];

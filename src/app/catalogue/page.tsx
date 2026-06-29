@@ -1,58 +1,7 @@
 "use client";
-
+import Link from "next/link";
 import { useEffect, useRef } from "react";
-
-// ── Types ─────────────────────────────────────────────────────
-
-type Niveau = "Débutant" | "Intermédiaire" | "Avancé";
-
-interface Formation {
-  id: number;
-  titre: string;
-  duree: string;
-  niveau: Niveau;
-  places: number;
-  description: string;
-}
-
-interface Category {
-  id: string;
-  label: string;
-  description: string;
-  locked: boolean;
-  formations: Formation[];
-}
-
-// ── Data ──────────────────────────────────────────────────────
-// Add new categories here — the layout adapts automatically.
-
-const CATEGORIES: Category[] = [
-  {
-    id: "fibre",
-    label: "Fibre Optique",
-    description: "Installation, soudure, mesure et maintenance des réseaux fibre optique FTTH/FTTB.",
-    locked: false,
-    formations: [
-      { id: 1, titre: "Installation Fibre Optique FTTH", duree: "5 jours", niveau: "Débutant", places: 12, description: "Maîtrisez l'installation complète d'un réseau fibre optique FTTH, du tirage jusqu'au raccordement." },
-      { id: 2, titre: "Soudure et Mesure Fibre", duree: "3 jours", niveau: "Intermédiaire", places: 8, description: "Techniques de soudure par fusion et réflectométrie OTDR pour les techniciens fibre." },
-      { id: 3, titre: "Maintenance Réseau Fibre", duree: "4 jours", niveau: "Avancé", places: 6, description: "Diagnostic, dépannage et maintenance préventive des infrastructures fibre déployées." },
-    ],
-  },
-  {
-    id: "telecom",
-    label: "Télécoms",
-    description: "Antennes, VoIP, câblage structuré et équipements de télécommunication.",
-    locked: true,
-    formations: [],
-  },
-  {
-    id: "solaire",
-    label: "Énergie Solaire",
-    description: "Dimensionnement, installation et maintenance des systèmes photovoltaïques.",
-    locked: true,
-    formations: [],
-  },
-];
+import { CATEGORIES } from "@/constants";
 
 // Full class strings as literals so Tailwind generates them at build time.
 const NIVEAU_CLASS: Record<Niveau, string> = {
