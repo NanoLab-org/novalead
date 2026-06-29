@@ -8,12 +8,12 @@ export default function About() {
 
         {/* Left */}
         <div>
-          <p className="text-green text-xs font-bold uppercase tracking-widest mb-3 flex items-center gap-2">
-            <span className="w-5 h-[2px] bg-green" />
+          <p className="text-primary text-xs font-bold uppercase tracking-widest mb-3 flex items-center gap-2">
+            <span className="w-5 h-[2px] bg-primary" />
             À propos de NovaLead
           </p>
           <h2 className="text-3xl lg:text-4xl font-black text-white tracking-tighter leading-tight mb-6">
-            La référence en formation <span className="text-orange">technique</span> en Tunisie
+            La référence en formation <span className="text-primary">technique</span> en Tunisie
           </h2>
           <p className="text-muted text-sm leading-relaxed mb-6">
             NovaLead est un centre de formation spécialisé dans les métiers techniques de la fibre
@@ -27,7 +27,7 @@ export default function About() {
             pensé pour être directement applicable sur le terrain dès le lendemain.
           </p>
           <div className="flex gap-3">
-            <button className="bg-orange text-white font-semibold text-sm px-6 py-3 rounded-md hover:opacity-90 transition-opacity">
+            <button className="bg-primary text-white font-semibold text-sm px-6 py-3 rounded-md hover:opacity-90 transition-opacity">
               Nos formations
             </button>
             <button className="bg-transparent text-white font-medium text-sm px-5 py-3 rounded-md border border-white/20 hover:border-white/40 transition-colors">

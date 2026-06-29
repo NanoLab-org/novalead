@@ -24,12 +24,12 @@ export default function Carousel() {
 
       <div className="flex items-end justify-between mb-12">
         <div>
-          <p className="text-green text-xs font-bold uppercase tracking-widest mb-2 flex items-center gap-2">
-            <span className="w-5 h-[2px] bg-green" />
+          <p className="text-primary text-xs font-bold uppercase tracking-widest mb-2 flex items-center gap-2">
+            <span className="w-5 h-[2px] bg-primary" />
             Formations phares
           </p>
           <h2 className="text-3xl lg:text-4xl font-black text-white tracking-tighter">
-            Nos formations <span className="text-orange">phares</span>
+            Nos formations <span className="text-primary">phares</span>
           </h2>
         </div>
         <a href="#catalogue" className="text-sm font-semibold text-muted hover:text-white transition-colors hidden md:block">
@@ -52,7 +52,7 @@ export default function Carousel() {
               }}
               className={`whitespace-nowrap text-sm font-semibold px-5 py-2 rounded-full border transition-all flex-shrink-0 ${
                 active === i % formations.length
-                  ? "bg-orange text-white border-orange"
+                  ? "bg-primary text-white border-primary"
                   : "bg-transparent text-muted border-white/10 hover:border-white/30 hover:text-white"
               }`}
             >
@@ -85,7 +85,7 @@ export default function Carousel() {
             <span>{formations[active].niveau}</span>
           </div>
           <div className="flex gap-3">
-            <button className="bg-orange text-white font-semibold text-sm px-6 py-3 rounded-md hover:opacity-90 transition-opacity">
+            <button className="bg-primary text-white font-semibold text-sm px-6 py-3 rounded-md hover:opacity-90 transition-opacity">
               S&apos;inscrire
             </button>
             <button className="bg-transparent text-white font-medium text-sm px-5 py-3 rounded-md border border-white/20 hover:border-white/40 transition-colors">
@@ -105,7 +105,7 @@ export default function Carousel() {
               }}
               className={`rounded-full transition-all ${
                 active === i
-                  ? "w-3 h-3 bg-orange"
+                  ? "w-3 h-3 bg-primary"
                   : "w-2 h-2 bg-white/20 hover:bg-white/40"
               }`}
             />

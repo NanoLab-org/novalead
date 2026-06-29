@@ -8,7 +8,7 @@ export default function Footer() {
         {/* Logo + description */}
         <div>
           <div className="text-white font-bold text-xl tracking-tight mb-4">
-            Nova<span className="text-orange">lead</span>
+            Nova<span className="text-primary">lead</span>
           </div>
           <p className="text-muted text-sm leading-relaxed">
             Centre de formation spécialisé dans les métiers techniques de la fibre optique,
@@ -52,7 +52,7 @@ export default function Footer() {
           &copy; 2025 NovaLead. Tous droits réservés.
         </p>
         <p className="text-muted text-xs">
-          Développé par <span className="text-orange">NanoLab</span>
+          Développé par <span className="text-primary">NanoLab</span>
         </p>
       </div>
 
