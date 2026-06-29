@@ -1,58 +1,7 @@
 "use client";
-
+import Link from "next/link";
 import { useEffect, useRef } from "react";
-
-// ── Types ─────────────────────────────────────────────────────
-
-type Niveau = "Débutant" | "Intermédiaire" | "Avancé";
-
-interface Formation {
-  id: number;
-  titre: string;
-  duree: string;
-  niveau: Niveau;
-  places: number;
-  description: string;
-}
-
-interface Category {
-  id: string;
-  label: string;
-  description: string;
-  locked: boolean;
-  formations: Formation[];
-}
-
-// ── Data ──────────────────────────────────────────────────────
-// Add new categories here — the layout adapts automatically.
-
-const CATEGORIES: Category[] = [
-  {
-    id: "fibre",
-    label: "Fibre Optique",
-    description: "Installation, soudure, mesure et maintenance des réseaux fibre optique FTTH/FTTB.",
-    locked: false,
-    formations: [
-      { id: 1, titre: "Installation Fibre Optique FTTH", duree: "5 jours", niveau: "Débutant", places: 12, description: "Maîtrisez l'installation complète d'un réseau fibre optique FTTH, du tirage jusqu'au raccordement." },
-      { id: 2, titre: "Soudure et Mesure Fibre", duree: "3 jours", niveau: "Intermédiaire", places: 8, description: "Techniques de soudure par fusion et réflectométrie OTDR pour les techniciens fibre." },
-      { id: 3, titre: "Maintenance Réseau Fibre", duree: "4 jours", niveau: "Avancé", places: 6, description: "Diagnostic, dépannage et maintenance préventive des infrastructures fibre déployées." },
-    ],
-  },
-  {
-    id: "telecom",
-    label: "Télécoms",
-    description: "Antennes, VoIP, câblage structuré et équipements de télécommunication.",
-    locked: true,
-    formations: [],
-  },
-  {
-    id: "solaire",
-    label: "Énergie Solaire",
-    description: "Dimensionnement, installation et maintenance des systèmes photovoltaïques.",
-    locked: true,
-    formations: [],
-  },
-];
+import { CATEGORIES } from "@/constants";
 
 // Full class strings as literals so Tailwind generates them at build time.
 const NIVEAU_CLASS: Record<Niveau, string> = {
@@ -82,9 +31,7 @@ function FormationCard({ f }: { f: Formation }) {
           <svg width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M117.25,157.92a60,60,0,1,0-66.5,0A95.83,95.83,0,0,0,3.53,195.63a8,8,0,1,0,13.4,8.74,80,80,0,0,1,134.14,0,8,8,0,0,0,13.4-8.74A95.83,95.83,0,0,0,117.25,157.92ZM40,108a44,44,0,1,1,44,44A44.05,44.05,0,0,1,40,108Zm210.14,98.7a8,8,0,0,1-11.07-2.33A79.83,79.83,0,0,0,172,168a8,8,0,0,1,0-16,44,44,0,1,0-16.34-84.87,8,8,0,1,1-5.94-14.85,60,60,0,0,1,16.28,116.39,95.83,95.83,0,0,1,47.22,37.71A8,8,0,0,1,250.14,206.7Z"/></svg>
           {f.places} places
         </span>
-        <button className="px-4 py-2 bg-transparent text-orange border border-orange/30 rounded-lg text-[12.5px] font-semibold cursor-pointer transition-colors duration-200 hover:bg-orange/10 hover:border-orange/60">
-          Voir la formation
-        </button>
+        <Link href={`/formations/${f.id}`} className="fcard-btn">Voir la formation</Link>
       </div>
     </div>
   );
