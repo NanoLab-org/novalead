@@ -10,11 +10,11 @@ export default function Navbar() {
         <li><Link href="/catalogue" className="hover:text-white transition-colors">Catalogue</Link></li>
         <li><a href="#about" className="hover:text-white transition-colors">À propos</a></li>
         <li><a href="#location" className="hover:text-white transition-colors">Localisation</a></li>
-        <li><a href="#contact" className="hover:text-white transition-colors">Contact</a></li>
+        <li><Link href="/contact" className="hover:text-white transition-colors">Contact</Link></li>
       </ul>
-      <button className="bg-orange text-white text-sm font-semibold px-5 py-2 rounded-full hover:opacity-90 transition-opacity">
+      <Link href="/contact" className="bg-orange text-white text-sm font-semibold px-5 py-2 rounded-full hover:opacity-90 transition-opacity">
         Nous contacter
-      </button>
+      </Link>
     </nav>
   );
 }
