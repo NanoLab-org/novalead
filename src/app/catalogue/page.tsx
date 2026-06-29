@@ -5,8 +5,8 @@ import { CATEGORIES } from "@/constants";
 
 // Full class strings as literals so Tailwind generates them at build time.
 const NIVEAU_CLASS: Record<Niveau, string> = {
-  "Débutant":      "bg-green/15 text-level-beginner",
-  "Intermédiaire": "bg-orange/15 text-level-intermediate",
+  "Débutant":      "bg-primary/15 text-level-beginner",
+  "Intermédiaire": "bg-primary/15 text-level-intermediate",
   "Avancé":        "bg-level-advanced/15 text-level-advanced",
 };
 
@@ -31,7 +31,9 @@ function FormationCard({ f }: { f: Formation }) {
           <svg width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M117.25,157.92a60,60,0,1,0-66.5,0A95.83,95.83,0,0,0,3.53,195.63a8,8,0,1,0,13.4,8.74,80,80,0,0,1,134.14,0,8,8,0,0,0,13.4-8.74A95.83,95.83,0,0,0,117.25,157.92ZM40,108a44,44,0,1,1,44,44A44.05,44.05,0,0,1,40,108Zm210.14,98.7a8,8,0,0,1-11.07-2.33A79.83,79.83,0,0,0,172,168a8,8,0,0,1,0-16,44,44,0,1,0-16.34-84.87,8,8,0,1,1-5.94-14.85,60,60,0,0,1,16.28,116.39,95.83,95.83,0,0,1,47.22,37.71A8,8,0,0,1,250.14,206.7Z"/></svg>
           {f.places} places
         </span>
-        <Link href={`/formations/${f.id}`} className="fcard-btn">Voir la formation</Link>
+        <button className="px-4 py-2 bg-transparent text-primary border border-primary/30 rounded-lg text-[12.5px] font-semibold cursor-pointer transition-colors duration-200 hover:bg-primary/10 hover:border-primary/60">
+          Voir la formation
+        </button>
       </div>
     </div>
   );
@@ -60,7 +62,7 @@ function CategoryContainer({ cat, index }: { cat: Category; index: number }) {
   return (
     <div
       ref={ref}
-      className={`w-full border border-white/[0.07] rounded-2xl bg-surface overflow-hidden transition-colors duration-[250ms] ${cat.locked ? "" : "hover:border-orange/30"}`}
+      className={`w-full border border-white/[0.07] rounded-2xl bg-surface overflow-hidden transition-colors duration-[250ms] ${cat.locked ? "" : "hover:border-primary/30"}`}
       style={{
         opacity: 0,
         transform: "translateY(36px)",
@@ -78,7 +80,7 @@ function CategoryContainer({ cat, index }: { cat: Category; index: number }) {
               Stay tuned
             </span>
           ) : (
-            <span className="text-xs font-bold bg-orange/15 text-orange px-3 py-1 rounded-full">
+            <span className="text-xs font-bold bg-primary/15 text-primary px-3 py-1 rounded-full">
               {cat.formations.length} formations
             </span>
           )}
@@ -93,7 +95,7 @@ function CategoryContainer({ cat, index }: { cat: Category; index: number }) {
               <svg width="28" height="28" viewBox="0 0 256 256" fill="currentColor"><path d="M208,80H176V56a48,48,0,0,0-96,0V80H48A16,16,0,0,0,32,96V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V96A16,16,0,0,0,208,80Zm-72,78.63V184a8,8,0,0,1-16,0V158.63a28,28,0,1,1,16,0ZM160,80H96V56a32,32,0,0,1,64,0Z"/></svg>
             </div>
             <p className="text-sm text-faint">Ces formations arrivent bientôt.</p>
-            <button className="px-6 py-2.5 bg-transparent border border-white/10 rounded-[9px] text-faded text-[13px] font-semibold cursor-pointer transition-colors duration-200 hover:border-orange/45 hover:text-orange">
+            <button className="px-6 py-2.5 bg-transparent border border-white/10 rounded-[9px] text-faded text-[13px] font-semibold cursor-pointer transition-colors duration-200 hover:border-primary/45 hover:text-primary">
               Être notifié
             </button>
           </div>
@@ -136,26 +138,26 @@ export default function CataloguePage() {
       >
         <div className="grid grid-cols-1 min-[900px]:grid-cols-2 min-h-[420px]">
           <div className="flex flex-col justify-center relative z-10 px-6 pt-12 pb-10 min-[900px]:px-14 min-[900px]:pt-[72px] min-[900px]:pb-16">
-            <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-orange mb-[18px]">
+            <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-primary mb-[18px]">
               Nos formations
             </p>
             <h1 className="text-[clamp(34px,4vw,54px)] font-extrabold text-white leading-[1.08] mb-5">
-              Catalogue<br /><span className="text-orange">NovaLead</span>
+              Catalogue<br /><span className="text-primary">NovaLead</span>
             </h1>
             <p className="text-[15px] text-[rgb(230_237_243/0.5)] max-w-[460px] leading-[1.75] mb-8">
               Des formations terrain pensées pour les techniciens de demain — fibre optique, télécoms et énergie solaire.
             </p>
             <div className="flex gap-5 min-[600px]:gap-8">
               <div>
-                <div className="text-[22px] font-extrabold text-orange leading-none mb-1">{totalFormations}+</div>
+                <div className="text-[22px] font-extrabold text-primary leading-none mb-1">{totalFormations}+</div>
                 <div className="text-xs text-[rgb(230_237_243/0.4)] font-medium">Formations disponibles</div>
               </div>
               <div>
-                <div className="text-[22px] font-extrabold text-orange leading-none mb-1">{totalDomains}</div>
+                <div className="text-[22px] font-extrabold text-primary leading-none mb-1">{totalDomains}</div>
                 <div className="text-xs text-[rgb(230_237_243/0.4)] font-medium">Domaines techniques</div>
               </div>
               <div>
-                <div className="text-[22px] font-extrabold text-orange leading-none mb-1">100%</div>
+                <div className="text-[22px] font-extrabold text-primary leading-none mb-1">100%</div>
                 <div className="text-xs text-[rgb(230_237_243/0.4)] font-medium">Pratique terrain</div>
               </div>
             </div>

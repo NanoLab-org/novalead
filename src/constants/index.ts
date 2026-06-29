@@ -49,20 +49,20 @@ export const formations = [
 ];
 
 export const domainColors: Record<string, string> = {
-  "Fibre Optique": "bg-blue/20 text-sky border-blue/40",
-  Photovoltaïque: "bg-green/10 text-green border-green/25",
-  Électricité: "bg-orange/10 text-orange border-orange/25",
-  Télécoms: "bg-blue/20 text-sky border-blue/40",
-  Énergie: "bg-green/10 text-green border-green/25",
+  "Fibre Optique": "bg-secondary/20 text-secondary border-secondary/40",
+  Photovoltaïque: "bg-primary/10 text-primary border-primary/25",
+  Électricité: "bg-primary/10 text-primary border-primary/25",
+  Télécoms: "bg-secondary/20 text-secondary border-secondary/40",
+  Énergie: "bg-primary/10 text-primary border-primary/25",
 };
 
 // ─── About ───────────────────────────────────────────────────────────────────
 
 export const values = [
-  { titre: "Formateurs praticiens", description: "Tous nos formateurs exercent encore dans leur domaine. Pas de théorie déconnectée du terrain.", color: "border-green" },
-  { titre: "Certifications reconnues", description: "Nos programmes sont certifiants et reconnus par les organismes officiels du secteur télécoms et énergie.", color: "border-blue" },
-  { titre: "Éco-responsable", description: "Centre engagé dans la transition énergétique — fibre optique, photovoltaïque, efficacité énergétique.", color: "border-orange" },
-  { titre: "Sur mesure entreprise", description: "Programmes intra adaptés à votre contexte, vos équipes et vos enjeux métier spécifiques.", color: "border-green" },
+  { titre: "Formateurs praticiens", description: "Tous nos formateurs exercent encore dans leur domaine. Pas de théorie déconnectée du terrain.", color: "border-primary" },
+  { titre: "Certifications reconnues", description: "Nos programmes sont certifiants et reconnus par les organismes officiels du secteur télécoms et énergie.", color: "border-secondary" },
+  { titre: "Éco-responsable", description: "Centre engagé dans la transition énergétique — fibre optique, photovoltaïque, efficacité énergétique.", color: "border-primary" },
+  { titre: "Sur mesure entreprise", description: "Programmes intra adaptés à votre contexte, vos équipes et vos enjeux métier spécifiques.", color: "border-primary" },
 ];
 
 // ─── Hero ─────────────────────────────────────────────────────────────────────

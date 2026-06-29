@@ -6,12 +6,6 @@
    utilities (text-orange, bg-surface, border-blue, …) AND exposes
    them as CSS variables (var(--color-orange)) for plain CSS below. */
 @theme {
-  /* Brand */
-  --color-orange: #f97316;
-  --color-green: #2e9e6b;
-  --color-blue: #1b4f72;
-  --color-sky: #7ab8d9;
-
   /* Backgrounds */
   --color-base: #0d1b2a;          /* primary page background */
   --color-deep: #0a1525;          /* deep gradient / sections */
@@ -32,6 +26,22 @@
   --color-level-beginner: #4eda96;
   --color-level-intermediate: #fb923c;
   --color-level-advanced: #60a5fa;
+
+  /* ── Serene Professionalism (new design system) ──────────────
+     See docs/DESIGN.md. Added alongside the legacy navy/orange
+     tokens during the redesign migration. */
+  --color-primary: #0d9488;          /* teal — primary actions */
+  --color-primary-dark: #00685f;
+  --color-mint: #89f5e7;             /* light teal accent on dark */
+  --color-secondary: #2563eb;        /* slate blue — links/info */
+
+  --color-cream: #fcf8fb;            /* light page background */
+  --color-stone: #f0ede8;            /* light surface / cards */
+  --color-stone-hover: #e5e2dd;
+  --color-graphite: #1c1c1e;         /* text on light */
+  --color-ink-muted: #6b7280;        /* muted text on light */
+  --color-outline: #6d7a77;
+  --color-outline-variant: #bcc9c6;
 }
 
 body {
