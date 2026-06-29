@@ -1,5 +1,5 @@
 "use client";
-
+import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import { formations, domainColors } from "@/constants";
 
@@ -32,9 +32,9 @@ export default function Carousel() {
             Nos formations <span className="text-orange">phares</span>
           </h2>
         </div>
-        <a href="#catalogue" className="text-sm font-semibold text-muted hover:text-white transition-colors hidden md:block">
+       <Link href="/catalogue" className="text-sm font-semibold text-muted hover:text-white transition-colors hidden md:block">
           Voir tout le catalogue
-        </a>
+       </Link>
       </div>
 
       <div className="relative overflow-hidden mb-8">

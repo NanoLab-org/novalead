@@ -1,5 +1,5 @@
 import { values } from "@/constants";
-
+import Link from "next/link";
 
 export default function About() {
   return (
@@ -27,9 +27,9 @@ export default function About() {
             pensé pour être directement applicable sur le terrain dès le lendemain.
           </p>
           <div className="flex gap-3">
-            <button className="bg-orange text-white font-semibold text-sm px-6 py-3 rounded-md hover:opacity-90 transition-opacity">
-              Nos formations
-            </button>
+           <Link href="/catalogue" className="bg-orange text-white font-semibold text-sm px-6 py-3 rounded-md hover:opacity-90 transition-opacity">
+            Nos formations
+           </Link>
             <button className="bg-transparent text-white font-medium text-sm px-5 py-3 rounded-md border border-white/20 hover:border-white/40 transition-colors">
               Nous contacter
             </button>
