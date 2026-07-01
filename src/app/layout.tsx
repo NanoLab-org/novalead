@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import WhatsAppWidget from "@/components/whattswidget";
 
 export const metadata: Metadata = {
   title: "NovaLead",
@@ -20,7 +19,6 @@ export default function RootLayout({
         <Navbar />
         <main>{children}</main>
         <Footer />
-        <WhatsAppWidget />
       </body>
     </html>
   );
