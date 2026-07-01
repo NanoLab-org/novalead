@@ -16,8 +16,8 @@ export default async function FormationFiche({ params }: Props) {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen text-white">
         <h1 className="text-3xl font-black mb-4">Formation introuvable</h1>
-        <Link href="/catalogue" className="text-orange hover:underline">
-          Retour au catalogue
+        <Link href="/catalogue" className="text-primary text-sm hover:text-white transition-colors mb-8 inline-block">
+         ← Retour au catalogue
         </Link>
       </div>
     );
@@ -31,8 +31,8 @@ export default async function FormationFiche({ params }: Props) {
       </Link>
 
       <div className="flex gap-3 mb-6">
-        <span className="text-xs font-semibold px-3 py-1 rounded-sm bg-green/10 text-green border border-green/25">{formation.niveau}</span>
-        <span className="text-xs font-semibold px-3 py-1 rounded-sm bg-orange/10 text-orange border border-orange/25">{formation.format}</span>
+        <span className="text-xs font-semibold px-3 py-1 rounded-full bg-primary/15 text-primary">{formation.niveau}</span>
+        <span className="text-xs font-semibold px-3 py-1 rounded-full bg-white/5 text-faded">{formation.format}</span>
       </div>
 
       <h1 className="text-4xl lg:text-5xl font-black text-white tracking-tighter mb-4">
@@ -56,8 +56,7 @@ export default async function FormationFiche({ params }: Props) {
           <ul className="flex flex-col gap-3">
             {formation.objectifs.map((obj, i) => (
               <li key={i} className="flex items-start gap-2 text-muted text-sm">
-                <span className="text-green mt-0.5">✓</span>
-                {obj}
+              <span className="text-primary mt-0.5">✓</span>   {obj}
               </li>
             ))}
           </ul>
@@ -84,7 +83,7 @@ export default async function FormationFiche({ params }: Props) {
             </div>
             <div className="flex justify-between">
               <span className="text-muted">Prix</span>
-              <span className="text-orange font-bold">{formation.prix}</span>
+              <span className="text-primary font-bold">{formation.prix}</span>             
             </div>
             <div className="flex justify-between">
               <span className="text-muted">Certification</span>
@@ -100,8 +99,8 @@ export default async function FormationFiche({ params }: Props) {
         <div className="flex flex-col gap-3">
           {formation.programme.map((p, i) => (
             <div key={i} className="flex gap-4 text-sm">
-              <span className="text-orange font-bold w-16 shrink-0">{p.jour}</span>
-              <span className="text-muted">{p.contenu}</span>
+            <span className="text-primary font-bold w-16 shrink-0">{p.jour}</span>        
+            <span className="text-muted">{p.contenu}</span>
             </div>
           ))}
         </div>
@@ -112,10 +111,9 @@ export default async function FormationFiche({ params }: Props) {
         <p className="text-muted text-sm">{formation.prerequis}</p>
       </div>
 
-      <button className="bg-orange text-white font-semibold text-sm px-6 py-3 rounded-md hover:opacity-90 transition-opacity">
+      <button className="bg-primary text-white font-semibold text-sm px-6 py-3 rounded-md hover:opacity-90 transition-opacity">
         S'inscrire à cette formation
       </button>
-
     </main>
   );
 }
