@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function About() {
   return (
-    <section id="about" className="px-10 py-24 border-b border-white/10">
+    <section id="about" className="px-10 py-24 border-b border-black/10">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
         {/* Left */}
@@ -12,7 +12,7 @@ export default function About() {
             <span className="w-5 h-[2px] bg-primary" />
             À propos de NovaLead
           </p>
-          <h2 className="text-3xl lg:text-4xl font-black text-white tracking-tighter leading-tight mb-6">
+          <h2 className="text-3xl lg:text-4xl font-black text-graphite tracking-tighter leading-tight mb-6">
             La référence en formation <span className="text-primary">technique</span> en Tunisie
           </h2>
           <p className="text-muted text-sm leading-relaxed mb-6">
@@ -30,7 +30,7 @@ export default function About() {
             <button className="bg-primary text-white font-semibold text-sm px-6 py-3 rounded-md hover:opacity-90 transition-opacity">
               Nos formations
             </button>
-            <button className="bg-transparent text-white font-medium text-sm px-5 py-3 rounded-md border border-white/20 hover:border-white/40 transition-colors">
+            <button className="bg-transparent text-graphite font-medium text-sm px-5 py-3 rounded-md border border-black/20 hover:border-black/40 transition-colors">
               Nous contacter
             </button>
           </div>
@@ -43,7 +43,7 @@ export default function About() {
               key={i}
               className={`bg-surface border-l-4 ${v.color} px-6 py-5 rounded-r-xl`}
             >
-              <h4 className="text-white font-bold text-sm mb-1">{v.titre}</h4>
+              <h4 className="text-graphite font-bold text-sm mb-1">{v.titre}</h4>
               <p className="text-muted text-xs leading-relaxed">{v.description}</p>
             </div>
           ))}

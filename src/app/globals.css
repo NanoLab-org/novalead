@@ -6,21 +6,21 @@
    utilities (text-orange, bg-surface, border-blue, …) AND exposes
    them as CSS variables (var(--color-orange)) for plain CSS below. */
 @theme {
-  /* Backgrounds */
-  --color-base: #0d1b2a;          /* primary page background */
-  --color-deep: #0a1525;          /* deep gradient / sections */
-  --color-surface: #111f2e;       /* cards & containers */
-  --color-surface-hover: #15253a;
+  /* Backgrounds — light "Serene" theme */
+  --color-base: #f0ede8;          /* primary page background (stone) */
+  --color-deep: #e4e2e4;          /* slightly dimmer stone for sections/footer */
+  --color-surface: #ffffff;       /* cards & containers */
+  --color-surface-hover: #f6f3f5;
 
-  /* Text */
-  --color-ink: #f0f4f8;           /* base body text */
-  --color-heading: #f0f6fc;
-  --color-strong: #dde8f0;
-  --color-muted: #7a96aa;
-  --color-faded: #6e7681;
-  --color-faint: #484f58;
-  --color-faintest: #3a4a5a;
-  --color-locked: #4a5568;
+  /* Text — dark on light */
+  --color-ink: #1c1c1e;           /* base body text */
+  --color-heading: #1b1b1d;
+  --color-strong: #303032;
+  --color-muted: #3d4947;
+  --color-faded: #6b7280;
+  --color-faint: #8a8f98;
+  --color-faintest: #b0b4ba;
+  --color-locked: #9ca3af;
 
   /* Formation level badges */
   --color-level-beginner: #4eda96;
