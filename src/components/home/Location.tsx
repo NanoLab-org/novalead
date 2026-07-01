@@ -17,7 +17,7 @@ export default function Location() {
 
         <div className="flex flex-col gap-6">
 
-          <div className="bg-surface border border-black/10 rounded-xl p-6">
+          <div className="glass-card rounded-xl p-6">
             <p className="text-primary text-xs font-bold uppercase tracking-widest mb-3">Adresse</p>
             <p className="text-graphite font-semibold text-sm mb-1">Centre NovaLead</p>
             <p className="text-muted text-sm leading-relaxed">
@@ -26,7 +26,7 @@ export default function Location() {
             </p>
           </div>
 
-          <div className="bg-surface border border-black/10 rounded-xl p-6">
+          <div className="glass-card rounded-xl p-6">
             <p className="text-primary text-xs font-bold uppercase tracking-widest mb-3">Contact</p>
             <div className="flex flex-col gap-2">
               <div className="flex items-center gap-3">
@@ -44,7 +44,7 @@ export default function Location() {
             </div>
           </div>
 
-          <div className="bg-surface border border-black/10 rounded-xl p-6">
+          <div className="glass-card rounded-xl p-6">
             <p className="text-primary text-xs font-bold uppercase tracking-widest mb-3">Horaires</p>
             <div className="flex flex-col gap-2 text-sm">
               <div className="flex justify-between">

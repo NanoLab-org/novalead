@@ -65,7 +65,7 @@ export default function Carousel() {
       </div>
 
       <div
-        className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-8 bg-surface border border-black/10 rounded-xl p-8"
+        className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-8 glass-card rounded-xl p-8"
         onMouseEnter={() => setPaused(true)}
         onMouseLeave={() => setPaused(false)}
       >

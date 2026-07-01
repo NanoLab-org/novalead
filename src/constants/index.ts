@@ -79,7 +79,7 @@ export const heroTags = [
 
 export const navLinks = [
   { label: "Catalogue", href: "/catalogue" },
-  { label: "À propos", href: "#about" },
+  { label: "À propos", href: "/apropos" },
   { label: "Localisation", href: "#location" },
   { label: "Contact", href: "#contact" },
 ];
@@ -99,6 +99,15 @@ export const openingHours = [
   { day: "Samedi", hours: "09h00 - 13h00", closed: false },
   { day: "Dimanche", hours: "Fermé", closed: true },
 ];
+
+export const address = {
+  name: "Centre NovaLead",
+  lines: ["Rue Lorem Ipsum, Immeuble Dolor Sit", "1000 Tunis, Tunisie"],
+};
+
+// Google Maps embed for the office location (Tunis)
+export const mapEmbedUrl =
+  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d102115.39799550319!2d10.074691!3d36.806389!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12fd337f5e7ef543%3A0xd671924e714a0275!2sTunis!5e0!3m2!1sfr!2stn!4v1234567890";
 
 
 // ─── Catalogue ───────────────────────────────────────────────────────────────

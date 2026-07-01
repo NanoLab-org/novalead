@@ -41,7 +41,7 @@ export default function About() {
           {values.map((v, i) => (
             <div
               key={i}
-              className={`bg-surface border-l-4 ${v.color} px-6 py-5 rounded-r-xl`}
+              className={`glass-card border-l-4 ${v.color} px-6 py-5 rounded-r-xl`}
             >
               <h4 className="text-graphite font-bold text-sm mb-1">{v.titre}</h4>
               <p className="text-muted text-xs leading-relaxed">{v.description}</p>
