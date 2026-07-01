@@ -1,10 +1,26 @@
 "use client";
-import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { CATEGORIES } from "@/constants";
 
+type Formation = {
+  id: number;
+  titre: string;
+  duree: string;
+  niveau: string;
+  places: number;
+  description: string;
+};
+
+type Category = {
+  id: string;
+  label: string;
+  description: string;
+  locked: boolean;
+  formations: Formation[];
+};
+
 // Full class strings as literals so Tailwind generates them at build time.
-const NIVEAU_CLASS: Record<Niveau, string> = {
+const NIVEAU_CLASS: Record<string, string> = {
   "Débutant":      "bg-primary/15 text-level-beginner",
   "Intermédiaire": "bg-primary/15 text-level-intermediate",
   "Avancé":        "bg-level-advanced/15 text-level-advanced",
