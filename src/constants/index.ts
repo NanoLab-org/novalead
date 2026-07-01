@@ -56,6 +56,41 @@ export const domainColors: Record<string, string> = {
   Énergie: "bg-primary/10 text-primary border-primary/25",
 };
 
+// Slideshow for the "Nos formations phares" section.
+// Placeholder images from Unsplash — swap for real photos when available.
+export const formationSlides = [
+  {
+    subtitle: "Fibre Optique",
+    title: "Installation Fibre Optique FTTH",
+    img: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1600&q=80&auto=format&fit=crop",
+    href: "/formations/1",
+  },
+  {
+    subtitle: "Photovoltaïque",
+    title: "Installation Photovoltaïque",
+    img: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1600&q=80&auto=format&fit=crop",
+    href: "/catalogue",
+  },
+  {
+    subtitle: "Électricité",
+    title: "Habilitations Électriques BR/BC/B1",
+    img: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1600&q=80&auto=format&fit=crop",
+    href: "/catalogue",
+  },
+  {
+    subtitle: "Télécoms",
+    title: "Réseaux Télécoms et Infrastructure",
+    img: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1600&q=80&auto=format&fit=crop",
+    href: "/catalogue",
+  },
+  {
+    subtitle: "Énergie",
+    title: "Efficacité Énergétique Entreprise",
+    img: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=1600&q=80&auto=format&fit=crop",
+    href: "/catalogue",
+  },
+];
+
 // ─── About ───────────────────────────────────────────────────────────────────
 
 export const values = [
