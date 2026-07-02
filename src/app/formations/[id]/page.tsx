@@ -51,7 +51,7 @@ export default async function FormationFiche({ params }: Props) {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
 
-        <div className="bg-surface border border-black/10 rounded-xl p-6">
+        <div className="glass-card rounded-xl p-6">
           <h2 className="text-graphite font-bold text-sm uppercase tracking-widest mb-4">Objectifs</h2>
           <ul className="flex flex-col gap-3">
             {formation.objectifs.map((obj, i) => (
@@ -63,7 +63,7 @@ export default async function FormationFiche({ params }: Props) {
           </ul>
         </div>
 
-        <div className="bg-surface border border-black/10 rounded-xl p-6">
+        <div className="glass-card rounded-xl p-6">
           <h2 className="text-graphite font-bold text-sm uppercase tracking-widest mb-4">Infos pratiques</h2>
           <div className="flex flex-col gap-3 text-sm">
             <div className="flex justify-between">
@@ -95,7 +95,7 @@ export default async function FormationFiche({ params }: Props) {
 
       </div>
 
-      <div className="bg-surface border border-black/10 rounded-xl p-6 mb-8">
+      <div className="glass-card rounded-xl p-6 mb-8">
         <h2 className="text-graphite font-bold text-sm uppercase tracking-widest mb-4">Programme</h2>
         <div className="flex flex-col gap-3">
           {formation.programme.map((p, i) => (
@@ -107,7 +107,7 @@ export default async function FormationFiche({ params }: Props) {
         </div>
       </div>
 
-      <div className="bg-surface border border-black/10 rounded-xl p-6 mb-10">
+      <div className="glass-card rounded-xl p-6 mb-10">
         <h2 className="text-graphite font-bold text-sm uppercase tracking-widest mb-2">Prérequis</h2>
         <p className="text-muted text-sm">{formation.prerequis}</p>
       </div>

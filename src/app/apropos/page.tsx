@@ -12,7 +12,7 @@ export default function AProposPage() {
           À propos de NovaLead
           <span className="w-5 h-[2px] bg-primary" />
         </p>
-        <h1 className="text-4xl lg:text-6xl font-black text-white tracking-tighter mb-6">
+        <h1 className="text-4xl lg:text-6xl font-black text-graphite tracking-tighter mb-6">
           Former les experts <br />
           <span className="text-primary">de demain</span>
         </h1>
@@ -27,7 +27,7 @@ export default function AProposPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div className="bg-surface border border-white/10 rounded-xl p-8">
             <p className="text-primary text-xs font-bold uppercase tracking-widest mb-4">Notre Mission</p>
-            <h2 className="text-2xl font-black text-white tracking-tighter mb-4">
+            <h2 className="text-2xl font-black text-graphite tracking-tighter mb-4">
               Rendre l'expertise technique accessible
             </h2>
             <p className="text-faded text-sm leading-relaxed">
@@ -36,9 +36,9 @@ export default function AProposPage() {
               terrain dès le lendemain de la formation.
             </p>
           </div>
-          <div className="bg-surface border border-white/10 rounded-xl p-8">
+          <div className="glass-card rounded-xl p-8">
             <p className="text-primary text-xs font-bold uppercase tracking-widest mb-4">Notre Vision</p>
-            <h2 className="text-2xl font-black text-white tracking-tighter mb-4">
+            <h2 className="text-2xl font-black text-graphite tracking-tighter mb-4">
               Devenir la référence en Tunisie et au Maghreb
             </h2>
             <p className="text-faded text-sm leading-relaxed">
@@ -56,7 +56,7 @@ export default function AProposPage() {
           <span className="w-5 h-[2px] bg-primary" />
           Notre Histoire
         </p>
-        <h2 className="text-3xl lg:text-4xl font-black text-white tracking-tighter mb-12">
+        <h2 className="text-3xl lg:text-4xl font-black text-graphite tracking-tighter mb-12">
           Comment tout a <span className="text-primary">commencé</span>
         </h2>
         <div className="flex flex-col gap-8">
@@ -69,7 +69,7 @@ export default function AProposPage() {
             <div key={i} className="flex gap-8 items-start">
               <div className="text-primary font-black text-xl w-16 shrink-0">{item.year}</div>
               <div className="border-l border-primary/30 pl-8">
-                <h3 className="text-white font-bold text-sm mb-2">{item.title}</h3>
+                <h3 className="text-graphite font-bold text-sm mb-2">{item.title}</h3>
                 <p className="text-faded text-sm leading-relaxed">{item.desc}</p>
               </div>
             </div>
@@ -83,18 +83,18 @@ export default function AProposPage() {
           <span className="w-5 h-[2px] bg-primary" />
           Nos Valeurs
         </p>
-        <h2 className="text-3xl lg:text-4xl font-black text-white tracking-tighter mb-12">
+        <h2 className="text-3xl lg:text-4xl font-black text-graphite tracking-tighter mb-12">
           Ce qui nous <span className="text-primary">définit</span>
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {[
             { titre: "Formateurs praticiens", desc: "Tous nos formateurs exercent encore dans leur domaine. Pas de théorie déconnectée du terrain.", color: "border-primary" },
-            { titre: "Certifications reconnues", desc: "Nos programmes sont certifiants et reconnus par les organismes officiels du secteur télécoms et énergie.", color: "border-blue-400" },
-            { titre: "Éco-responsable", desc: "Centre engagé dans la transition énergétique — fibre optique, photovoltaïque, efficacité énergétique.", color: "border-orange-400" },
+            { titre: "Certifications reconnues", desc: "Nos programmes sont certifiants et reconnus par les organismes officiels du secteur télécoms et énergie.", color: "border-secondary" },
+            { titre: "Éco-responsable", desc: "Centre engagé dans la transition énergétique — fibre optique, photovoltaïque, efficacité énergétique.", color: "border-primary" },
             { titre: "Sur mesure entreprise", desc: "Programmes intra adaptés à votre contexte, vos équipes et vos enjeux métier spécifiques.", color: "border-primary" },
           ].map((v, i) => (
-            <div key={i} className={`bg-surface border-l-4 ${v.color} px-6 py-5 rounded-r-xl`}>
-              <h4 className="text-white font-bold text-sm mb-2">{v.titre}</h4>
+            <div key={i} className={`glass-card border-l-4 ${v.color} px-6 py-5 rounded-r-xl`}>
+              <h4 className="text-graphite font-bold text-sm mb-2">{v.titre}</h4>
               <p className="text-faded text-xs leading-relaxed">{v.desc}</p>
             </div>
           ))}
@@ -156,7 +156,7 @@ export default function AProposPage() {
           <span className="w-5 h-[2px] bg-primary" />
           Nos Certifications
         </p>
-        <h2 className="text-3xl lg:text-4xl font-black text-white tracking-tighter mb-12">
+        <h2 className="text-3xl lg:text-4xl font-black text-graphite tracking-tighter mb-12">
           Reconnus et <span className="text-primary">certifiés</span>
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -165,11 +165,11 @@ export default function AProposPage() {
             { titre: "Habilitations Électriques", org: "STEG — Société Tunisienne de l'Électricité", year: "2022" },
             { titre: "Formation Photovoltaïque", org: "ANME — Agence Nationale pour la Maîtrise de l'Énergie", year: "2022" },
           ].map((cert, i) => (
-            <div key={i} className="bg-surface border border-white/10 rounded-xl p-6">
+            <div key={i} className="glass-card rounded-xl p-6">
               <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center mb-4">
                 <span className="text-primary text-lg">✓</span>
               </div>
-              <h3 className="text-white font-bold text-sm mb-2">{cert.titre}</h3>
+              <h3 className="text-graphite font-bold text-sm mb-2">{cert.titre}</h3>
               <p className="text-faded text-xs mb-1">{cert.org}</p>
               <p className="text-primary text-xs font-semibold">{cert.year}</p>
             </div>
