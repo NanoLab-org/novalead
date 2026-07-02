@@ -197,60 +197,7 @@ export default function ContactPage() {
       <div className="divider" />
 
       <div className="contact-page-body">
-        <div className="contact-page-inner">
-
-          <aside className="contact-info-col">
-            <div className="info-card">
-              <p className="info-card-label">Adresse</p>
-              <p className="info-addr-title">Centre NovaLead</p>
-              <p className="info-addr-text">
-                Rue Lorem Ipsum, Immeuble Dolor Sit<br />
-                1000 Tunis, Tunisie
-              </p>
-            </div>
-
-            <div className="info-card">
-              <p className="info-card-label">Contact direct</p>
-              <div className="info-row">
-                <span className="info-row-key">Tél</span>
-                <span>+216 XX XXX XXX</span>
-              </div>
-              <div className="info-row">
-                <span className="info-row-key">Email</span>
-                <span>contact@novalead.tn</span>
-              </div>
-              <div className="info-row">
-                <span className="info-row-key">WhatsApp</span>
-                <span>+216 XX XXX XXX</span>
-              </div>
-            </div>
-
-            <div className="info-card">
-              <p className="info-card-label">Horaires</p>
-              <div className="info-row-between">
-                <span>Lundi – Vendredi</span>
-                <span className="info-row-val">08h00 – 18h00</span>
-              </div>
-              <div className="info-row-between">
-                <span>Samedi</span>
-                <span className="info-row-val">09h00 – 13h00</span>
-              </div>
-              <div className="info-row-between">
-                <span>Dimanche</span>
-                <span className="info-row-val closed">Fermé</span>
-              </div>
-            </div>
-
-            <div className="contact-map">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d102115.39799550319!2d10.074691!3d36.806389!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12fd337f5e7ef543%3A0xd671924e714a0275!2sTunis!5e0!3m2!1sfr!2stn!4v1234567890"
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Localisation NovaLead"
-              />
-            </div>
-          </aside>
+        <div className="contact-page-inner contact-page-inner--solo">
 
           <section className="contact-form-col">
             <div className="tab-switcher">
