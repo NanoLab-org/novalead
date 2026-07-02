@@ -56,6 +56,41 @@ export const domainColors: Record<string, string> = {
   Énergie: "bg-primary/10 text-primary border-primary/25",
 };
 
+// Slideshow for the "Nos formations phares" section.
+// Placeholder images from Unsplash — swap for real photos when available.
+export const formationSlides = [
+  {
+    subtitle: "Fibre Optique",
+    title: "Installation Fibre Optique FTTH",
+    img: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1600&q=80&auto=format&fit=crop",
+    href: "/formations/1",
+  },
+  {
+    subtitle: "Photovoltaïque",
+    title: "Installation Photovoltaïque",
+    img: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1600&q=80&auto=format&fit=crop",
+    href: "/catalogue",
+  },
+  {
+    subtitle: "Électricité",
+    title: "Habilitations Électriques BR/BC/B1",
+    img: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1600&q=80&auto=format&fit=crop",
+    href: "/catalogue",
+  },
+  {
+    subtitle: "Télécoms",
+    title: "Réseaux Télécoms et Infrastructure",
+    img: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1600&q=80&auto=format&fit=crop",
+    href: "/catalogue",
+  },
+  {
+    subtitle: "Énergie",
+    title: "Efficacité Énergétique Entreprise",
+    img: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=1600&q=80&auto=format&fit=crop",
+    href: "/catalogue",
+  },
+];
+
 // ─── About ───────────────────────────────────────────────────────────────────
 
 export const values = [
@@ -99,6 +134,15 @@ export const openingHours = [
   { day: "Samedi", hours: "09h00 - 13h00", closed: false },
   { day: "Dimanche", hours: "Fermé", closed: true },
 ];
+
+export const address = {
+  name: "Centre NovaLead",
+  lines: ["Rue Lorem Ipsum, Immeuble Dolor Sit", "1000 Tunis, Tunisie"],
+};
+
+// Google Maps embed for the office location (Tunis)
+export const mapEmbedUrl =
+  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d102115.39799550319!2d10.074691!3d36.806389!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12fd337f5e7ef543%3A0xd671924e714a0275!2sTunis!5e0!3m2!1sfr!2stn!4v1234567890";
 
 
 // ─── Catalogue ───────────────────────────────────────────────────────────────
@@ -197,4 +241,5 @@ export const CATEGORIES = [
     description: "Dimensionnement, installation et maintenance des systèmes photovoltaïques.",
     locked: true,
     formations: [],
-  },]
+  },
+];

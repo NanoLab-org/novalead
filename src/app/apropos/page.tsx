@@ -1,60 +1,7 @@
 "use client";
-import Link from "next/link";
-import { useEffect, useRef } from "react";
-import { useRouter } from "next/navigation";
 import { CircularTestimonials } from "@/components/ui/circular-testimonials";
 
 export default function AProposPage() {
-  const router = useRouter();
-  const lastScrollY = useRef(0);
-  const hasTriggeredReturn = useRef(false);
-
-  useEffect(() => {
-    document.body.style.opacity = "0";
-    document.body.style.transition = "opacity 0.6s ease";
-    setTimeout(() => {
-      document.body.style.opacity = "1";
-    }, 50);
-  }, []);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentY = window.scrollY;
-      const scrollingUp = currentY < lastScrollY.current;
-      const atTop = currentY < 120;
-      const scrolledDownEnough = lastScrollY.current > 320;
-      const scrolledToBottom =
-        window.innerHeight + currentY >= document.documentElement.scrollHeight - 120;
-
-      if (!hasTriggeredReturn.current && scrollingUp && atTop && scrolledDownEnough) {
-        hasTriggeredReturn.current = true;
-        document.body.style.transition = "opacity 0.6s ease";
-        document.body.style.opacity = "0";
-        window.sessionStorage.setItem("scrollTo", "hero");
-        window.setTimeout(() => {
-          router.push("/");
-        }, 600);
-        lastScrollY.current = currentY;
-        return;
-      }
-
-      if (!hasTriggeredReturn.current && scrolledToBottom) {
-        hasTriggeredReturn.current = true;
-        document.body.style.transition = "opacity 0.6s ease";
-        document.body.style.opacity = "0";
-        window.sessionStorage.setItem("scrollTo", "location");
-        window.setTimeout(() => {
-          router.push("/#location");
-        }, 600);
-      }
-
-      lastScrollY.current = currentY;
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [router]);
-
   return (
     <main className="min-h-screen bg-base">
 
