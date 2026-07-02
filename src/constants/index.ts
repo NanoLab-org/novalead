@@ -79,7 +79,7 @@ export const heroTags = [
 
 export const navLinks = [
   { label: "Catalogue", href: "/catalogue" },
-  { label: "À propos", href: "#about" },
+  { label: "À propos", href: "/apropos" },
   { label: "Localisation", href: "#location" },
   { label: "Contact", href: "#contact" },
 ];
@@ -197,5 +197,4 @@ export const CATEGORIES = [
     description: "Dimensionnement, installation et maintenance des systèmes photovoltaïques.",
     locked: true,
     formations: [],
-  },
-];
+  },]
