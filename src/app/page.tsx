@@ -1,18 +1,11 @@
-import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
-import Carousel from "@/components/Carousel";
-import About from "@/components/About";
-import Location from "@/components/Location";
-import Footer from "@/components/Footer";
+import { ProgressiveHero } from "@/components/ui/progressive-hero";
+import Carousel from "@/components/home/Carousel";
 
 export default function Home() {
   return (
     <main className="flex flex-col bg-base">
-      <Hero />
+      <ProgressiveHero />
       <Carousel />
-      <About />
-      <Location />
-      <Footer />
     </main>
   );
 }
