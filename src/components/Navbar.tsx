@@ -54,7 +54,7 @@ export default function Navbar() {
       </ul>
       <button className="bg-primary text-white text-sm font-semibold px-5 py-2 rounded-full hover:opacity-90 transition-opacity">
         Nous contacter
-      </button>
+      </Link>
     </nav>
   );
 }
