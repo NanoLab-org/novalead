@@ -1,11 +1,65 @@
+"use client";
 import Link from "next/link";
+import { useEffect, useRef } from "react";
+import { useRouter } from "next/navigation";
+import { CircularTestimonials } from "@/components/ui/circular-testimonials";
 
 export default function AProposPage() {
+  const router = useRouter();
+  const lastScrollY = useRef(0);
+  const hasTriggeredReturn = useRef(false);
+
+  useEffect(() => {
+    document.body.style.opacity = "0";
+    document.body.style.transition = "opacity 0.6s ease";
+    setTimeout(() => {
+      document.body.style.opacity = "1";
+    }, 50);
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentY = window.scrollY;
+      const scrollingUp = currentY < lastScrollY.current;
+      const atTop = currentY < 120;
+      const scrolledDownEnough = lastScrollY.current > 320;
+      const scrolledToBottom =
+        window.innerHeight + currentY >= document.documentElement.scrollHeight - 120;
+
+      if (!hasTriggeredReturn.current && scrollingUp && atTop && scrolledDownEnough) {
+        hasTriggeredReturn.current = true;
+        document.body.style.transition = "opacity 0.6s ease";
+        document.body.style.opacity = "0";
+        window.sessionStorage.setItem("scrollTo", "hero");
+        window.setTimeout(() => {
+          router.push("/");
+        }, 600);
+        lastScrollY.current = currentY;
+        return;
+      }
+
+      if (!hasTriggeredReturn.current && scrolledToBottom) {
+        hasTriggeredReturn.current = true;
+        document.body.style.transition = "opacity 0.6s ease";
+        document.body.style.opacity = "0";
+        window.sessionStorage.setItem("scrollTo", "location");
+        window.setTimeout(() => {
+          router.push("/#location");
+        }, 600);
+      }
+
+      lastScrollY.current = currentY;
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [router]);
+
   return (
     <main className="min-h-screen bg-base">
 
       {/* Hero */}
-      <section className="px-10 pt-36 pb-20 border-b border-black/10 text-center max-w-4xl mx-auto">
+      <section className="px-16 pt-36 pb-20 border-b border-white/10 text-center">
         <p className="text-primary text-xs font-bold uppercase tracking-widest mb-4 flex items-center justify-center gap-2">
           <span className="w-5 h-[2px] bg-primary" />
           À propos de NovaLead
@@ -22,9 +76,9 @@ export default function AProposPage() {
       </section>
 
       {/* Mission & Vision */}
-      <section className="px-10 py-24 border-b border-black/10 max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <div className="glass-card rounded-xl p-8">
+      <section className="px-16 py-24 border-b border-white/10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="bg-surface border border-white/10 rounded-xl p-8">
             <p className="text-primary text-xs font-bold uppercase tracking-widest mb-4">Notre Mission</p>
             <h2 className="text-2xl font-black text-graphite tracking-tighter mb-4">
               Rendre l'expertise technique accessible
@@ -50,7 +104,7 @@ export default function AProposPage() {
       </section>
 
       {/* Notre Histoire */}
-      <section className="px-10 py-24 border-b border-black/10 max-w-6xl mx-auto">
+      <section className="px-16 py-24 border-b border-white/10">
         <p className="text-primary text-xs font-bold uppercase tracking-widest mb-2 flex items-center gap-2">
           <span className="w-5 h-[2px] bg-primary" />
           Notre Histoire
@@ -76,35 +130,8 @@ export default function AProposPage() {
         </div>
       </section>
 
-      {/* Notre Équipe */}
-      <section className="px-10 py-24 border-b border-black/10 max-w-6xl mx-auto">
-        <p className="text-primary text-xs font-bold uppercase tracking-widest mb-2 flex items-center gap-2">
-          <span className="w-5 h-[2px] bg-primary" />
-          Notre Équipe
-        </p>
-        <h2 className="text-3xl lg:text-4xl font-black text-graphite tracking-tighter mb-12">
-          Des experts <span className="text-primary">du terrain</span>
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {[
-            { nom: "Mohamed Ben Ali", role: "Directeur & Formateur Senior", domaine: "Fibre Optique" },
-            { nom: "Sarra Mansouri", role: "Formatrice Photovoltaïque", domaine: "Énergie Solaire" },
-            { nom: "Karim Trabelsi", role: "Formateur Télécoms", domaine: "Télécommunications" },
-          ].map((member, i) => (
-            <div key={i} className="glass-card rounded-xl p-6">
-              <div className="w-14 h-14 rounded-full bg-primary/20 flex items-center justify-center mb-4">
-                <span className="text-primary font-black text-xl">{member.nom[0]}</span>
-              </div>
-              <h3 className="text-graphite font-bold text-sm mb-1">{member.nom}</h3>
-              <p className="text-primary text-xs font-semibold mb-2">{member.role}</p>
-              <p className="text-faded text-xs">{member.domaine}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
       {/* Nos Valeurs */}
-      <section className="px-10 py-24 border-b border-black/10 max-w-6xl mx-auto">
+      <section className="px-16 py-24 border-b border-white/10">
         <p className="text-primary text-xs font-bold uppercase tracking-widest mb-2 flex items-center gap-2">
           <span className="w-5 h-[2px] bg-primary" />
           Nos Valeurs
@@ -127,8 +154,57 @@ export default function AProposPage() {
         </div>
       </section>
 
-      {/* Certifications */}
-      <section className="px-10 py-24 max-w-6xl mx-auto">
+      {/* Notre Équipe */}
+<section className="px-16 py-24 border-b border-white/10">
+  <p className="text-primary text-xs font-bold uppercase tracking-widest mb-2 flex items-center gap-2">
+    <span className="w-5 h-[2px] bg-primary" />
+    Notre Équipe
+  </p>
+  <h2 className="text-3xl lg:text-4xl font-black text-white tracking-tighter mb-12">
+    Des experts <span className="text-primary">du terrain</span>
+  </h2>
+  <div className="flex justify-center">
+    <CircularTestimonials
+      autoplay={true}
+      colors={{
+        name: "#f7f7ff",
+        designation: "#2e9e6b",
+        testimony: "#7a96aa",
+        arrowBackground: "#162436",
+        arrowForeground: "#f1f1f7",
+        arrowHoverBackground: "#2e9e6b",
+      }}
+      fontSizes={{
+        name: "24px",
+        designation: "14px",
+        quote: "15px",
+      }}
+      testimonials={[
+        {
+          name: "Mohamed Ben Ali",
+          designation: "Directeur & Formateur Senior — Fibre Optique",
+          quote: "Passionné par la transmission du savoir technique, j'accompagne chaque stagiaire vers une maîtrise complète des réseaux fibre optique FTTH, du tirage jusqu'au raccordement.",
+          src: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&auto=format&fit=crop",
+        },
+        {
+          name: "Sarra Mansouri",
+          designation: "Formatrice — Énergie Solaire",
+          quote: "Mon objectif est de rendre les énergies renouvelables accessibles à tous les techniciens. Chaque installation photovoltaïque réussie est une victoire pour la transition énergétique.",
+          src: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&auto=format&fit=crop",
+        },
+        {
+          name: "Karim Trabelsi",
+          designation: "Formateur — Télécommunications",
+          quote: "Les télécoms évoluent rapidement. Ma mission est de préparer les techniciens aux défis d'aujourd'hui et de demain, avec des formations ancrées dans la réalité du terrain.",
+          src: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600&auto=format&fit=crop",
+        },
+      ]}
+    />
+  </div>
+</section>
+
+      {/* Nos Certifications — coming soon
+      <section className="px-16 py-24 max-w-6xl mx-auto">
         <p className="text-primary text-xs font-bold uppercase tracking-widest mb-2 flex items-center gap-2">
           <span className="w-5 h-[2px] bg-primary" />
           Nos Certifications
@@ -153,6 +229,7 @@ export default function AProposPage() {
           ))}
         </div>
       </section>
+      */}
 
     </main>
   );

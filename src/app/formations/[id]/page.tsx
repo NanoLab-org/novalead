@@ -115,7 +115,6 @@ export default async function FormationFiche({ params }: Props) {
       <button className="bg-primary text-white font-semibold text-sm px-6 py-3 rounded-md hover:opacity-90 transition-opacity">
         S'inscrire à cette formation
       </button>
-
     </main>
   );
 }

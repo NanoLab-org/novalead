@@ -241,5 +241,4 @@ export const CATEGORIES = [
     description: "Dimensionnement, installation et maintenance des systèmes photovoltaïques.",
     locked: true,
     formations: [],
-  },
-];
+  },]
