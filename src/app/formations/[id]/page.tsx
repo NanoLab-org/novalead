@@ -14,10 +14,10 @@ export default async function FormationFiche({ params }: Props) {
 
   if (!formation) {
     return (
-      <div className="flex flex-col items-center justify-center min-h-screen text-white">
+      <div className="flex flex-col items-center justify-center min-h-screen text-graphite">
         <h1 className="text-3xl font-black mb-4">Formation introuvable</h1>
-        <Link href="/catalogue" className="text-primary text-sm hover:text-white transition-colors mb-8 inline-block">
-         ← Retour au catalogue
+        <Link href="/catalogue" className="text-primary hover:underline">
+          Retour au catalogue
         </Link>
       </div>
     );
@@ -26,16 +26,16 @@ export default async function FormationFiche({ params }: Props) {
   return (
     <main className="min-h-screen bg-base px-10 py-32 max-w-4xl mx-auto">
 
-      <Link href="/catalogue" className="text-muted text-sm hover:text-white transition-colors mb-8 inline-block">
+      <Link href="/catalogue" className="text-muted text-sm hover:text-graphite transition-colors mb-8 inline-block">
         ← Retour au catalogue
       </Link>
 
       <div className="flex gap-3 mb-6">
-        <span className="text-xs font-semibold px-3 py-1 rounded-full bg-primary/15 text-primary">{formation.niveau}</span>
-        <span className="text-xs font-semibold px-3 py-1 rounded-full bg-white/5 text-faded">{formation.format}</span>
+        <span className="text-xs font-semibold px-3 py-1 rounded-sm bg-primary/10 text-primary border border-primary/25">{formation.niveau}</span>
+        <span className="text-xs font-semibold px-3 py-1 rounded-sm bg-primary/10 text-primary border border-primary/25">{formation.format}</span>
       </div>
 
-      <h1 className="text-4xl lg:text-5xl font-black text-white tracking-tighter mb-4">
+      <h1 className="text-4xl lg:text-5xl font-black text-graphite tracking-tighter mb-4">
         {formation.titre}
       </h1>
 
@@ -51,63 +51,64 @@ export default async function FormationFiche({ params }: Props) {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
 
-        <div className="bg-surface border border-white/10 rounded-xl p-6">
-          <h2 className="text-white font-bold text-sm uppercase tracking-widest mb-4">Objectifs</h2>
+        <div className="bg-surface border border-black/10 rounded-xl p-6">
+          <h2 className="text-graphite font-bold text-sm uppercase tracking-widest mb-4">Objectifs</h2>
           <ul className="flex flex-col gap-3">
             {formation.objectifs.map((obj, i) => (
               <li key={i} className="flex items-start gap-2 text-muted text-sm">
-              <span className="text-primary mt-0.5">✓</span>   {obj}
+                <span className="text-primary mt-0.5">✓</span>
+                {obj}
               </li>
             ))}
           </ul>
         </div>
 
-        <div className="bg-surface border border-white/10 rounded-xl p-6">
-          <h2 className="text-white font-bold text-sm uppercase tracking-widest mb-4">Infos pratiques</h2>
+        <div className="bg-surface border border-black/10 rounded-xl p-6">
+          <h2 className="text-graphite font-bold text-sm uppercase tracking-widest mb-4">Infos pratiques</h2>
           <div className="flex flex-col gap-3 text-sm">
             <div className="flex justify-between">
               <span className="text-muted">Durée</span>
-              <span className="text-white font-medium">{formation.duree}</span>
+              <span className="text-graphite font-medium">{formation.duree}</span>
             </div>
             <div className="flex justify-between">
               <span className="text-muted">Format</span>
-              <span className="text-white font-medium">{formation.format}</span>
+              <span className="text-graphite font-medium">{formation.format}</span>
             </div>
             <div className="flex justify-between">
               <span className="text-muted">Niveau</span>
-              <span className="text-white font-medium">{formation.niveau}</span>
+              <span className="text-graphite font-medium">{formation.niveau}</span>
             </div>
             <div className="flex justify-between">
               <span className="text-muted">Places disponibles</span>
-              <span className="text-white font-medium">{formation.places}</span>
+              <span className="text-graphite font-medium">{formation.places}</span>
             </div>
             <div className="flex justify-between">
               <span className="text-muted">Prix</span>
-              <span className="text-primary font-bold">{formation.prix}</span>             
+              <span className="text-primary font-bold">{formation.prix}</span>
             </div>
             <div className="flex justify-between">
               <span className="text-muted">Certification</span>
-              <span className="text-white font-medium text-right max-w-[200px]">{formation.certification}</span>
+              <span className="text-graphite font-medium text-right max-w-[200px]">{formation.certification}</span>
             </div>
           </div>
         </div>
 
       </div>
 
-      <div className="bg-surface border border-white/10 rounded-xl p-6 mb-8">
-        <h2 className="text-white font-bold text-sm uppercase tracking-widest mb-4">Programme</h2>
+      <div className="bg-surface border border-black/10 rounded-xl p-6 mb-8">
+        <h2 className="text-graphite font-bold text-sm uppercase tracking-widest mb-4">Programme</h2>
         <div className="flex flex-col gap-3">
           {formation.programme.map((p, i) => (
             <div key={i} className="flex gap-4 text-sm">
-            <span className="text-primary font-bold w-16 shrink-0">{p.jour}</span>        
-            <span className="text-muted">{p.contenu}</span>
+              <span className="text-primary font-bold w-16 shrink-0">{p.jour}</span>
+              <span className="text-muted">{p.contenu}</span>
             </div>
           ))}
         </div>
       </div>
 
-      <div className="bg-surface border border-white/10 rounded-xl p-6 mb-10">
-        <h2 className="text-white font-bold text-sm uppercase tracking-widest mb-2">Prérequis</h2>
+      <div className="bg-surface border border-black/10 rounded-xl p-6 mb-10">
+        <h2 className="text-graphite font-bold text-sm uppercase tracking-widest mb-2">Prérequis</h2>
         <p className="text-muted text-sm">{formation.prerequis}</p>
       </div>
 
