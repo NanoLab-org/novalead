@@ -24,8 +24,7 @@ export default async function FormationFiche({ params }: Props) {
   }
 
   return (
-    <main className="min-h-screen bg-base px-10 py-32 max-w-4xl mx-auto">
-
+<div className="min-h-screen bg-base px-10 py-32 max-w-4xl mx-auto">
       <Link href="/catalogue" className="text-muted text-sm hover:text-graphite transition-colors mb-8 inline-block">
         ← Retour au catalogue
       </Link>
@@ -112,9 +111,12 @@ export default async function FormationFiche({ params }: Props) {
         <p className="text-muted text-sm">{formation.prerequis}</p>
       </div>
 
-      <button className="bg-primary text-white font-semibold text-sm px-6 py-3 rounded-md hover:opacity-90 transition-opacity">
-        S'inscrire à cette formation
-      </button>
-    </main>
+      <Link
+  href="/contact"
+  className="bg-primary text-white font-semibold text-sm px-6 py-3 rounded-md hover:opacity-90 transition-opacity inline-block"
+>
+  S'inscrire à cette formation
+</Link>
+    </div>
   );
 }

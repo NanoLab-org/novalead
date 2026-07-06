@@ -17,8 +17,7 @@ export default function WhatsAppWidget() {
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
       {open && (
-        <div className="glass-card rounded-xl p-4 w-64 shadow-xl">
-          <div className="flex items-center gap-3 mb-3">
+          <div className="bg-surface border border-white/10 rounded-xl p-4 w-60 shadow-xl right-0">          <div className="flex items-center gap-3 mb-3">
             <div className="w-9 h-9 rounded-full bg-[#25D366] flex items-center justify-center shrink-0">
               <WhatsAppIcon />
             </div>

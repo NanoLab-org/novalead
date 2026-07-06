@@ -23,8 +23,7 @@ type Category = {
   formations: Formation[];
 };
 
-type Category = (typeof CATEGORIES)[number];
-type Formation = Category["formations"][number];
+
 
 // Full class strings as literals so Tailwind generates them at build time.
 const NIVEAU_CLASS: Record<string, string> = {

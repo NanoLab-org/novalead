@@ -26,12 +26,18 @@ export default function Hero() {
       </p>
 
       <div className="flex gap-3 flex-wrap mb-10">
-        <button className="bg-primary text-white font-semibold text-sm px-6 py-3 rounded-md hover:opacity-90 transition-opacity">
+        <Link
+          href="/catalogue"
+          className="bg-primary text-white font-semibold text-sm px-6 py-3 rounded-md hover:opacity-90 transition-opacity inline-block"
+        >
           Voir nos formations →
-        </button>
-        <button className="bg-transparent text-graphite font-medium text-sm px-5 py-3 rounded-md border border-black/20 hover:border-black/40 transition-colors">
-          Parler à un conseiller
-        </button>
+        </Link>
+        <Link
+          href="/contact"
+          className="bg-transparent text-graphite font-medium text-sm px-5 py-3 rounded-md border border-black/20 hover:border-black/40 transition-colors inline-block"
+        >
+          Nous contacter
+        </Link>
       </div>
 
       {/* Tags */}

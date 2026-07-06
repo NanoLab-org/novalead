@@ -52,7 +52,10 @@ export default function Navbar() {
           </li>
         ))}
       </ul>
-      <button className="bg-primary text-white text-sm font-semibold px-5 py-2 rounded-full hover:opacity-90 transition-opacity">
+      <Link
+        href="/contact"
+        className="bg-primary text-white text-sm font-semibold px-5 py-2 rounded-full hover:opacity-90 transition-opacity inline-block"
+      >
         Nous contacter
       </Link>
     </nav>
