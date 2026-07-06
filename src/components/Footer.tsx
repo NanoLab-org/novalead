@@ -1,4 +1,12 @@
-import { footerLinks, contactInfo, openingHours, address, mapEmbedUrl } from "@/constants";
+import Link from "next/link";
+import { contactInfo, openingHours } from "@/constants";
+
+const footerLinks = [
+  { label: "Catalogue", href: "/catalogue" },
+  { label: "À propos", href: "/apropos" },
+  { label: "Localisation", href: "/location" },
+  { label: "Contact", href: "/contact" },
+];
 
 export default function Footer() {
   return (
@@ -25,72 +33,49 @@ export default function Footer() {
           <p className="text-graphite font-bold text-sm mb-4">Liens rapides</p>
           <ul className="flex flex-col gap-2">
             {footerLinks.map((l) => (
-              <li key={l}>
-                <a href={`#${l.toLowerCase()}`} className="text-muted text-sm hover:text-graphite transition-colors">
-                  {l}
-                </a>
+              <li key={l.label}>
+                <Link href={l.href} className="text-muted text-sm hover:text-graphite transition-colors">
+                  {l.label}
+                </Link>
               </li>
             ))}
           </ul>
         </div>
 
-        {/* Contact + adresse */}
-        <div>
-          <p className="text-graphite font-bold text-sm mb-4">Contact</p>
-          <p className="text-graphite text-sm font-semibold mb-1">{address.name}</p>
-          <p className="text-muted text-sm leading-relaxed mb-4">
-            {address.lines.map((line) => (
-              <span key={line} className="block">{line}</span>
-            ))}
-          </p>
-          <ul className="flex flex-col gap-2">
-            {contactInfo.map((c) => (
-              <li key={c.label} className="flex items-center gap-2 text-sm">
-                <span className="text-primary font-medium w-20 shrink-0">{c.label}</span>
-                <span className="text-muted">{c.value}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
+        {/* Contact */}
+        {contactInfo.map((c) => (
+  <li key={c.label} className="flex items-center gap-2 text-sm">
+    <span className="text-primary font-medium w-20 shrink-0">{c.label}</span>
+    <span className="text-muted">{c.value}</span>
+  </li>
+))}
 
         {/* Horaires */}
         <div>
           <p className="text-graphite font-bold text-sm mb-4">Horaires</p>
           <ul className="flex flex-col gap-2 text-sm">
-            {openingHours.map((h) => (
-              <li key={h.day} className="flex justify-between gap-4">
-                <span className="text-muted">{h.day}</span>
-                <span className={h.closed ? "text-primary font-medium" : "text-graphite font-medium"}>
-                  {h.hours}
-                </span>
+            {openingHours.map((h, i) => (
+              <li key={i} className="flex justify-between text-muted">
+                <span>{h.day}</span>
+                <span>{h.hours}</span>
               </li>
             ))}
           </ul>
         </div>
-
       </div>
 
-      {/* Map */}
-      <div className="rounded-xl overflow-hidden border border-black/10 h-[280px] mb-10">
-        <iframe
-          src={mapEmbedUrl}
-          className="w-full h-full border-0"
-          allowFullScreen
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-        />
+      {/* Bottom */}
+      <div className="border-t border-black/10 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-muted">
+        <p>© 2024 NovaLead. Tous droits réservés.</p>
+        <div className="flex gap-6 mt-4 md:mt-0">
+          <Link href="#" className="hover:text-graphite transition-colors">
+            Mentions légales
+          </Link>
+          <Link href="#" className="hover:text-graphite transition-colors">
+            Politique de confidentialité
+          </Link>
+        </div>
       </div>
-
-      {/* Bottom bar */}
-      <div className="pt-6 border-t border-black/10 flex flex-col md:flex-row justify-between items-center gap-3">
-        <p className="text-muted text-xs">
-          &copy; 2025 NovaLead. Tous droits réservés.
-        </p>
-        <p className="text-muted text-xs">
-          Développé par <span className="text-primary">NanoLab</span>
-        </p>
-      </div>
-
     </footer>
   );
 }

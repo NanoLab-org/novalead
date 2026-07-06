@@ -89,15 +89,24 @@ export const CircularTestimonials = ({
   }, [autoplay, testimonialsLength]);
 
   const handleNext = useCallback(() => {
-    setActiveIndex((prev) => (prev + 1) % testimonialsLength);
-    if (autoplayIntervalRef.current) clearInterval(autoplayIntervalRef.current);
-  }, [testimonialsLength]);
+  setActiveIndex((prev) => (prev + 1) % testimonialsLength);
+  if (autoplayIntervalRef.current) clearInterval(autoplayIntervalRef.current);
+  if (autoplay) {
+    autoplayIntervalRef.current = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % testimonialsLength);
+    }, 5000);
+  }
+}, [testimonialsLength, autoplay]);
 
-  const handlePrev = useCallback(() => {
-    setActiveIndex((prev) => (prev - 1 + testimonialsLength) % testimonialsLength);
-    if (autoplayIntervalRef.current) clearInterval(autoplayIntervalRef.current);
-  }, [testimonialsLength]);
-
+const handlePrev = useCallback(() => {
+  setActiveIndex((prev) => (prev - 1 + testimonialsLength) % testimonialsLength);
+  if (autoplayIntervalRef.current) clearInterval(autoplayIntervalRef.current);
+  if (autoplay) {
+    autoplayIntervalRef.current = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % testimonialsLength);
+    }, 5000);
+  }
+}, [testimonialsLength, autoplay]);
   function getImageStyle(index: number): React.CSSProperties {
     const gap = calculateGap(containerWidth);
     const maxStickUp = gap * 0.8;

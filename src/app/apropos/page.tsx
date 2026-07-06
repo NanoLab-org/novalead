@@ -3,7 +3,7 @@ import { CircularTestimonials } from "@/components/ui/circular-testimonials";
 
 export default function AProposPage() {
   return (
-    <main className="min-h-screen bg-base">
+   <div className="min-h-screen bg-base">
 
       {/* Hero */}
       <section className="px-16 pt-36 pb-20 border-b border-white/10 text-center">
@@ -178,6 +178,6 @@ export default function AProposPage() {
       </section>
       */}
 
-    </main>
+    </div>
   );
 }

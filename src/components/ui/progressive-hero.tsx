@@ -133,9 +133,11 @@ function ProgressiveHero() {
                 Voir le catalogue <MoveRight className="h-4 w-4" />
               </Link>
             </Button>
-            <Button size="lg" variant="outline" className="gap-3">
-              Nous contacter <PhoneCall className="h-4 w-4" />
-            </Button>
+            <Button asChild size="lg" variant="outline" className="gap-3">
+  <Link href="/contact">
+    Nous contacter <PhoneCall className="h-4 w-4" />
+  </Link>
+</Button>
           </div>
         </div>
       </div>
