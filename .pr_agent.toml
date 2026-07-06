@@ -1,0 +1,38 @@
+[config]
+model = "openrouter/anthropic/claude-sonnet-4"
+fallback_models = ["openrouter/anthropic/claude-3.5-sonnet"]
+custom_model_max_tokens = 200000
+ai_timeout = 300
+response_language = "en-US"
+
+[pr_reviewer]
+extra_instructions = """\
+Write the review in this exact structure:
+
+## Summary
+- ...
+
+## Must-fix
+- ...
+
+## Nice-to-fix
+- ...
+
+## Security
+- ...
+
+## Tests
+- ...
+
+## Suggestions
+- ...
+"""
+num_code_suggestions = 5
+inline_code_comments = true
+
+[pr_description]
+generate_ai_title = true
+publish_description_as_comment = true
+
+[ignore]
+glob = ['dist/**', 'build/**', 'node_modules/**', 'coverage/**', '*.lock', '*.svg', '*.png', '*.jpg', '*.map']
