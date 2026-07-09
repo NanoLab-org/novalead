@@ -157,8 +157,8 @@ export default function CataloguePage() {
         ref={heroRef}
         className="relative overflow-hidden bg-base pt-24 opacity-0 translate-y-5 transition-all duration-700 ease-out"
       >
-        <div className="grid grid-cols-1 min-[900px]:grid-cols-2 min-h-[420px]">
-          <div className="flex flex-col justify-center relative z-10 px-6 pt-12 pb-10 min-[900px]:px-14 min-[900px]:pt-[72px] min-[900px]:pb-16">
+        <div className="grid grid-cols-1 min-[900px]:grid-cols-[42%_58%]">
+          <div className="flex flex-col justify-center relative z-10 px-6 py-10 min-[900px]:pl-16 min-[900px]:pr-6 min-[900px]:py-14">
             <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-primary mb-[18px]">
               Nos formations
             </p>
@@ -183,13 +183,13 @@ export default function CataloguePage() {
               </div>
             </div>
           </div>
-          <div className="relative overflow-hidden h-[260px] min-[900px]:h-auto">
+          <div className="relative overflow-hidden h-[260px] min-[900px]:h-auto min-[900px]:min-h-[440px]">
             <img
               className="w-full h-full object-cover object-center block brightness-[0.7] saturate-[0.85]"
               src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=900&q=80&auto=format&fit=crop"
               alt="Technicien en formation"
             />
-            <div className="absolute inset-0 z-10 pointer-events-none bg-gradient-to-r from-base from-0% to-transparent to-40%" />
+            <div className="absolute inset-0 z-10 pointer-events-none bg-gradient-to-r from-base from-0% to-transparent to-15%" />
             <div className="absolute inset-0 z-10 pointer-events-none bg-gradient-to-b from-transparent from-60% to-base to-100%" />
           </div>
         </div>
