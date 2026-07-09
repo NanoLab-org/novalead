@@ -150,22 +150,21 @@ export default function ContactPage() {
 
   return (
     <div className="min-h-screen bg-base">    
-    {/* Hero Section */}
-      <section className="px-16 pt-36 pb-20 border-b border-white/10 text-center">
-        <p className="text-primary text-xs font-bold uppercase tracking-widest mb-4 flex items-center justify-center gap-2">
-          <span className="w-5 h-[2px] bg-primary" />
-          Nous contacter
-          <span className="w-5 h-[2px] bg-primary" />
-        </p>
-        <h1 className="text-4xl lg:text-6xl font-black text-graphite tracking-tighter mb-6">
-          Parlons de <br />
-          <span className="text-primary">votre projet</span>
-        </h1>
-        <p className="text-faded text-base leading-relaxed max-w-2xl mx-auto">
-          Particulier ou entreprise — remplissez le formulaire adapté à votre profil et notre équipe vous répond sous 24h.
-        </p>
-      </section>
-
+   {/* Hero Section */}
+<div className="bg-gradient-to-br from-[#04211e] to-[#0a3a2e] px-16 pt-36 pb-20 text-center">
+  <p className="text-primary text-xs font-bold uppercase tracking-widest mb-4 flex items-center justify-center gap-2">
+    <span className="w-5 h-[2px] bg-primary" />
+    Nous contacter
+    <span className="w-5 h-[2px] bg-primary" />
+  </p>
+  <h1 className="text-4xl lg:text-6xl font-black text-white tracking-tighter mb-6">
+    Parlons de <br />
+    <span className="text-primary">votre projet</span>
+  </h1>
+  <p className="text-white/60 text-base leading-relaxed max-w-2xl mx-auto">
+    Particulier ou entreprise — remplissez le formulaire adapté à votre profil et notre équipe vous répond sous 24h.
+  </p>
+</div>
       {/* Contact Form Section */}
       <section className="px-16 py-24 bg-gradient-to-b from-deep to-base">
         <div className="max-w-2xl mx-auto">

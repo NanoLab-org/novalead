@@ -79,8 +79,8 @@ export const heroTags = [
 // ─── Navbar ───────────────────────────────────────────────────────────────────
 
 export const navLinks = [
-  { label: "Catalogue", href: "/catalogue" },
   { label: "À propos", href: "/apropos" },
+  { label: "Catalogue", href: "/catalogue" },
   { label: "Localisation", href: "/location" },
   { label: "Contact", href: "/contact" },
 ];
@@ -121,7 +121,7 @@ export const CATEGORIES = [
     locked: false,
     formations: [
       {
-        id: 1,
+        id: 1, img: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1600&q=80",
         titre: "Installation Fibre Optique FTTH",
         duree: "5 jours",
         niveau: "Débutant",
@@ -144,9 +144,10 @@ export const CATEGORIES = [
         ],
         prerequis: "Aucun prérequis technique nécessaire.",
         certification: "Attestation de formation certifiante NovaLead",
+        
       },
       {
-        id: 2,
+        id: 2, img: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1600&q=80", 
         titre: "Soudure et Mesure Fibre",
         duree: "3 jours",
         niveau: "Intermédiaire",
@@ -169,7 +170,7 @@ export const CATEGORIES = [
         certification: "Attestation de formation certifiante NovaLead",
       },
       {
-        id: 3,
+        id: 3, img: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1600&q=80", 
         titre: "Maintenance Réseau Fibre",
         duree: "4 jours",
         niveau: "Avancé",

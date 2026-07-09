@@ -6,21 +6,21 @@ export default function AProposPage() {
    <div className="min-h-screen bg-base">
 
       {/* Hero */}
-      <section className="px-16 pt-36 pb-20 border-b border-white/10 text-center">
-        <p className="text-primary text-xs font-bold uppercase tracking-widest mb-4 flex items-center justify-center gap-2">
-          <span className="w-5 h-[2px] bg-primary" />
-          À propos de NovaLead
-          <span className="w-5 h-[2px] bg-primary" />
-        </p>
-        <h1 className="text-4xl lg:text-6xl font-black text-graphite tracking-tighter mb-6">
-          Former les experts <br />
-          <span className="text-primary">de demain</span>
-        </h1>
-        <p className="text-faded text-base leading-relaxed max-w-2xl mx-auto">
-          NovaLead est un centre de formation spécialisé dans les métiers techniques de la fibre optique,
-          du photovoltaïque et des télécommunications en Tunisie.
-        </p>
-      </section>
+<div className="bg-gradient-to-br from-[#04211e] to-[#0a3a2e] px-16 pt-36 pb-20 text-center">
+  <p className="text-primary text-xs font-bold uppercase tracking-widest mb-4 flex items-center justify-center gap-2">
+    <span className="w-5 h-[2px] bg-primary" />
+    À propos de NovaLead
+    <span className="w-5 h-[2px] bg-primary" />
+  </p>
+  <h1 className="text-5xl lg:text-7xl font-black text-white tracking-tighter mb-6">
+    Former les experts <br />
+    <span className="text-primary">de demain</span>
+  </h1>
+  <p className="text-white/60 text-base leading-relaxed max-w-2xl mx-auto mb-12">
+    NovaLead est un centre de formation spécialisé dans les métiers techniques de la fibre optique,
+    du photovoltaïque et des télécommunications en Tunisie.
+  </p>
+</div>
 
       {/* Mission & Vision */}
       <section className="px-16 py-24 border-b border-white/10">
@@ -107,14 +107,14 @@ export default function AProposPage() {
     <span className="w-5 h-[2px] bg-primary" />
     Notre Équipe
   </p>
-  <h2 className="text-3xl lg:text-4xl font-black text-white tracking-tighter mb-12">
+  <h2 className="text-3xl lg:text-4xl font-black text-graphite tracking-tighter mb-12">
     Des experts <span className="text-primary">du terrain</span>
   </h2>
   <div className="flex justify-center">
     <CircularTestimonials
       autoplay={true}
       colors={{
-        name: "#f7f7ff",
+        name: "#07473f",
         designation: "#2e9e6b",
         testimony: "#7a96aa",
         arrowBackground: "#162436",

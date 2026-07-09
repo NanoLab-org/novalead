@@ -84,7 +84,7 @@ function ProgressiveHero() {
       {/* Recolor the footage toward the brand green — keeps the buildings visible */}
       <div className="absolute inset-0 bg-primary/70 mix-blend-color" />
       {/* Light scrim only at top/bottom for text legibility; middle stays clear */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-transparent to-[#04211e]/70" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-transparent to-[#04211e]" />
 
       <div className="relative z-10 flex min-h-screen w-full flex-col items-center justify-center px-6">
         <div className="flex w-full flex-col items-center justify-center gap-8 py-28">

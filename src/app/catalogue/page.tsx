@@ -33,6 +33,8 @@ const NIVEAU_CLASS: Record<string, string> = {
   "Tous niveaux":  "bg-primary/15 text-level-beginner",
 };
 
+
+
 // ── Sub-components ─────────────────────────────────────────────
 
 function FormationCard({ f }: { f: Formation }) {
@@ -152,45 +154,35 @@ export default function CataloguePage() {
 
   return (
     <>
-      {/* pt-24 = navbar height offset (~96px). Update here if navbar height changes. */}
       <header
         ref={heroRef}
-        className="relative overflow-hidden bg-base pt-24 opacity-0 translate-y-5 transition-all duration-700 ease-out"
+        className="relative overflow-hidden bg-gradient-to-br from-[#04211e] to-[#0a3a2e] pt-0 translate-y-0 transition-all duration-700 ease-out"
       >
         <div className="grid grid-cols-1 min-[900px]:grid-cols-2 min-h-[420px]">
-          <div className="flex flex-col justify-center relative z-10 px-6 pt-12 pb-10 min-[900px]:px-14 min-[900px]:pt-[72px] min-[900px]:pb-16">
+          <div className="flex flex-col items-center justify-center text-center relative z-10 px-6 pt-14 pb-10 min-[900px]:px-0 min-[900px]:pb-16">
             <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-primary mb-[18px]">
               Nos formations
             </p>
-            <h1 className="text-[clamp(34px,4vw,54px)] font-extrabold text-graphite leading-[1.08] mb-5">
+            <h1 className="text-[clamp(34px,4vw,54px)] font-extrabold text-white leading-[1.08] mb-5">
               Catalogue<br /><span className="text-primary">NovaLead</span>
             </h1>
-            <p className="text-[15px] text-[rgb(28_28_30/0.5)] max-w-[460px] leading-[1.75] mb-8">
+            <p className="text-[15px] text-white/60 max-w-[460px] leading-[1.75] mb-8 mx-auto">
               Des formations terrain pensées pour les techniciens de demain — fibre optique, télécoms et énergie solaire.
             </p>
             <div className="flex gap-5 min-[600px]:gap-8">
-              <div>
-                <div className="text-[22px] font-extrabold text-primary leading-none mb-1">{totalFormations}+</div>
-                <div className="text-xs text-[rgb(28_28_30/0.4)] font-medium">Formations disponibles</div>
-              </div>
-              <div>
-                <div className="text-[22px] font-extrabold text-primary leading-none mb-1">{totalDomains}</div>
-                <div className="text-xs text-[rgb(28_28_30/0.4)] font-medium">Domaines techniques</div>
-              </div>
-              <div>
-                <div className="text-[22px] font-extrabold text-primary leading-none mb-1">100%</div>
-                <div className="text-xs text-[rgb(28_28_30/0.4)] font-medium">Pratique terrain</div>
-              </div>
             </div>
           </div>
-          <div className="relative overflow-hidden h-[260px] min-[900px]:h-auto">
+         <div className="relative overflow-hidden h-[260px] min-[900px]:h-auto">
             <img
-              className="w-full h-full object-cover object-center block brightness-[0.7] saturate-[0.85]"
+              className="w-full h-full object-cover object-center block"
               src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=900&q=80&auto=format&fit=crop"
               alt="Technicien en formation"
+              style={{ filter: "brightness(0.45) saturate(0.85)" }}
             />
-            <div className="absolute inset-0 z-10 pointer-events-none bg-gradient-to-r from-base from-0% to-transparent to-40%" />
-            <div className="absolute inset-0 z-10 pointer-events-none bg-gradient-to-b from-transparent from-60% to-base to-100%" />
+            <div
+              className="absolute inset-0 z-10 pointer-events-none"
+              style={{ background: "#04211e", opacity: 0.35 }}
+            />
           </div>
         </div>
       </header>

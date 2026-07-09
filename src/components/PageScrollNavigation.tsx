@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import { usePathname, useRouter } from "next/navigation";
 
-const PAGE_ORDER = ["/", "/apropos", "/catalogue"];
+const PAGE_ORDER = ["/", "/apropos", "/catalogue" , "/location", "/contact"]; // Define the order of pages for navigation
 const EDGE_OFFSET = 100; // Distance from edge to trigger navigation
 const TRANSITION_MS = 500; // Smooth transition duration
 const SCROLL_THRESHOLD = 50; // Minimum scroll distance to trigger
@@ -77,15 +77,23 @@ export default function PageScrollNavigation() {
           window.innerHeight + currentY >=
           document.documentElement.scrollHeight - EDGE_OFFSET;
 
-        // Navigate to previous page when scrolling up at the top
         if (scrollingUp && atTop && currentIndex > 0) {
-          navigateTo(PAGE_ORDER[currentIndex - 1]);
-        }
+  if (!isNavigating.current) {
+    scrollTimeout.current = setTimeout(() => {
+      navigateTo(PAGE_ORDER[currentIndex - 1]);
+    }, 800);
+  }
+}
 
         // Navigate to next page when scrolling down at the bottom
-        if (scrollingDown && atBottom && currentIndex < PAGE_ORDER.length - 1) {
-          navigateTo(PAGE_ORDER[currentIndex + 1]);
-        }
+if (scrollingDown && atBottom && currentIndex < PAGE_ORDER.length - 1) {
+  if (!isNavigating.current) {
+    // Wait 1.5 seconds at the bottom before navigating
+    scrollTimeout.current = setTimeout(() => {
+      navigateTo(PAGE_ORDER[currentIndex + 1]);
+    }, 1500);
+  }
+}
 
         lastScrollY.current = currentY;
       }, 100); // 100ms debounce for natural feel
