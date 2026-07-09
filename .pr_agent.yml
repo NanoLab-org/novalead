@@ -1,0 +1,74 @@
+github_action:
+  handle_pr_actions: ['opened', 'reopened', 'synchronize']
+  auto_review: true
+  auto_describe: true
+
+config:
+  model: gemini/gemini-2.5-flash
+  fallback_models:
+    - gemini/gemini-1.5-pro
+
+general:
+  max_response_tokens: 6000
+  use_multi_line_comments: true
+
+pr_reviewer:
+  summarize_changes: true
+  detect_breaking_changes: true
+  require_tests: false
+  review_depth: deep
+  collapsible_comments: true
+
+  extra_instructions: |
+    Write the review in this exact structure:
+
+    ## ✅ Summary
+    - ...
+
+    ## 🔥 Must-fix
+    - ...
+
+    ## ⚠️ Nice-to-fix
+    - ...
+
+    ## 🔒 Security
+    - ...
+
+    ## 🧪 Tests
+    - ...
+
+    ## 💡 Suggestions
+    - ...
+
+rules:
+  skip_files:
+    - "dist/**"
+    - "build/**"
+    - "out/**"
+    - ".next/**"
+    - "node_modules/**"
+    - "coverage/**"
+    - "**/*.lock"
+    - "**/*.svg"
+    - "**/*.png"
+    - "**/*.jpg"
+    - "**/*.jpeg"
+    - "**/*.webp"
+    - "**/*.gif"
+    - "**/*.map"
+
+  include_files:
+    - "**/*.ts"
+    - "**/*.tsx"
+    - "**/*.js"
+    - "**/*.jsx"
+    - "**/*.json"
+    - "**/*.md"
+
+commands:
+  review: "/review"
+  improve: "/improve"
+  tests: "/tests"
+  doc: "/doc"
+  security: "/security"
+  breaking: "/breaking"
