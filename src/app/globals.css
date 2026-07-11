@@ -7,10 +7,10 @@
    them as CSS variables (var(--color-orange)) for plain CSS below. */
 @theme {
   /* Backgrounds — light "Serene" theme */
-  --color-base: #f0ede8;          /* primary page background (stone) */
-  --color-deep: #e4e2e4;          /* slightly dimmer stone for sections/footer */
-  --color-surface: #ffffff;       /* cards & containers */
-  --color-surface-hover: #f6f3f5;
+  --color-base: #e8f5f0;          /* primary page background (stone) */
+  --color-deep: #d4ece4;        /* slightly dimmer stone for sections/footer */
+  --color-surface: #c5e3d8;      /* cards & containers */
+  --color-surface-hover: #b8dcd0;
 
   /* Text — dark on light */
   --color-ink: #1c1c1e;           /* base body text */
@@ -46,6 +46,7 @@
 }
 
 body {
+  margin: 0;
   background: var(--color-base);
   color: var(--color-ink);
   font-family: Arial, Helvetica, sans-serif;
