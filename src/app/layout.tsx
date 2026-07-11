@@ -3,7 +3,8 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppWidget from "@/components/whattswidget";
-import PageScrollNavigation from "@/components/PageScrollNavigation";
+import TransitionProvider from "@/components/transitions/TransitionProvider";
+import ScrollNavigator from "@/components/transitions/ScrollNavigator";
 
 export const metadata: Metadata = {
   title: "NovaLead",
@@ -16,13 +17,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="fr">
+    <html lang="fr" data-scroll-behavior="smooth">
       <body>
-        <PageScrollNavigation />
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
-        <WhatsAppWidget />
+        <TransitionProvider>
+          <Navbar />
+          <main>{children}</main>
+          <Footer />
+          <WhatsAppWidget />
+          <ScrollNavigator />
+        </TransitionProvider>
       </body>
     </html>
   );

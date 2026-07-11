@@ -65,3 +65,38 @@ body {
 html {
   scroll-padding-top: 100px;
 }
+
+/* Page-transition overlay (TransitionProvider) */
+@keyframes overlay-rise {
+  from { transform: translateY(100%); }
+  to   { transform: translateY(0%); }
+}
+@keyframes overlay-fall-away {
+  from { transform: translateY(0%); }
+  to   { transform: translateY(-100%); }
+}
+
+/* Branded indeterminate loader shown while the overlay covers the screen */
+.transition-loader {
+  position: relative;
+  display: block;
+  width: 150px;
+  height: 3px;
+  border-radius: 9999px;
+  background: rgb(255 255 255 / 0.12);
+  overflow: hidden;
+}
+.transition-loader::after {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 40%;
+  border-radius: 9999px;
+  background: var(--color-primary);
+  box-shadow: 0 0 12px rgb(13 148 136 / 0.7);
+  animation: loader-slide 1.1s ease-in-out infinite;
+}
+@keyframes loader-slide {
+  0%   { transform: translateX(-120%); }
+  100% { transform: translateX(320%); }
+}
