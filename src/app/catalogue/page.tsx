@@ -156,6 +156,7 @@ export default function CataloguePage() {
     <>
       <header
         ref={heroRef}
+        data-dark-hero
         className="relative overflow-hidden bg-gradient-to-br from-[#04211e] to-[#0a3a2e] pt-0 translate-y-0 transition-all duration-700 ease-out"
       >
         <div className="grid grid-cols-1 min-[900px]:grid-cols-2 min-h-[420px]">

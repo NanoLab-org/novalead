@@ -71,7 +71,7 @@ function ProgressiveHero() {
   }, [titleNumber, titles]);
 
   return (
-    <section className="relative w-full min-h-screen overflow-hidden">
+    <section data-dark-hero className="relative w-full min-h-screen overflow-hidden">
       {/* Background video */}
       <video
         className="absolute inset-0 h-full w-full object-cover"

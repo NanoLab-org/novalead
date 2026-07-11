@@ -3,7 +3,7 @@ export default function LocationPage() {
     <div className="min-h-screen bg-base">
 
       {/* Hero Banner */}
-      <div className="bg-gradient-to-br from-[#04211e] to-[#0a3a2e] px-16 pt-36 pb-16 text-center">
+      <div data-dark-hero className="bg-gradient-to-br from-[#04211e] to-[#0a3a2e] px-16 pt-36 pb-16 text-center">
         <p className="text-primary text-xs font-bold uppercase tracking-widest mb-2 flex items-center justify-center gap-2">
           <span className="w-5 h-[2px] bg-primary" />
           Nous trouver

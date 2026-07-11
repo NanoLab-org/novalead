@@ -6,7 +6,7 @@ export default function AProposPage() {
    <div className="min-h-screen bg-base">
 
       {/* Hero */}
-<div className="bg-gradient-to-br from-[#04211e] to-[#0a3a2e] px-16 pt-36 pb-20 text-center">
+<div data-dark-hero className="bg-gradient-to-br from-[#04211e] to-[#0a3a2e] px-16 pt-36 pb-20 text-center">
   <p className="text-primary text-xs font-bold uppercase tracking-widest mb-4 flex items-center justify-center gap-2">
     <span className="w-5 h-[2px] bg-primary" />
     À propos de NovaLead
