@@ -1,9 +1,20 @@
 import type { Metadata } from "next";
+import { Hanken_Grotesk, Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppWidget from "@/components/whattswidget";
-import PageScrollNavigation from "@/components/PageScrollNavigation";
+import TransitionProvider from "@/components/transitions/TransitionProvider";
+import ScrollNavigator from "@/components/transitions/ScrollNavigator";
+
+const display = Hanken_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-display",
+});
+const sans = Inter({
+  subsets: ["latin"],
+  variable: "--font-sans",
+});
 
 export const metadata: Metadata = {
   title: "NovaLead",
@@ -16,13 +27,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="fr">
+    <html
+      lang="fr"
+      data-scroll-behavior="smooth"
+      className={`${display.variable} ${sans.variable}`}
+    >
       <body>
-        <PageScrollNavigation />
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
-        <WhatsAppWidget />
+        <TransitionProvider>
+          <Navbar />
+          <main>{children}</main>
+          <Footer />
+          <WhatsAppWidget />
+          <ScrollNavigator />
+        </TransitionProvider>
       </body>
     </html>
   );

@@ -1,4 +1,4 @@
-import Link from "next/link";
+import TransitionLink from "@/components/TransitionLink";
 import { contactInfo, openingHours } from "@/constants";
 
 const footerLinks = [
@@ -22,12 +22,12 @@ export default function Footer() {
             Centre de formation spécialisé dans les métiers techniques de la fibre optique,
             du photovoltaïque et des télécommunications en Tunisie.
           </p>
-          <Link
+          <TransitionLink
             href="/contact"
             className="bg-primary text-white text-sm font-semibold px-5 py-2 rounded-full hover:opacity-90 transition-opacity inline-block mb-6"
           >
             Nous contacter →
-          </Link>
+          </TransitionLink>
           <div className="flex gap-3">
             <a href="#" className="w-8 h-8 rounded-full border border-black/10 flex items-center justify-center text-muted hover:text-graphite hover:border-black/30 transition-all text-xs">in</a>
             <a href="#" className="w-8 h-8 rounded-full border border-black/10 flex items-center justify-center text-muted hover:text-graphite hover:border-black/30 transition-all text-xs">fb</a>
@@ -40,9 +40,9 @@ export default function Footer() {
           <ul className="flex flex-col gap-2.5">
             {footerLinks.map((l) => (
               <li key={l.label}>
-                <Link href={l.href} className="text-muted text-sm hover:text-graphite transition-colors">
+                <TransitionLink href={l.href} className="text-muted text-sm hover:text-graphite transition-colors">
                   {l.label}
-                </Link>
+                </TransitionLink>
               </li>
             ))}
           </ul>
@@ -79,12 +79,12 @@ export default function Footer() {
       <div className="max-w-[1100px] mx-auto border-t border-black/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted">
         <p>© 2024 NovaLead. Tous droits réservés.</p>
         <div className="flex gap-6">
-          <Link href="#" className="hover:text-graphite transition-colors">
+          <a href="#" className="hover:text-graphite transition-colors">
             Mentions légales
-          </Link>
-          <Link href="#" className="hover:text-graphite transition-colors">
+          </a>
+          <a href="#" className="hover:text-graphite transition-colors">
             Politique de confidentialité
-          </Link>
+          </a>
         </div>
       </div>
     </footer>
