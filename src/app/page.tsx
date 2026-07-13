@@ -11,7 +11,7 @@ export default function Home() {
   const aboutRef = useRef<HTMLDivElement>(null);
 
   return (
-    <div className="flex flex-col bg-base">
+    <div className="flex flex-col bg-transparent">
       <ProgressiveHero />
       <Slideshow />       
     </div>

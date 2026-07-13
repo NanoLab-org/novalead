@@ -24,7 +24,7 @@ export default async function FormationFiche({ params }: Props) {
   }
 
   return (
-    <div className="min-h-screen bg-base">
+    <div className="min-h-screen bg-transparent">
 
       {/* Hero Banner */}
 <div 
@@ -78,7 +78,7 @@ export default async function FormationFiche({ params }: Props) {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {formation.objectifs.map((obj, i) => (
-                <div key={i} className="flex items-start gap-3 bg-base rounded-xl p-4">
+                <div key={i} className="flex items-start gap-3 bg-transparent rounded-xl p-4">
                   <span className="w-6 h-6 rounded-full bg-primary/15 text-primary flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">✓</span>
                   <span className="text-muted text-sm leading-relaxed">{obj}</span>
                 </div>

@@ -7,10 +7,10 @@
    them as CSS variables (var(--color-orange)) for plain CSS below. */
 @theme {
   /* Backgrounds — light "Serene" theme */
-  --color-base: #e8f5f0;          /* primary page background (stone) */
-  --color-deep: #d4ece4;        /* slightly dimmer stone for sections/footer */
-  --color-surface: #c5e3d8;      /* cards & containers */
-  --color-surface-hover: #b8dcd0;
+  --color-base: #aeddd0;          /* sea foam (page gradient top) */
+  --color-deep: #86ccbc;          /* deeper sea (page gradient bottom / sections) */
+  --color-surface: #ffffff;      /* white foam cards — pop on the sea bg */
+  --color-surface-hover: #eef8f4;
 
   /* Text — dark on light */
   --color-ink: #1c1c1e;           /* base body text */
@@ -47,9 +47,16 @@
 
 body {
   margin: 0;
-  background: var(--color-base);
+  /* Soft sea gradient — stays put while content scrolls over it. */
+  background: linear-gradient(180deg, var(--color-base) 0%, var(--color-deep) 100%);
+  background-attachment: fixed;
   color: var(--color-ink);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+/* Headings use the display face (Hanken Grotesk, up to 900). */
+h1, h2, h3, h4 {
+  font-family: var(--font-display), var(--font-sans), sans-serif;
 }
 
 /* Frosted teal glass card — reused across the site.

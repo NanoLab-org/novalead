@@ -3,7 +3,7 @@ import { CircularTestimonials } from "@/components/ui/circular-testimonials";
 
 export default function AProposPage() {
   return (
-   <div className="min-h-screen bg-base">
+   <div className="min-h-screen bg-transparent">
 
       {/* Hero */}
 <div data-dark-hero className="bg-gradient-to-br from-[#04211e] to-[#0a3a2e] px-16 pt-36 pb-20 text-center">
