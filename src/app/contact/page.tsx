@@ -126,22 +126,47 @@ export default function ContactPage() {
     };
   }
 
-  function submitB2C(e: React.FormEvent) {
-    e.preventDefault();
-    const err = validateB2C(b2c);
-    if (Object.keys(err).length) { setB2cErr(err); return; }
-    setLoading(true);
-    setTimeout(() => { setLoading(false); setSubmitted(true); }, 900);
+  async function submitB2C(e: React.FormEvent) {
+  e.preventDefault();
+  const err = validateB2C(b2c);
+  if (Object.keys(err).length) { setB2cErr(err); return; }
+  setLoading(true);
+  try {
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ type: "b2c", ...b2c }),
+    });
+    const data = await res.json();
+    if (data.success) setSubmitted(true);
+    else alert("Erreur lors de l'envoi. Veuillez réessayer.");
+  } catch {
+    alert("Erreur réseau. Veuillez réessayer.");
+  } finally {
+    setLoading(false);
   }
+}
 
-  function submitB2B(e: React.FormEvent) {
-    e.preventDefault();
-    const err = validateB2B(b2b);
-    if (Object.keys(err).length) { setB2bErr(err); return; }
-    setLoading(true);
-    setTimeout(() => { setLoading(false); setSubmitted(true); }, 900);
+ async function submitB2B(e: React.FormEvent) {
+  e.preventDefault();
+  const err = validateB2B(b2b);
+  if (Object.keys(err).length) { setB2bErr(err); return; }
+  setLoading(true);
+  try {
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ type: "b2b", ...b2b }),
+    });
+    const data = await res.json();
+    if (data.success) setSubmitted(true);
+    else alert("Erreur lors de l'envoi. Veuillez réessayer.");
+  } catch {
+    alert("Erreur réseau. Veuillez réessayer.");
+  } finally {
+    setLoading(false);
   }
-
+}
   function reset() {
     setSubmitted(false);
     if (tab === "b2c") { setB2c(B2C_INIT); setB2cErr({}); }
