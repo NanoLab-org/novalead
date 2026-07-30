@@ -85,7 +85,7 @@ function CategoryContainer({ cat, index }: { cat: Category; index: number }) {
   return (
     <div
       ref={ref}
-      className={`w-full border border-black/[0.07] rounded-2xl bg-surface overflow-hidden transition-colors duration-[250ms] ${cat.locked ? "" : "hover:border-primary/30"}`}
+      className={`w-full border border-black/[0.07] rounded-2xl bg-surface shadow-card overflow-hidden transition-colors duration-[250ms] ${cat.locked ? "" : "hover:border-primary/30"}`}
       style={{
         opacity: 0,
         transform: "translateY(36px)",
@@ -156,8 +156,8 @@ export default function CataloguePage() {
     <>
       <header
         ref={heroRef}
-        data-dark-hero
-        className="relative overflow-hidden bg-gradient-to-br from-[#04211e] to-[#0a3a2e] pt-0 translate-y-0 transition-all duration-700 ease-out"
+       
+        data-dark-hero className="relative overflow-hidden bg-gradient-to-br from-hero-from to-hero-to pt-0 translate-y-0 transition-all duration-700 ease-out"
       >
         <div className="grid grid-cols-1 min-[900px]:grid-cols-2 min-h-[420px]">
           <div className="flex flex-col items-center justify-center text-center relative z-10 px-6 pt-14 pb-10 min-[900px]:px-0 min-[900px]:pb-16">
@@ -167,7 +167,7 @@ export default function CataloguePage() {
             <h1 className="text-[clamp(34px,4vw,54px)] font-extrabold text-white leading-[1.08] mb-5">
               Catalogue<br /><span className="text-primary">NovaLead</span>
             </h1>
-            <p className="text-[15px] text-white/60 max-w-[460px] leading-[1.75] mb-8 mx-auto">
+            <p className="text-[15px] text-white/70 max-w-[460px] leading-[1.75] mb-8 mx-auto">
               Des formations terrain pensées pour les techniciens de demain — fibre optique, télécoms et énergie solaire.
             </p>
             <div className="flex gap-5 min-[600px]:gap-8">

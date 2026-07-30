@@ -151,7 +151,7 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen bg-transparent">    
    {/* Hero Section */}
-<div data-dark-hero className="bg-gradient-to-br from-[#04211e] to-[#0a3a2e] px-16 pt-36 pb-20 text-center">
+<div data-dark-hero className="bg-gradient-to-br from-hero-from to-hero-to px-16 pt-36 pb-20 text-center">
   <p className="text-primary text-xs font-bold uppercase tracking-widest mb-4 flex items-center justify-center gap-2">
     <span className="w-5 h-[2px] bg-primary" />
     Nous contacter
@@ -161,15 +161,15 @@ export default function ContactPage() {
     Parlons de <br />
     <span className="text-primary">votre projet</span>
   </h1>
-  <p className="text-white/60 text-base leading-relaxed max-w-2xl mx-auto">
+  <p className="text-white/70 text-base leading-relaxed max-w-2xl mx-auto">
     Particulier ou entreprise — remplissez le formulaire adapté à votre profil et notre équipe vous répond sous 24h.
   </p>
 </div>
       {/* Contact Form Section */}
       <section className="px-16 py-24 bg-gradient-to-b from-deep to-base">
-        <div className="max-w-2xl mx-auto">
+        <div className="max-w-2xl mx-auto bg-surface shadow-card rounded-2xl p-6 md:p-10">
           {/* Tab Switcher */}
-          <div className="flex gap-4 mb-8 border-b border-white/10">
+          <div className="flex gap-4 mb-8 border-b border-black/10">
             <button
               onClick={() => switchTab("b2c")}
               type="button"
@@ -202,8 +202,8 @@ export default function ContactPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <Field label="Prénom" required error={b2cErr.prenom}>
                   <input
-                    className={`w-full px-4 py-2.5 bg-surface border rounded-lg text-graphite placeholder-faint transition-colors ${
-                      b2cErr.prenom ? "border-error" : "border-white/10 focus:border-primary"
+                    className={`w-full px-4 py-2.5 bg-black/[0.03] border rounded-lg text-graphite placeholder-faint transition-colors ${
+                      b2cErr.prenom ? "border-error" : "border-black/10 focus:border-primary"
                     } focus:outline-none`}
                     type="text"
                     placeholder="Votre prénom"
@@ -213,8 +213,8 @@ export default function ContactPage() {
                 </Field>
                 <Field label="Nom" required error={b2cErr.nom}>
                   <input
-                    className={`w-full px-4 py-2.5 bg-surface border rounded-lg text-graphite placeholder-faint transition-colors ${
-                      b2cErr.nom ? "border-error" : "border-white/10 focus:border-primary"
+                    className={`w-full px-4 py-2.5 bg-black/[0.03] border rounded-lg text-graphite placeholder-faint transition-colors ${
+                      b2cErr.nom ? "border-error" : "border-black/10 focus:border-primary"
                     } focus:outline-none`}
                     type="text"
                     placeholder="Votre nom"
@@ -227,8 +227,8 @@ export default function ContactPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <Field label="Email" required error={b2cErr.email}>
                   <input
-                    className={`w-full px-4 py-2.5 bg-surface border rounded-lg text-graphite placeholder-faint transition-colors ${
-                      b2cErr.email ? "border-error" : "border-white/10 focus:border-primary"
+                    className={`w-full px-4 py-2.5 bg-black/[0.03] border rounded-lg text-graphite placeholder-faint transition-colors ${
+                      b2cErr.email ? "border-error" : "border-black/10 focus:border-primary"
                     } focus:outline-none`}
                     type="email"
                     placeholder="votre@email.com"
@@ -238,8 +238,8 @@ export default function ContactPage() {
                 </Field>
                 <Field label="Téléphone" error={b2cErr.telephone}>
                   <input
-                    className={`w-full px-4 py-2.5 bg-surface border rounded-lg text-graphite placeholder-faint transition-colors ${
-                      b2cErr.telephone ? "border-error" : "border-white/10 focus:border-primary"
+                    className={`w-full px-4 py-2.5 bg-black/[0.03] border rounded-lg text-graphite placeholder-faint transition-colors ${
+                      b2cErr.telephone ? "border-error" : "border-black/10 focus:border-primary"
                     } focus:outline-none`}
                     type="tel"
                     placeholder="+216 XX XXX XXX"
@@ -251,8 +251,8 @@ export default function ContactPage() {
 
               <Field label="Formation souhaitée" error={b2cErr.formation}>
                 <select
-                  className={`w-full px-4 py-2.5 bg-surface border rounded-lg text-graphite transition-colors ${
-                    b2cErr.formation ? "border-error" : "border-white/10 focus:border-primary"
+                  className={`w-full px-4 py-2.5 bg-black/[0.03] border rounded-lg text-graphite transition-colors ${
+                    b2cErr.formation ? "border-error" : "border-black/10 focus:border-primary"
                   } focus:outline-none`}
                   value={b2c.formation}
                   onChange={b2cChange("formation")}
@@ -269,8 +269,8 @@ export default function ContactPage() {
 
               <Field label="Message" required error={b2cErr.message}>
                 <textarea
-                  className={`w-full px-4 py-2.5 bg-surface border rounded-lg text-graphite placeholder-faint transition-colors resize-none ${
-                    b2cErr.message ? "border-error" : "border-white/10 focus:border-primary"
+                  className={`w-full px-4 py-2.5 bg-black/[0.03] border rounded-lg text-graphite placeholder-faint transition-colors resize-none ${
+                    b2cErr.message ? "border-error" : "border-black/10 focus:border-primary"
                   } focus:outline-none`}
                   placeholder="Décrivez votre projet, vos questions ou vos disponibilités…"
                   value={b2c.message}
@@ -292,8 +292,8 @@ export default function ContactPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <Field label="Raison sociale" required error={b2bErr.entreprise}>
                   <input
-                    className={`w-full px-4 py-2.5 bg-surface border rounded-lg text-graphite placeholder-faint transition-colors ${
-                      b2bErr.entreprise ? "border-error" : "border-white/10 focus:border-primary"
+                    className={`w-full px-4 py-2.5 bg-black/[0.03] border rounded-lg text-graphite placeholder-faint transition-colors ${
+                      b2bErr.entreprise ? "border-error" : "border-black/10 focus:border-primary"
                     } focus:outline-none`}
                     type="text"
                     placeholder="Nom de l'entreprise"
@@ -303,8 +303,8 @@ export default function ContactPage() {
                 </Field>
                 <Field label="Secteur d'activité" error={b2bErr.secteur}>
                   <input
-                    className={`w-full px-4 py-2.5 bg-surface border rounded-lg text-graphite placeholder-faint transition-colors ${
-                      b2bErr.secteur ? "border-error" : "border-white/10 focus:border-primary"
+                    className={`w-full px-4 py-2.5 bg-black/[0.03] border rounded-lg text-graphite placeholder-faint transition-colors ${
+                      b2bErr.secteur ? "border-error" : "border-black/10 focus:border-primary"
                     } focus:outline-none`}
                     type="text"
                     placeholder="ex : BTP, Énergie, Télécom…"
@@ -317,8 +317,8 @@ export default function ContactPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <Field label="Prénom du contact" required error={b2bErr.prenomContact}>
                   <input
-                    className={`w-full px-4 py-2.5 bg-surface border rounded-lg text-graphite placeholder-faint transition-colors ${
-                      b2bErr.prenomContact ? "border-error" : "border-white/10 focus:border-primary"
+                    className={`w-full px-4 py-2.5 bg-black/[0.03] border rounded-lg text-graphite placeholder-faint transition-colors ${
+                      b2bErr.prenomContact ? "border-error" : "border-black/10 focus:border-primary"
                     } focus:outline-none`}
                     type="text"
                     placeholder="Prénom"
@@ -328,8 +328,8 @@ export default function ContactPage() {
                 </Field>
                 <Field label="Nom du contact" required error={b2bErr.nomContact}>
                   <input
-                    className={`w-full px-4 py-2.5 bg-surface border rounded-lg text-graphite placeholder-faint transition-colors ${
-                      b2bErr.nomContact ? "border-error" : "border-white/10 focus:border-primary"
+                    className={`w-full px-4 py-2.5 bg-black/[0.03] border rounded-lg text-graphite placeholder-faint transition-colors ${
+                      b2bErr.nomContact ? "border-error" : "border-black/10 focus:border-primary"
                     } focus:outline-none`}
                     type="text"
                     placeholder="Nom"
@@ -342,8 +342,8 @@ export default function ContactPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <Field label="Email professionnel" required error={b2bErr.email}>
                   <input
-                    className={`w-full px-4 py-2.5 bg-surface border rounded-lg text-graphite placeholder-faint transition-colors ${
-                      b2bErr.email ? "border-error" : "border-white/10 focus:border-primary"
+                    className={`w-full px-4 py-2.5 bg-black/[0.03] border rounded-lg text-graphite placeholder-faint transition-colors ${
+                      b2bErr.email ? "border-error" : "border-black/10 focus:border-primary"
                     } focus:outline-none`}
                     type="email"
                     placeholder="contact@entreprise.com"
@@ -353,8 +353,8 @@ export default function ContactPage() {
                 </Field>
                 <Field label="Téléphone" required error={b2bErr.telephone}>
                   <input
-                    className={`w-full px-4 py-2.5 bg-surface border rounded-lg text-graphite placeholder-faint transition-colors ${
-                      b2bErr.telephone ? "border-error" : "border-white/10 focus:border-primary"
+                    className={`w-full px-4 py-2.5 bg-black/[0.03] border rounded-lg text-graphite placeholder-faint transition-colors ${
+                      b2bErr.telephone ? "border-error" : "border-black/10 focus:border-primary"
                     } focus:outline-none`}
                     type="tel"
                     placeholder="+216 XX XXX XXX"
@@ -367,8 +367,8 @@ export default function ContactPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <Field label="Personnes à former" error={b2bErr.nbPersonnes}>
                   <select
-                    className={`w-full px-4 py-2.5 bg-surface border rounded-lg text-graphite transition-colors ${
-                      b2bErr.nbPersonnes ? "border-error" : "border-white/10 focus:border-primary"
+                    className={`w-full px-4 py-2.5 bg-black/[0.03] border rounded-lg text-graphite transition-colors ${
+                      b2bErr.nbPersonnes ? "border-error" : "border-black/10 focus:border-primary"
                     } focus:outline-none`}
                     value={b2b.nbPersonnes}
                     onChange={b2bChange("nbPersonnes")}
@@ -382,8 +382,8 @@ export default function ContactPage() {
                 </Field>
                 <Field label="Domaine de formation" error={b2bErr.domaine}>
                   <select
-                    className={`w-full px-4 py-2.5 bg-surface border rounded-lg text-graphite transition-colors ${
-                      b2bErr.domaine ? "border-error" : "border-white/10 focus:border-primary"
+                    className={`w-full px-4 py-2.5 bg-black/[0.03] border rounded-lg text-graphite transition-colors ${
+                      b2bErr.domaine ? "border-error" : "border-black/10 focus:border-primary"
                     } focus:outline-none`}
                     value={b2b.domaine}
                     onChange={b2bChange("domaine")}
@@ -399,8 +399,8 @@ export default function ContactPage() {
 
               <Field label="Besoin spécifique" required error={b2bErr.message}>
                 <textarea
-                  className={`w-full px-4 py-2.5 bg-surface border rounded-lg text-graphite placeholder-faint transition-colors resize-none ${
-                    b2bErr.message ? "border-error" : "border-white/10 focus:border-primary"
+                  className={`w-full px-4 py-2.5 bg-black/[0.03] border rounded-lg text-graphite placeholder-faint transition-colors resize-none ${
+                    b2bErr.message ? "border-error" : "border-black/10 focus:border-primary"
                   } focus:outline-none`}
                   placeholder="Décrivez votre projet de formation, vos objectifs, vos contraintes de calendrier…"
                   value={b2b.message}

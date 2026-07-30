@@ -3,7 +3,7 @@ export default function LocationPage() {
     <div className="min-h-screen bg-transparent">
 
       {/* Hero Banner */}
-      <div data-dark-hero className="bg-gradient-to-br from-[#04211e] to-[#0a3a2e] px-16 pt-36 pb-16 text-center">
+      <div data-dark-hero className="bg-gradient-to-br from-hero-from to-hero-to px-16 pt-36 pb-16 text-center">
         <p className="text-primary text-xs font-bold uppercase tracking-widest mb-2 flex items-center justify-center gap-2">
           <span className="w-5 h-[2px] bg-primary" />
           Nous trouver
@@ -19,7 +19,7 @@ export default function LocationPage() {
         {/* Left — Info cards */}
         <div className="flex flex-col gap-6">
 
-          <div className="bg-surface rounded-2xl p-8">
+          <div className="bg-surface shadow-card rounded-2xl p-8">
             <p className="text-primary text-xs font-bold uppercase tracking-widest mb-4">Adresse</p>
             <p className="text-graphite font-bold text-lg mb-1">Centre NovaLead</p>
             <p className="text-muted text-sm leading-relaxed">
@@ -28,7 +28,7 @@ export default function LocationPage() {
             </p>
           </div>
 
-          <div className="bg-surface rounded-2xl p-8">
+          <div className="bg-surface shadow-card rounded-2xl p-8">
             <p className="text-primary text-xs font-bold uppercase tracking-widest mb-4">Contact direct</p>
             <div className="flex flex-col gap-4">
               {[
@@ -46,7 +46,7 @@ export default function LocationPage() {
             </div>
           </div>
 
-          <div className="bg-surface rounded-2xl p-8">
+          <div className="bg-surface shadow-card rounded-2xl p-8">
             <p className="text-primary text-xs font-bold uppercase tracking-widest mb-4">Horaires d'ouverture</p>
             <div className="flex flex-col gap-3 text-sm">
               {[
@@ -81,7 +81,7 @@ export default function LocationPage() {
           </div>
 
           {/* How to get there */}
-          <div className="bg-surface rounded-2xl p-8">
+          <div className="bg-surface shadow-card rounded-2xl p-8">
             <p className="text-primary text-xs font-bold uppercase tracking-widest mb-4">Comment nous rejoindre</p>
             <div className="flex flex-col gap-4">
               {[
@@ -104,10 +104,10 @@ export default function LocationPage() {
       </div>
 
       {/* Bottom CTA */}
-      <div className="bg-gradient-to-r from-[#04211e] to-[#0a3a2e] px-16 py-16 text-center">
+      <div className="bg-gradient-to-br from-hero-from to-hero-to px-16 py-16 text-center">
         <p className="text-primary text-xs font-bold uppercase tracking-widest mb-3">Venez nous rendre visite</p>
         <h2 className="text-3xl font-black text-white mb-4">Une question ? Passez nous voir</h2>
-        <p className="text-white/60 text-sm mb-8 max-w-md mx-auto">
+        <p className="text-white/70 text-sm mb-8 max-w-md mx-auto">
           Notre équipe vous accueille du lundi au samedi pour répondre à toutes vos questions sur nos formations.
         </p>
         <a href="https://wa.me/21600000000" target="_blank" rel="noopener noreferrer" className="bg-primary text-white font-semibold px-8 py-3 rounded-full hover:opacity-90 transition-opacity inline-block">

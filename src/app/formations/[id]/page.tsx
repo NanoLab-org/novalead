@@ -46,12 +46,12 @@ export default async function FormationFiche({ params }: Props) {
   
   {/* Content */}
   <div className="relative z-10 text-center">
-    <Link href="/catalogue" className="text-white/60 text-sm hover:text-white transition-colors mb-8 inline-block">
+    <Link href="/catalogue" className="text-white/70 text-sm hover:text-graphite transition-colors mb-8 inline-block">
       ← Retour au catalogue
     </Link>
     <div className="flex gap-3 mb-6 text-center justify-center">
       <span className="text-xs font-semibold px-3 py-1 rounded-full bg-primary/20 text-primary border border-primary/30 text-center">{formation.niveau}</span>
-      <span className="text-xs font-semibold px-3 py-1 rounded-full bg-white/10 text-white/70 border border-white/20 text-center">{formation.format}</span>
+      <span className="text-xs font-semibold px-3 py-1 rounded-full bg-white/10 text-white/70 border border-black/20 text-center">{formation.format}</span>
     </div>
     <h1 className="text-4xl lg:text-6xl font-black text-white tracking-tighter mb-6 max-w-3xl text-center mx-auto">
       {formation.titre}
@@ -59,7 +59,7 @@ export default async function FormationFiche({ params }: Props) {
     <p className="text-white/70 text-base leading-relaxed max-w-2xl mb-8 text-center mx-auto">
       {formation.description}
     </p>
-    <div className="flex gap-8 text-sm text-white/60">
+    <div className="flex gap-8 text-sm text-white/70">
     </div>
   </div>
 </div>
@@ -71,7 +71,7 @@ export default async function FormationFiche({ params }: Props) {
         <div className="lg:col-span-2 flex flex-col gap-8">
 
           {/* Objectifs */}
-          <div className="bg-surface rounded-2xl p-8">
+          <div className="bg-surface shadow-card rounded-2xl p-8">
             <h2 className="text-graphite font-black text-lg mb-6 flex items-center gap-2">
               <span className="w-1 h-6 bg-primary rounded-full" />
               Objectifs de la formation
@@ -87,7 +87,7 @@ export default async function FormationFiche({ params }: Props) {
           </div>
 
           {/* Programme */}
-          <div className="bg-surface rounded-2xl p-8">
+          <div className="bg-surface shadow-card rounded-2xl p-8">
             <h2 className="text-graphite font-black text-lg mb-6 flex items-center gap-2">
               <span className="w-1 h-6 bg-primary rounded-full" />
               Programme jour par jour
@@ -113,7 +113,7 @@ export default async function FormationFiche({ params }: Props) {
           </div>
 
           {/* Prérequis */}
-          <div className="bg-surface rounded-2xl p-8">
+          <div className="bg-surface shadow-card rounded-2xl p-8">
             <h2 className="text-graphite font-black text-lg mb-4 flex items-center gap-2">
               <span className="w-1 h-6 bg-primary rounded-full" />
               Prérequis
@@ -127,7 +127,7 @@ export default async function FormationFiche({ params }: Props) {
         <div className="flex flex-col gap-6">
 
           {/* Infos pratiques */}
-          <div className="bg-surface rounded-2xl p-6 sticky top-28">
+          <div className="bg-surface shadow-card rounded-2xl p-6 sticky top-28">
             <h2 className="text-graphite font-black text-base mb-5">Infos pratiques</h2>
             <div className="flex flex-col gap-4 text-sm mb-6">
               {[
@@ -166,17 +166,17 @@ export default async function FormationFiche({ params }: Props) {
       </div>
 
       {/* Bottom CTA */}
-      <div className="bg-gradient-to-r from-[#04211e] to-[#0a3a2e] px-16 py-16 text-center">
+      <div className="bg-gradient-to-br from-hero-from to-hero-to px-16 py-16 text-center">
         <p className="text-primary text-xs font-bold uppercase tracking-widest mb-3">Prêt à vous former ?</p>
         <h2 className="text-3xl font-black text-white mb-4">Rejoignez la prochaine session</h2>
-        <p className="text-white/60 text-sm mb-8 max-w-md mx-auto">
+        <p className="text-white/70 text-sm mb-8 max-w-md mx-auto">
           Places limitées — inscrivez-vous dès maintenant pour garantir votre place dans la prochaine session.
         </p>
         <div className="flex gap-3 justify-center">
           <Link href="/contact" className="bg-primary text-white font-semibold px-8 py-3 rounded-full hover:opacity-90 transition-opacity">
             S'inscrire maintenant
           </Link>
-          <Link href="/catalogue" className="bg-white/10 text-white font-medium px-8 py-3 rounded-full hover:bg-white/20 transition-colors">
+          <Link href="/catalogue" className="bg-white/10 text-graphite font-medium px-8 py-3 rounded-full hover:bg-white/20 transition-colors">
             Voir d'autres formations
           </Link>
         </div>

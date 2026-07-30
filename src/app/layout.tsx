@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Hanken_Grotesk, Inter } from "next/font/google";
+import { Space_Grotesk, Manrope } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -7,11 +7,11 @@ import WhatsAppWidget from "@/components/whattswidget";
 import TransitionProvider from "@/components/transitions/TransitionProvider";
 import ScrollNavigator from "@/components/transitions/ScrollNavigator";
 
-const display = Hanken_Grotesk({
+const display = Space_Grotesk({
   subsets: ["latin"],
   variable: "--font-display",
 });
-const sans = Inter({
+const sans = Manrope({
   subsets: ["latin"],
   variable: "--font-sans",
 });

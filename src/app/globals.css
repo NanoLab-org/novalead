@@ -7,8 +7,11 @@
    them as CSS variables (var(--color-orange)) for plain CSS below. */
 @theme {
   /* Backgrounds — light "Serene" theme */
-  --color-base: #aeddd0;          /* sea foam (page gradient top) */
-  --color-deep: #86ccbc;          /* deeper sea (page gradient bottom / sections) */
+  --color-base: #ccddcb;          /* Seafoam */
+  --color-deep: #ccddcb;          /* Seafoam */
+  --color-hero-from: #04211e;     /* hero & footer gradient — edit these two */
+  --color-hero-to: #0a3a2e;
+  --shadow-card: 0 12px 30px -10px rgb(6 40 40 / 0.20), 0 4px 10px -4px rgb(6 40 40 / 0.12);
   --color-surface: #ffffff;      /* white foam cards — pop on the sea bg */
   --color-surface-hover: #eef8f4;
 
@@ -54,19 +57,19 @@ body {
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
 }
 
-/* Headings use the display face (Hanken Grotesk, up to 900). */
-h1, h2, h3, h4 {
+/* Titles, buttons & stats use the display face (Space Grotesk);
+   paragraphs use the sans face (Manrope, on <body>). */
+h1, h2, h3, h4, h5, h6, button {
   font-family: var(--font-display), var(--font-sans), sans-serif;
 }
 
 /* Frosted teal glass card — reused across the site.
    Tweak the whole card look for every box from here. */
+/* Elevated white card — pops off the sea background. */
 .glass-card {
-  background-color: rgb(13 148 136 / 0.08);   /* slight teal tint (#0d9488) */
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgb(13 148 136 / 0.22);
-  box-shadow: 0 10px 30px -15px rgb(13 148 136 / 0.30);
+  background-color: #ffffff;
+  border: 1px solid rgb(6 40 40 / 0.06);
+  box-shadow: var(--shadow-card);
 }
 
 html {
