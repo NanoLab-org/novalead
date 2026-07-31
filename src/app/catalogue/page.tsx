@@ -2,6 +2,8 @@
 import { useEffect, useRef } from "react";
 import { CATEGORIES } from "@/constants";
 import Link from "next/link";
+import { LampContainer } from "@/components/ui/lamp";
+import { motion } from "framer-motion";
 
 type Niveau = "Débutant" | "Intermédiaire" | "Avancé" | "Tous niveaux";
 
@@ -156,36 +158,35 @@ export default function CataloguePage() {
     <>
       <header
         ref={heroRef}
-       
-        data-dark-hero className="relative overflow-hidden bg-gradient-to-br from-hero-from to-hero-to pt-0 translate-y-0 transition-all duration-700 ease-out"
+        data-dark-hero
+        className="relative overflow-hidden translate-y-0 transition-all duration-700 ease-out"
       >
-        <div className="grid grid-cols-1 min-[900px]:grid-cols-2 min-h-[420px]">
-          <div className="flex flex-col items-center justify-center text-center relative z-10 px-6 pt-14 pb-10 min-[900px]:px-0 min-[900px]:pb-16">
-            <p className="text-[11px] font-bold tracking-[0.2em] uppercase text-primary mb-[18px]">
-              Nos formations
-            </p>
-            <h1 className="text-[clamp(34px,4vw,54px)] font-extrabold text-white leading-[1.08] mb-5">
-              Catalogue<br /><span className="text-primary">NovaLead</span>
-            </h1>
-            <p className="text-[15px] text-white/70 max-w-[460px] leading-[1.75] mb-8 mx-auto">
-              Des formations terrain pensées pour les techniciens de demain — fibre optique, télécoms et énergie solaire.
-            </p>
-            <div className="flex gap-5 min-[600px]:gap-8">
-            </div>
-          </div>
-         <div className="relative overflow-hidden h-[260px] min-[900px]:h-auto">
-            <img
-              className="w-full h-full object-cover object-center block"
-              src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=900&q=80&auto=format&fit=crop"
-              alt="Technicien en formation"
-              style={{ filter: "brightness(0.45) saturate(0.85)" }}
-            />
-            <div
-              className="absolute inset-0 z-10 pointer-events-none"
-              style={{ background: "#04211e", opacity: 0.35 }}
-            />
-          </div>
-        </div>
+        <LampContainer>
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1, duration: 0.8, ease: "easeOut" }}
+            className="text-[11px] font-bold tracking-[0.2em] uppercase text-primary mb-[18px]"
+          >
+            Nos formations
+          </motion.p>
+          <motion.h1
+            initial={{ opacity: 0.3, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.8, ease: "easeOut" }}
+            className="text-[clamp(34px,4vw,58px)] font-black text-white leading-[1.08] mb-5 tracking-tighter"
+          >
+            Catalogue<br /><span className="text-primary">NovaLead</span>
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
+            className="text-[15px] text-white/70 max-w-[460px] leading-[1.75] mx-auto"
+          >
+            Des formations terrain pensées pour les techniciens de demain — fibre optique, télécoms et énergie solaire.
+          </motion.p>
+        </LampContainer>
       </header>
 
       <div className="h-px bg-[linear-gradient(90deg,transparent_0%,rgb(13_148_136/0.45)_30%,rgb(37_99_235/0.55)_70%,transparent_100%)]" />
