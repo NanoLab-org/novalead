@@ -182,7 +182,7 @@ export default function ContactPage() {
     Nous contacter
     <span className="w-5 h-[2px] bg-primary" />
   </p>
-  <h1 className="text-3xl sm:px-10 lg:px-16 pt-28 sm:pt-32 lg:pt-36 pb-14 sm:pb-20">
+  <h1 className="text-[clamp(34px,4vw,54px)] font-extrabold text-white leading-[1.08] mb-5">
     Parlons de <br />
     <span className="text-primary">votre projet</span>
   </h1>
