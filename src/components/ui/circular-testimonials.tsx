@@ -29,12 +29,19 @@ interface CircularTestimonialsProps {
   fontSizes?: FontSizes;
 }
 
+// Below 1024px the gap now scales down with width instead of staying flat at 60px,
+// so the left/right preview cards don't punch past a narrow phone's edges.
 function calculateGap(width: number) {
   const minWidth = 1024;
   const maxWidth = 1456;
   const minGap = 60;
   const maxGap = 86;
-  if (width <= minWidth) return minGap;
+  if (width <= minWidth) {
+    const narrowFloor = 320;
+    const narrowGap = 18;
+    if (width <= narrowFloor) return narrowGap;
+    return narrowGap + (minGap - narrowGap) * ((width - narrowFloor) / (minWidth - narrowFloor));
+  }
   if (width >= maxWidth) return Math.max(minGap, maxGap + 0.06018 * (width - maxWidth));
   return minGap + (maxGap - minGap) * ((width - minWidth) / (maxWidth - minWidth));
 }
@@ -59,6 +66,7 @@ export const CircularTestimonials = ({
   const [hoverPrev, setHoverPrev] = useState(false);
   const [hoverNext, setHoverNext] = useState(false);
   const [containerWidth, setContainerWidth] = useState(600);
+  const [isMobile, setIsMobile] = useState(false);
 
   const imageContainerRef = useRef<HTMLDivElement>(null);
   const autoplayIntervalRef = useRef<NodeJS.Timeout | null>(null);
@@ -71,6 +79,7 @@ export const CircularTestimonials = ({
       if (imageContainerRef.current) {
         setContainerWidth(imageContainerRef.current.offsetWidth);
       }
+      setIsMobile(window.innerWidth < 768);
     }
     handleResize();
     window.addEventListener("resize", handleResize);
@@ -89,24 +98,25 @@ export const CircularTestimonials = ({
   }, [autoplay, testimonialsLength]);
 
   const handleNext = useCallback(() => {
-  setActiveIndex((prev) => (prev + 1) % testimonialsLength);
-  if (autoplayIntervalRef.current) clearInterval(autoplayIntervalRef.current);
-  if (autoplay) {
-    autoplayIntervalRef.current = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % testimonialsLength);
-    }, 5000);
-  }
-}, [testimonialsLength, autoplay]);
+    setActiveIndex((prev) => (prev + 1) % testimonialsLength);
+    if (autoplayIntervalRef.current) clearInterval(autoplayIntervalRef.current);
+    if (autoplay) {
+      autoplayIntervalRef.current = setInterval(() => {
+        setActiveIndex((prev) => (prev + 1) % testimonialsLength);
+      }, 5000);
+    }
+  }, [testimonialsLength, autoplay]);
 
-const handlePrev = useCallback(() => {
-  setActiveIndex((prev) => (prev - 1 + testimonialsLength) % testimonialsLength);
-  if (autoplayIntervalRef.current) clearInterval(autoplayIntervalRef.current);
-  if (autoplay) {
-    autoplayIntervalRef.current = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % testimonialsLength);
-    }, 5000);
-  }
-}, [testimonialsLength, autoplay]);
+  const handlePrev = useCallback(() => {
+    setActiveIndex((prev) => (prev - 1 + testimonialsLength) % testimonialsLength);
+    if (autoplayIntervalRef.current) clearInterval(autoplayIntervalRef.current);
+    if (autoplay) {
+      autoplayIntervalRef.current = setInterval(() => {
+        setActiveIndex((prev) => (prev + 1) % testimonialsLength);
+      }, 5000);
+    }
+  }, [testimonialsLength, autoplay]);
+
   function getImageStyle(index: number): React.CSSProperties {
     const gap = calculateGap(containerWidth);
     const maxStickUp = gap * 0.8;
@@ -179,13 +189,24 @@ const handlePrev = useCallback(() => {
   };
 
   return (
-    <div style={{ width: "100%", maxWidth: "56rem", padding: "2rem" }}>
-      <div style={{ display: "grid", gap: "5rem", gridTemplateColumns: "1fr 1fr" }}>
-        
+    <div style={{ width: "100%", maxWidth: "56rem", padding: isMobile ? "1.25rem" : "2rem", overflow:  isMobile ? "hidden" : "visible"  }}>
+      <div
+        style={{
+          display: "grid",
+          gap: isMobile ? "2.5rem" : "5rem",
+          gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr",
+        }}
+      >
         {/* Images */}
         <div
           ref={imageContainerRef}
-          style={{ position: "relative", width: "100%", height: "24rem", perspective: "1000px" }}
+          style={{
+            position: "relative",
+            width: "100%",
+            height: isMobile ? "16rem" : "24rem",
+            perspective: "1000px",
+            overflow: isMobile ? "hidden" : "visible",
+          }}
         >
           {testimonials.map((testimonial, index) => (
             <img
@@ -208,13 +229,13 @@ const handlePrev = useCallback(() => {
               exit="exit"
               transition={{ duration: 0.3, ease: "easeInOut" }}
             >
-              <h3 style={{ color: colorName, fontSize: fontSizeName, fontWeight: "bold", marginBottom: "0.25rem" }}>
+              <h3 style={{ color: colorName, fontSize: isMobile ? "1.25rem" : fontSizeName, fontWeight: "bold", marginBottom: "0.25rem" }}>
                 {activeTestimonial.name}
               </h3>
-              <p style={{ color: colorDesignation, fontSize: fontSizeDesignation, marginBottom: "2rem" }}>
+              <p style={{ color: colorDesignation, fontSize: fontSizeDesignation, marginBottom: isMobile ? "1.25rem" : "2rem" }}>
                 {activeTestimonial.designation}
               </p>
-              <motion.p style={{ color: colorTestimony, fontSize: fontSizeQuote, lineHeight: 1.75 }}>
+              <motion.p style={{ color: colorTestimony, fontSize: isMobile ? "1rem" : fontSizeQuote, lineHeight: 1.75 }}>
                 {activeTestimonial.quote.split(" ").map((word, i) => (
                   <motion.span
                     key={i}
@@ -231,7 +252,7 @@ const handlePrev = useCallback(() => {
           </AnimatePresence>
 
           {/* Arrows */}
-          <div style={{ display: "flex", gap: "1.5rem", paddingTop: "2rem" }}>
+          <div style={{ display: "flex", gap: "1.5rem", paddingTop: isMobile ? "1.5rem" : "2rem" }}>
             <button
               onClick={handlePrev}
               onMouseEnter={() => setHoverPrev(true)}
@@ -272,7 +293,6 @@ const handlePrev = useCallback(() => {
             </button>
           </div>
         </div>
-
       </div>
     </div>
   );
