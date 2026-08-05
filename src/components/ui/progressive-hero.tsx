@@ -71,7 +71,7 @@ function ProgressiveHero() {
   }, [titleNumber, titles]);
 
   return (
-    <section data-dark-hero className="relative w-full min-h-screen overflow-hidden">
+    <section data-dark-hero className="relative w-full min-h-dvh overflow-hidden">
       {/* Background video */}
       <video
         className="absolute inset-0 h-full w-full object-cover"
@@ -86,7 +86,7 @@ function ProgressiveHero() {
       {/* Light scrim only at top/bottom for text legibility; middle stays clear */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-transparent to-[#04211e]" />
 
-      <div className="relative z-10 flex min-h-screen w-full flex-col items-center justify-center px-6">
+      <div className="relative z-10 flex min-h-dvh w-full flex-col items-center justify-center px-6">
         <div className="flex w-full flex-col items-center justify-center gap-8 py-28">
           {/* Eyebrow */}
           <div>
