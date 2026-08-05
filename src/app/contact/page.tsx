@@ -176,29 +176,29 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen bg-transparent">    
    {/* Hero Section */}
-<div data-dark-hero className="bg-gradient-to-br from-hero-from to-hero-to px-16 pt-36 pb-20 text-center">
+<div data-dark-hero className="bg-gradient-to-br from-hero-from to-hero-to px-5 sm:px-10 lg:px-16 pt-28 sm:pt-32 lg:pt-36 pb-14 sm:pb-20 text-center">
   <p className="text-primary text-xs font-bold uppercase tracking-widest mb-4 flex items-center justify-center gap-2">
     <span className="w-5 h-[2px] bg-primary" />
     Nous contacter
     <span className="w-5 h-[2px] bg-primary" />
   </p>
-  <h1 className="text-4xl lg:text-6xl font-black text-white tracking-tighter mb-6">
+  <h1 className="text-[clamp(34px,4vw,54px)] font-extrabold text-white leading-[1.08] mb-5">
     Parlons de <br />
     <span className="text-primary">votre projet</span>
   </h1>
-  <p className="text-white/70 text-base leading-relaxed max-w-2xl mx-auto">
+  <p className="text-white/70 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
     Particulier ou entreprise — remplissez le formulaire adapté à votre profil et notre équipe vous répond sous 24h.
   </p>
 </div>
       {/* Contact Form Section */}
-      <section className="px-16 py-24 bg-gradient-to-b from-deep to-base">
+      <section className="px-5 sm:px-10 lg:px-16 py-12 sm:py-16 lg:py-24 bg-gradient-to-b from-deep to-base">
         <div className="max-w-2xl mx-auto bg-surface shadow-card rounded-2xl p-6 md:p-10">
           {/* Tab Switcher */}
-          <div className="flex gap-4 mb-8 border-b border-black/10">
+          <div className="flex gap-2 sm:gap-4 mb-8 border-b border-black/10 overflow-x-auto">
             <button
               onClick={() => switchTab("b2c")}
               type="button"
-              className={`px-4 py-3 font-semibold text-sm transition-all border-b-2 ${
+              className={`shrink-0 px-3 sm:px-4 py-3 font-semibold text-sm transition-all border-b-2 ${
                 tab === "b2c"
                   ? "border-primary text-primary"
                   : "border-transparent text-faded hover:text-strong"
@@ -209,7 +209,7 @@ export default function ContactPage() {
             <button
               onClick={() => switchTab("b2b")}
               type="button"
-              className={`px-4 py-3 font-semibold text-sm transition-all border-b-2 ${
+              className={`shrink-0 px-3 sm:px-4 py-3 font-semibold text-sm transition-all border-b-2 ${
                 tab === "b2b"
                   ? "border-primary text-primary"
                   : "border-transparent text-faded hover:text-strong"

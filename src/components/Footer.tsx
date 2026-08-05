@@ -12,7 +12,7 @@ export default function Footer() {
   return (
     <footer
       id="contact"
-      className="px-10 py-16 bg-gradient-to-br from-hero-from to-hero-to"
+      className="px-5 sm:px-8 lg:px-10 py-12 lg:py-16 bg-gradient-to-br from-hero-from to-hero-to"
     >
       <div className="max-w-[1100px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.2fr_0.85fr_0.85fr_0.85fr] gap-x-10 gap-y-12 mb-14">
 
