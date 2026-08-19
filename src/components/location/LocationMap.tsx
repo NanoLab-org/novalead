@@ -12,10 +12,16 @@ const MapCanvas = dynamic(() => import("./MapCanvas"), {
   ),
 });
 
-export default function LocationMap({ className }: { className?: string }) {
+export default function LocationMap({
+  className,
+  showItinerary = false,
+}: {
+  className?: string;
+  showItinerary?: boolean;
+}) {
   return (
     <div className={className}>
-      <MapCanvas />
+      <MapCanvas showItinerary={showItinerary} />
     </div>
   );
 }

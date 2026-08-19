@@ -114,6 +114,14 @@ export const officeLocation = {
   zoom: 15,
 };
 
+// Monthly bus itinerary — the ordered stops the shuttle serves, starting from
+// the office (officeLocation). Placeholder Tunis-area coords; swap freely.
+export const busStops = [
+  { name: "Arrêt Les Berges du Lac", lat: 36.833, lng: 10.227 },
+  { name: "Arrêt Ariana Centre", lat: 36.8625, lng: 10.193 },
+  { name: "Arrêt Le Bardo", lat: 36.809, lng: 10.14 },
+];
+
 // Google Maps embed for the office location (Tunis)
 export const mapEmbedUrl =
   "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d102115.39799550319!2d10.074691!3d36.806389!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12fd337f5e7ef543%3A0xd671924e714a0275!2sTunis!5e0!3m2!1sfr!2stn!4v1234567890";

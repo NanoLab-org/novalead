@@ -5,7 +5,6 @@ import { ChevronUp } from "lucide-react";
 import { address, contactInfo, openingHours, officeLocation } from "@/constants";
 
 const { lat, lng } = officeLocation;
-const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`;
 const openInMapsUrl = `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`;
 
 // Turn the shared contactInfo rows into real tel:/mailto:/wa.me links.
@@ -17,7 +16,13 @@ function contactHref(label: string, value: string) {
   return `tel:${digits}`;
 }
 
-export default function LocationCard() {
+export default function LocationCard({
+  itineraryActive,
+  onToggleItinerary,
+}: {
+  itineraryActive: boolean;
+  onToggleItinerary: () => void;
+}) {
   // Collapsed on mobile by default; on desktop the body is always shown (the
   // sm: classes below force it open regardless of this state).
   const [open, setOpen] = useState(false);
@@ -126,15 +131,19 @@ export default function LocationCard() {
 
               {/* Actions */}
               <div className="flex gap-3 pt-1">
-                <a
-                  href={directionsUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Ouvrir l'itinéraire vers le centre dans Google Maps"
-                  className="flex-1 rounded-full bg-primary px-4 py-2.5 text-center text-sm font-semibold text-white transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                <button
+                  type="button"
+                  onClick={onToggleItinerary}
+                  aria-pressed={itineraryActive}
+                  aria-label={
+                    itineraryActive
+                      ? "Masquer l'itinéraire du bus sur la carte"
+                      : "Afficher l'itinéraire du bus sur la carte"
+                  }
+                  className="flex-1 rounded-full bg-primary px-4 py-2.5 text-center text-sm font-semibold text-white transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary aria-pressed:bg-primary-dark"
                 >
-                  Itinéraire
-                </a>
+                  {itineraryActive ? "Masquer l'itinéraire" : "Itinéraire"}
+                </button>
                 <a
                   href={openInMapsUrl}
                   target="_blank"
