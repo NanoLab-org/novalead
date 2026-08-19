@@ -19,6 +19,12 @@ const STYLE_URL = "https://tiles.openfreemap.org/styles/positron";
 const CENTER: [number, number] = [officeLocation.lng, officeLocation.lat];
 const ZOOM = officeLocation.zoom;
 
+// Intro animation: start on the globe, zoomed out and offset in longitude, spin
+// onto the office's longitude, then dive to street level.
+const GLOBE_ZOOM = 0.5; // whole-earth view for the opening frame
+const SPIN_LNG_OFFSET = 120; // start this many degrees west of the target
+const SPIN_ZOOM = 2.4; // zoom the spin settles on before the final dive
+
 export default function MapCanvas() {
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -42,8 +48,9 @@ export default function MapCanvas() {
     const map = new MapLibreMap({
       container,
       style: STYLE_URL,
-      center: CENTER,
-      zoom: reduced ? ZOOM : 3.2, // start zoomed out, then fly to CENTER on load
+      // Non-reduced: open on the globe, offset west so the spin lands on CENTER.
+      center: reduced ? CENTER : [CENTER[0] - SPIN_LNG_OFFSET, CENTER[1]],
+      zoom: reduced ? ZOOM : GLOBE_ZOOM,
       attributionControl: { compact: true },
       // Scroll won't hijack the page: zoom needs ctrl (desktop) / two fingers
       // (touch). MapLibre shows the "use ctrl + scroll" hint automatically.
@@ -72,9 +79,26 @@ export default function MapCanvas() {
       // (dynamic-import mount race) — force it to read the real size and request
       // tiles, otherwise the tile layer stays blank while controls/marker show.
       map.resize();
-      if (!reduced) {
-        map.flyTo({ center: CENTER, zoom: ZOOM, duration: 2600, essential: true });
+
+      // Projection can only be set once the style has loaded (i.e. here).
+      // Reduced-motion users get the flat map and stay put.
+      if (reduced) {
+        map.setProjection({ type: "mercator" });
+        return;
       }
+      map.setProjection({ type: "globe" });
+
+      // Phase 1 — spin the globe onto the office's longitude (~1.2s, linear).
+      map.easeTo({
+        center: CENTER,
+        zoom: SPIN_ZOOM,
+        duration: 1200,
+        easing: (t) => t,
+      });
+      // Phase 2 — once the spin lands, dive down to street level.
+      map.once("moveend", () => {
+        map.flyTo({ center: CENTER, zoom: ZOOM, duration: 2800, essential: true });
+      });
     });
 
     // Keep the map matched to the container size on any later layout change.
