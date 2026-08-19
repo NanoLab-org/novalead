@@ -44,3 +44,6 @@ next-env.d.ts
 
 # local Codex rules/state
 .codex/
+
+# MapLibre worker files copied from node_modules (see scripts/sync-maplibre-worker.mjs)
+/public/maplibre
