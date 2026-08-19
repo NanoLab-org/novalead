@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "predev": "node scripts/sync-maplibre-worker.mjs",
     "dev": "next dev",
+    "prebuild": "node scripts/sync-maplibre-worker.mjs",
     "build": "prisma generate && next build",
     "postinstall": "prisma generate",
     "start": "next start",
@@ -19,6 +21,7 @@
     "framer-motion": "^12.42.0",
     "fullpage.js": "^4.0.41",
     "lucide-react": "^1.22.0",
+    "maplibre-gl": "^6.4.1",
     "mariadb": "^3.5.3",
     "motion": "^12.42.2",
     "next": "16.2.9",

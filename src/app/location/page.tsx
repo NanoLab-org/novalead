@@ -1,120 +1,115 @@
+import LocationMap from "@/components/location/LocationMap";
+import { address, contactInfo, openingHours, officeLocation } from "@/constants";
+
+const { lat, lng } = officeLocation;
+const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`;
+const openInMapsUrl = `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`;
+
+// Turn the shared contactInfo rows into real tel:/mailto:/wa.me links.
+function contactHref(label: string, value: string) {
+  const digits = value.replace(/[^\d+]/g, "");
+  const key = label.toLowerCase();
+  if (key.includes("mail")) return `mailto:${value}`;
+  if (key.includes("whats")) return `https://wa.me/${digits.replace("+", "")}`;
+  return `tel:${digits}`;
+}
+
 export default function LocationPage() {
   return (
-    <div className="min-h-screen bg-transparent">
+    <section className="relative h-[85vh] min-h-[560px] w-full overflow-hidden">
+      {/* Full-bleed animated map — client island, browser-only */}
+      <LocationMap className="absolute inset-0 z-0" />
 
-      {/* Hero Banner */}
-      <div data-dark-hero className="bg-gradient-to-br from-hero-from to-hero-to px-5 sm:px-10 lg:px-16 pt-28 sm:pt-32 lg:pt-36 pb-12 lg:pb-16 text-center">
-        <p className="text-primary text-xs font-bold uppercase tracking-widest mb-2 flex items-center justify-center gap-2">
-          <span className="w-5 h-[2px] bg-primary" />
-          Nous trouver
-        </p>
-        <h1 className="text-3xl sm:text-4xl lg:text-6xl font-black text-white tracking-tighter mb-4">
-          Où nous <span className="text-primary">trouver</span>
-        </h1>
-      </div>
-
-      {/* Map + Info */}
-      <div className="px-5 sm:px-10 lg:px-16 py-10 lg:py-16 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-start max-w-7xl mx-auto">
-
-        {/* Left — Info cards */}
-        <div className="flex flex-col gap-6">
-
-          <div className="bg-surface shadow-card rounded-2xl p-6 sm:p-8">
-            <p className="text-primary text-xs font-bold uppercase tracking-widest mb-4">Adresse</p>
-            <p className="text-graphite font-bold text-lg mb-1">Centre NovaLead</p>
-            <p className="text-muted text-sm leading-relaxed">
-              Rue Lorem Ipsum, Immeuble Dolor Sit<br />
-              1000 Tunis, Tunisie
+      {/* Floating frosted-glass info card:
+          bottom-left on desktop, full-width at the bottom on mobile. */}
+      <div className="absolute inset-x-4 bottom-4 z-10 flex max-h-[78vh] flex-col gap-5 overflow-y-auto rounded-2xl border border-white/40 bg-white/70 p-6 text-graphite shadow-card backdrop-blur-xl sm:inset-x-auto sm:bottom-6 sm:left-6 sm:w-[22rem] lg:bottom-10 lg:left-10">
+        {/* Adresse */}
+        <div>
+          <p className="mb-2 text-xs font-bold uppercase tracking-widest text-primary">
+            Adresse
+          </p>
+          <p className="font-bold">{address.name}</p>
+          {address.lines.map((line) => (
+            <p key={line} className="text-sm text-muted">
+              {line}
             </p>
-          </div>
+          ))}
+        </div>
 
-          <div className="bg-surface shadow-card rounded-2xl p-6 sm:p-8">
-            <p className="text-primary text-xs font-bold uppercase tracking-widest mb-4">Contact direct</p>
-            <div className="flex flex-col gap-4">
-              {[
-                { label: "Téléphone", value: "+216 XX XXX XXX", href: "tel:+21600000000" },
-                { label: "Email", value: "contact@novalead.tn", href: "mailto:contact@novalead.tn" },
-                { label: "WhatsApp", value: "+216 XX XXX XXX", href: "https://wa.me/21600000000" },
-              ].map((item) => (
-                <div key={item.label} className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 pb-4 border-b border-black/5 last:border-0 last:pb-0">
-                  <span className="text-primary text-xs font-bold uppercase tracking-widest">{item.label}</span>
-                  <a href={item.href} target={item.href.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer" className="text-muted text-sm hover:text-primary transition-colors font-medium">
-                    {item.value}
-                  </a>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="bg-surface shadow-card rounded-2xl p-6 sm:p-8">
-            <p className="text-primary text-xs font-bold uppercase tracking-widest mb-4">Horaires d'ouverture</p>
-            <div className="flex flex-col gap-3 text-sm">
-              {[
-                { day: "Lundi - Vendredi", hours: "08h00 - 18h00", closed: false },
-                { day: "Samedi", hours: "09h00 - 13h00", closed: false },
-                { day: "Dimanche", hours: "Fermé", closed: true },
-              ].map((slot) => (
-                <div key={slot.day} className="flex justify-between items-center pb-3 border-b border-black/5 last:border-0 last:pb-0">
-                  <span className="text-muted">{slot.day}</span>
-                  <span className={slot.closed ? "text-red-400 font-semibold" : "text-graphite font-semibold"}>
-                    {slot.hours}
+        {/* Contact direct */}
+        <div>
+          <p className="mb-2 text-xs font-bold uppercase tracking-widest text-primary">
+            Contact direct
+          </p>
+          <ul className="flex flex-col gap-2">
+            {contactInfo.map((c) => {
+              const href = contactHref(c.label, c.value);
+              const external = href.startsWith("http");
+              return (
+                <li
+                  key={c.label}
+                  className="flex items-center justify-between gap-3"
+                >
+                  <span className="text-xs font-semibold uppercase tracking-wide text-faint">
+                    {c.label}
                   </span>
-                </div>
-              ))}
-            </div>
-          </div>
-
+                  <a
+                    href={href}
+                    target={external ? "_blank" : undefined}
+                    rel={external ? "noopener noreferrer" : undefined}
+                    className="rounded text-sm font-medium transition-colors hover:text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                  >
+                    {c.value}
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
         </div>
 
-        {/* Right — Map */}
-        <div className="flex flex-col gap-6">
-          <div className="rounded-2xl overflow-hidden shadow-lg h-[280px] sm:h-[360px] lg:h-[500px]">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d102115.39799550319!2d10.074691!3d36.806389!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12fd337f5e7ef543%3A0xd671924e714a0275!2sTunis!5e0!3m2!1sfr!2stn!4v1234567890"
-              width="100%"
-              height="100%"
-              className="map-iframe"
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
-          </div>
-
-          {/* How to get there */}
-          <div className="bg-surface shadow-card rounded-2xl p-6 sm:p-8">
-            <p className="text-primary text-xs font-bold uppercase tracking-widest mb-4">Comment nous rejoindre</p>
-            <div className="flex flex-col gap-4">
-              {[
-                { icon: "🚇", label: "Métro", desc: "Station République — Ligne 1, à 5 min à pied" },
-                { icon: "🚌", label: "Bus", desc: "Lignes 5, 12, 27 — Arrêt Centre Ville" },
-                { icon: "🚗", label: "Voiture", desc: "Parking disponible à 200m — Parking Municipal" },
-              ].map((item) => (
-                <div key={item.label} className="flex items-start gap-4">
-                  <span className="text-2xl">{item.icon}</span>
-                  <div>
-                    <p className="text-graphite font-semibold text-sm">{item.label}</p>
-                    <p className="text-muted text-xs leading-relaxed">{item.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+        {/* Horaires d'ouverture */}
+        <div>
+          <p className="mb-2 text-xs font-bold uppercase tracking-widest text-primary">
+            Horaires d&apos;ouverture
+          </p>
+          <ul className="flex flex-col gap-1.5 text-sm">
+            {openingHours.map((h) => (
+              <li key={h.day} className="flex justify-between gap-4">
+                <span className="text-muted">{h.day}</span>
+                <span
+                  className={
+                    h.closed ? "font-semibold text-error" : "font-semibold"
+                  }
+                >
+                  {h.hours}
+                </span>
+              </li>
+            ))}
+          </ul>
         </div>
 
+        {/* Actions */}
+        <div className="flex gap-3 pt-1">
+          <a
+            href={directionsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Ouvrir l'itinéraire vers le centre dans Google Maps"
+            className="flex-1 rounded-full bg-primary px-4 py-2.5 text-center text-sm font-semibold text-white transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+          >
+            Itinéraire
+          </a>
+          <a
+            href={openInMapsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Ouvrir la localisation du centre dans Google Maps"
+            className="flex-1 rounded-full border border-primary/40 px-4 py-2.5 text-center text-sm font-semibold text-primary transition-colors hover:bg-primary/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+          >
+            Ouvrir dans Maps
+          </a>
+        </div>
       </div>
-
-      {/* Bottom CTA */}
-      <div className="bg-gradient-to-br from-hero-from to-hero-to px-5 sm:px-10 lg:px-16 py-12 lg:py-16 text-center">
-        <p className="text-primary text-xs font-bold uppercase tracking-widest mb-3">Venez nous rendre visite</p>
-        <h2 className="text-2xl sm:text-3xl font-black text-white mb-4">Une question ? Passez nous voir</h2>
-        <p className="text-white/70 text-sm mb-8 max-w-md mx-auto">
-          Notre équipe vous accueille du lundi au samedi pour répondre à toutes vos questions sur nos formations.
-        </p>
-        <a href="https://wa.me/21600000000" target="_blank" rel="noopener noreferrer" className="bg-primary text-white font-semibold px-8 py-3 rounded-full hover:opacity-90 transition-opacity inline-block">
-          Nous contacter sur WhatsApp
-        </a>
-      </div>
-
-    </div>
+    </section>
   );
 }

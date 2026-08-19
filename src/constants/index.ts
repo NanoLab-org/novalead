@@ -106,6 +106,14 @@ export const address = {
   lines: ["Rue Lorem Ipsum, Immeuble Dolor Sit", "1000 Tunis, Tunisie"],
 };
 
+// Office coordinates — single source of truth for the map + the "Itinéraire" /
+// "Ouvrir dans Maps" links. Placeholder Tunis center for now; swap lat/lng/zoom.
+export const officeLocation = {
+  lat: 36.8065,
+  lng: 10.1815,
+  zoom: 15,
+};
+
 // Google Maps embed for the office location (Tunis)
 export const mapEmbedUrl =
   "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d102115.39799550319!2d10.074691!3d36.806389!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12fd337f5e7ef543%3A0xd671924e714a0275!2sTunis!5e0!3m2!1sfr!2stn!4v1234567890";
