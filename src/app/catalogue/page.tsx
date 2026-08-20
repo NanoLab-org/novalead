@@ -12,7 +12,7 @@ type Formation = {
   titre: string;
   duree: string;
   niveau: Niveau | string;
-  places: number;
+  places: number | string;
   format: string;
   description: string;
 };
@@ -56,7 +56,7 @@ function FormationCard({ f }: { f: Formation }) {
       <div className="flex justify-between items-center mt-1 pt-3.5 border-t border-black/5">
         <span className="flex items-center gap-1.5 text-xs text-faint">
           <svg width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M117.25,157.92a60,60,0,1,0-66.5,0A95.83,95.83,0,0,0,3.53,195.63a8,8,0,1,0,13.4,8.74,80,80,0,0,1,134.14,0,8,8,0,0,0,13.4-8.74A95.83,95.83,0,0,0,117.25,157.92ZM40,108a44,44,0,1,1,44,44A44.05,44.05,0,0,1,40,108Zm210.14,98.7a8,8,0,0,1-11.07-2.33A79.83,79.83,0,0,0,172,168a8,8,0,0,1,0-16,44,44,0,1,0-16.34-84.87,8,8,0,1,1-5.94-14.85,60,60,0,0,1,16.28,116.39,95.83,95.83,0,0,1,47.22,37.71A8,8,0,0,1,250.14,206.7Z"/></svg>
-          {f.places} places
+          {typeof f.places === "number" ? `${f.places} places` : f.places}
         </span>
         <Link href={`/formations/${f.id}`} className="fcard-btn">Voir la formation</Link>
       </div>
@@ -106,7 +106,7 @@ function CategoryContainer({ cat, index }: { cat: Category; index: number }) {
             </span>
           ) : (
             <span className="text-xs font-bold bg-primary/15 text-primary px-3 py-1 rounded-full">
-              {cat.formations.length} formations
+              {cat.formations.length} formation{cat.formations.length > 1 ? "s" : ""}
             </span>
           )}
         </div>
@@ -150,10 +150,6 @@ export default function CataloguePage() {
     }, 50);
   }, []);
 
-  // Derived from data so stats update automatically when CATEGORIES changes.
-  const totalFormations = CATEGORIES.reduce((sum, cat) => sum + cat.formations.length, 0);
-  const totalDomains    = CATEGORIES.length;
-
   return (
     <>
       <header
@@ -184,7 +180,7 @@ export default function CataloguePage() {
             transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
             className="text-[15px] text-white/70 max-w-[460px] leading-[1.75] mx-auto"
           >
-            Des formations terrain pensées pour les techniciens de demain — fibre optique, télécoms et énergie solaire.
+            Des formations terrain pensées pour les techniciens de demain — fibre optique, photovoltaïque et bornes de recharge (IRVE).
           </motion.p>
         </LampContainer>
       </header>
