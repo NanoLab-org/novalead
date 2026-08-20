@@ -30,12 +30,7 @@ export default async function FormationFiche({ params }: Props) {
 <div 
   className="relative px-16 pt-36 pb-16 overflow-hidden"
   style={{
-    backgroundImage: `url(${
-      id === "1" ? "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1600&q=80&auto=format&fit=crop" :
-      id === "2" ? "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1600&q=80&auto=format&fit=crop" :
-      id === "3" ? "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1600&q=80&auto=format&fit=crop" :
-      "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1600&q=80&auto=format&fit=crop"
-    })`,
+    backgroundImage: `url(${formation.img})`,
     backgroundSize: "cover",
     backgroundPosition: "center",
   }}
@@ -86,7 +81,8 @@ export default async function FormationFiche({ params }: Props) {
             </div>
           </div>
 
-          {/* Programme */}
+          {/* Programme — only shown when we have a day-by-day schedule */}
+          {formation.programme.length > 0 && (
           <div className="bg-surface shadow-card rounded-2xl p-8">
             <h2 className="text-graphite font-black text-lg mb-6 flex items-center gap-2">
               <span className="w-1 h-6 bg-primary rounded-full" />
@@ -111,6 +107,7 @@ export default async function FormationFiche({ params }: Props) {
               ))}
             </div>
           </div>
+          )}
 
           {/* Prérequis */}
           <div className="bg-surface shadow-card rounded-2xl p-8">
@@ -134,7 +131,7 @@ export default async function FormationFiche({ params }: Props) {
                 { label: "Durée", value: formation.duree },
                 { label: "Format", value: formation.format },
                 { label: "Niveau", value: formation.niveau },
-                { label: "Places disponibles", value: `${formation.places} places` },
+                { label: "Places disponibles", value: typeof formation.places === "number" ? `${formation.places} places` : formation.places },
                 { label: "Certification", value: formation.certification },
               ].map((item) => (
                 <div key={item.label} className="flex flex-col gap-1 pb-4 border-b border-black/5 last:border-0 last:pb-0">

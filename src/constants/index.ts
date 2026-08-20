@@ -1,52 +1,6 @@
-// ─── Carousel ────────────────────────────────────────────────────────────────
-
-export const formations = [
-  {
-    titre: "Installation Fibre Optique FTTH",
-    domaine: "Fibre Optique",
-    duree: "5 jours",
-    format: "Présentiel",
-    niveau: "Débutant",
-    description:
-      "Maîtrisez les techniques de raccordement, soudure et mesures OTDR pour le déploiement de la fibre optique jusqu'au domicile.",
-  },
-  {
-    titre: "Installation Photovoltaïque",
-    domaine: "Photovoltaïque",
-    duree: "7 jours",
-    format: "Présentiel",
-    niveau: "Intermédiaire",
-    description:
-      "Conception, pose et maintenance de systèmes solaires résidentiels et tertiaires. Inclut les habilitations électriques.",
-  },
-  {
-    titre: "Habilitations Électriques BR/BC/B1",
-    domaine: "Électricité",
-    duree: "3 jours",
-    format: "Présentiel",
-    niveau: "Tous niveaux",
-    description:
-      "Obtenez vos habilitations électriques réglementaires pour intervenir sur installations basse et haute tension.",
-  },
-  {
-    titre: "Réseaux Télécoms et Infrastructure",
-    domaine: "Télécoms",
-    duree: "6 jours",
-    format: "Hybride",
-    niveau: "Intermédiaire",
-    description:
-      "Déploiement et maintenance des infrastructures télécoms, câblage structuré et configuration équipements réseau.",
-  },
-  {
-    titre: "Efficacité Énergétique Entreprise",
-    domaine: "Énergie",
-    duree: "4 jours",
-    format: "Distanciel",
-    niveau: "Avancé",
-    description:
-      "Audit énergétique, bilan carbone et plan d'action pour réduire la consommation et les coûts de votre entreprise.",
-  },
-];
+// (The old `formations` array was removed — formation data now lives once in
+//  CATEGORIES below, consumed by the catalogue, the detail page and the home
+//  slideshow.)
 
 export const domainColors: Record<string, string> = {
   "Fibre Optique": "bg-secondary/20 text-secondary border-secondary/40",
@@ -59,11 +13,37 @@ export const domainColors: Record<string, string> = {
 
 // ─── About ───────────────────────────────────────────────────────────────────
 
+// The four values NovaLead is built on. Order is meaningful — the À propos
+// bento uses it (Mobilité is the feature card). `icon` maps to a lucide icon.
 export const values = [
-  { titre: "Formateurs praticiens", description: "Tous nos formateurs exercent encore dans leur domaine. Pas de théorie déconnectée du terrain.", color: "border-primary" },
-  { titre: "Certifications reconnues", description: "Nos programmes sont certifiants et reconnus par les organismes officiels du secteur télécoms et énergie.", color: "border-secondary" },
-  { titre: "Éco-responsable", description: "Centre engagé dans la transition énergétique — fibre optique, photovoltaïque, efficacité énergétique.", color: "border-primary" },
-  { titre: "Sur mesure entreprise", description: "Programmes intra adaptés à votre contexte, vos équipes et vos enjeux métier spécifiques.", color: "border-primary" },
+  {
+    titre: "Proximité",
+    icon: "map-pin",
+    color: "border-primary",
+    description:
+      "Nous venons à votre rencontre, partout en Tunisie, pour rendre la formation accessible au plus grand nombre.",
+  },
+  {
+    titre: "Mobilité",
+    icon: "truck",
+    color: "border-secondary",
+    description:
+      "Un concept de formation mobile : nous nous déplaçons dans les régions au lieu d'attendre les stagiaires en salle.",
+  },
+  {
+    titre: "Expertise",
+    icon: "award",
+    color: "border-primary",
+    description:
+      "Plus de 15 ans d'expérience en France en fibre optique, photovoltaïque et IRVE, selon les standards européens.",
+  },
+  {
+    titre: "Accompagnement",
+    icon: "heart-handshake",
+    color: "border-secondary",
+    description:
+      "Un suivi concret et personnalisé pour construire votre avenir professionnel et répondre aux besoins du marché.",
+  },
 ];
 
 // ─── Hero ─────────────────────────────────────────────────────────────────────
@@ -129,100 +109,217 @@ export const mapEmbedUrl =
 
 // ─── Catalogue ───────────────────────────────────────────────────────────────
 
+// Real NovaLead offering. `duree`, `niveau`, `places`, `prix`, `prerequis` and
+// `certification` are "Sur demande" until the client provides them; `programme`
+// (day-by-day) is empty for now — only the topic list (`objectifs`) is known.
+// Images are placeholders (no real photos yet).
 export const CATEGORIES = [
   {
     id: "fibre",
     label: "Fibre Optique",
-    description: "Installation, soudure, mesure et maintenance des réseaux fibre optique FTTH/FTTB.",
+    description:
+      "Installation, raccordement, soudure et mesures des réseaux fibre optique FTTH, de la conception jusqu'au raccordement de l'abonné.",
     locked: false,
     formations: [
       {
-        id: 1, img: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1600&q=80",
-        titre: "Installation Fibre Optique FTTH",
-        duree: "5 jours",
+        id: 1,
+        img: "https://images.unsplash.com/photo-1520869562399-e772f042f422?w=1600&q=80",
+        titre: "Fibre Optique — Initiation & Fondamentaux",
+        duree: "Sur demande",
         niveau: "Débutant",
-        places: 12,
-        format: "Présentiel",
-        prix: "1200 TND",
-        description: "Maîtrisez l'installation complète d'un réseau fibre optique FTTH, du tirage jusqu'au raccordement.",
+        places: "Sur demande",
+        format: "Formation mobile",
+        prix: "Sur demande",
+        description:
+          "Comprenez l'architecture des réseaux FTTH et les bases du déploiement fibre, de la lecture de plans jusqu'au tirage des câbles.",
         objectifs: [
-          "Comprendre l'architecture des réseaux FTTH",
-          "Maîtriser les techniques de tirage et de pose",
-          "Effectuer les raccordements fibre optique",
-          "Réaliser les mesures OTDR",
+          "Fondamentaux : principe de la fibre, types de fibres, architecture FTTH (NRO, PM, PBO, PTO), normes",
+          "Lecture de plans : synoptiques, plans de boîtes, repérage terrain, codes couleurs",
+          "Tirage et déploiement : aérien, souterrain, façade et colonne montante",
         ],
-        programme: [
-          { jour: "Jour 1", contenu: "Introduction aux réseaux fibre optique et architecture FTTH" },
-          { jour: "Jour 2", contenu: "Techniques de tirage et pose des câbles" },
-          { jour: "Jour 3", contenu: "Raccordement et soudure par fusion" },
-          { jour: "Jour 4", contenu: "Mesures et tests OTDR" },
-          { jour: "Jour 5", contenu: "Mise en situation réelle et évaluation" },
-        ],
-        prerequis: "Aucun prérequis technique nécessaire.",
-        certification: "Attestation de formation certifiante NovaLead",
-        
+        programme: [] as { jour: string; contenu: string }[],
+        prerequis: "Sur demande",
+        certification: "Sur demande",
       },
       {
-        id: 2, img: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1600&q=80", 
-        titre: "Soudure et Mesure Fibre",
-        duree: "3 jours",
+        id: 2,
+        img: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=1600&q=80",
+        titre: "Fibre Optique — Raccordement & Soudure",
+        duree: "Sur demande",
         niveau: "Intermédiaire",
-        places: 8,
-        format: "Présentiel",
-        prix: "900 TND",
-        description: "Techniques de soudure par fusion et réflectométrie OTDR pour les techniciens fibre.",
+        places: "Sur demande",
+        format: "Formation mobile",
+        prix: "Sur demande",
+        description:
+          "Maîtrisez le raccordement optique : préparation, clivage, soudure par fusion, connectorisation et raccordement client (D3).",
         objectifs: [
-          "Maîtriser la soudure par fusion",
-          "Utiliser un réflectomètre OTDR",
-          "Analyser les courbes OTDR",
-          "Diagnostiquer les défauts réseau",
+          "Raccordement : préparation, clivage, soudure par fusion, connectorisation, lovages",
+          "Raccordement client (D3) : pose de PTO, mise en service de la box, relation client",
+          "Sécurité : EPI, travaux en hauteur, AIPR, habilitations",
         ],
-        programme: [
-          { jour: "Jour 1", contenu: "Principes de la soudure par fusion et préparation des fibres" },
-          { jour: "Jour 2", contenu: "Pratique intensive de soudure et contrôle qualité" },
-          { jour: "Jour 3", contenu: "Réflectométrie OTDR et analyse des résultats" },
-        ],
-        prerequis: "Avoir des notions de base en fibre optique.",
-        certification: "Attestation de formation certifiante NovaLead",
+        programme: [] as { jour: string; contenu: string }[],
+        prerequis: "Sur demande",
+        certification: "Sur demande",
       },
       {
-        id: 3, img: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1600&q=80", 
-        titre: "Maintenance Réseau Fibre",
-        duree: "4 jours",
+        id: 3,
+        img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1600&q=80",
+        titre: "Fibre Optique — Mesures & Recette",
+        duree: "Sur demande",
         niveau: "Avancé",
-        places: 6,
-        format: "Présentiel",
-        prix: "1100 TND",
-        description: "Diagnostic, dépannage et maintenance préventive des infrastructures fibre déployées.",
+        places: "Sur demande",
+        format: "Formation mobile",
+        prix: "Sur demande",
+        description:
+          "Contrôlez la qualité du réseau : photométrie, réflectométrie OTDR, bilan optique et livrables de recette.",
         objectifs: [
-          "Diagnostiquer les pannes réseau fibre",
-          "Mettre en place un plan de maintenance préventive",
-          "Gérer les interventions d'urgence",
-          "Rédiger des rapports d'intervention",
+          "Mesures et contrôles : photométrie, réflectométrie (OTDR), bilan optique",
+          "Recette et livrables : PV de recette, comptes rendus, reportage photo",
+          "Interprétation des courbes et diagnostic des défauts",
         ],
-        programme: [
-          { jour: "Jour 1", contenu: "Méthodologie de diagnostic et outils de mesure" },
-          { jour: "Jour 2", contenu: "Identification et résolution des pannes courantes" },
-          { jour: "Jour 3", contenu: "Maintenance préventive et planification" },
-          { jour: "Jour 4", contenu: "Gestion des incidents et documentation" },
-        ],
-        prerequis: "Expérience en installation fibre optique requise.",
-        certification: "Attestation de formation certifiante NovaLead",
+        programme: [] as { jour: string; contenu: string }[],
+        prerequis: "Sur demande",
+        certification: "Sur demande",
       },
     ],
   },
   {
-    id: "telecom",
-    label: "Télécoms",
-    description: "Antennes, VoIP, câblage structuré et équipements de télécommunication.",
-    locked: true,
-    formations: [],
+    id: "photovoltaique",
+    label: "Photovoltaïque",
+    description:
+      "Conception, pose et maintenance des installations solaires photovoltaïques résidentielles et professionnelles.",
+    locked: false,
+    formations: [
+      {
+        id: 4,
+        img: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1600&q=80",
+        titre: "Photovoltaïque — Conception & Dimensionnement",
+        duree: "Sur demande",
+        niveau: "Débutant",
+        places: "Sur demande",
+        format: "Formation mobile",
+        prix: "Sur demande",
+        description:
+          "Étudiez et dimensionnez une installation solaire, des bases de l'énergie solaire jusqu'à la lecture des plans électriques.",
+        objectifs: [
+          "Bases de l'énergie solaire",
+          "Étude et dimensionnement d'une installation",
+          "Lecture de plans électriques",
+        ],
+        programme: [] as { jour: string; contenu: string }[],
+        prerequis: "Sur demande",
+        certification: "Sur demande",
+      },
+      {
+        id: 5,
+        img: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1600&q=80",
+        titre: "Photovoltaïque — Installation & Raccordement",
+        duree: "Sur demande",
+        niveau: "Intermédiaire",
+        places: "Sur demande",
+        format: "Formation mobile",
+        prix: "Sur demande",
+        description:
+          "Posez et raccordez une installation photovoltaïque : panneaux, onduleurs, systèmes de stockage et mise en service.",
+        objectifs: [
+          "Pose des panneaux photovoltaïques",
+          "Raccordement électrique",
+          "Onduleurs et systèmes de stockage",
+          "Mise en service",
+        ],
+        programme: [] as { jour: string; contenu: string }[],
+        prerequis: "Sur demande",
+        certification: "Sur demande",
+      },
+      {
+        id: 6,
+        img: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1600&q=80",
+        titre: "Photovoltaïque — Maintenance & Sécurité",
+        duree: "Sur demande",
+        niveau: "Avancé",
+        places: "Sur demande",
+        format: "Formation mobile",
+        prix: "Sur demande",
+        description:
+          "Assurez la maintenance et le dépannage des installations solaires dans le respect des normes et de la sécurité.",
+        objectifs: [
+          "Maintenance et dépannage",
+          "Normes et sécurité",
+          "Diagnostic des pannes et optimisation du rendement",
+        ],
+        programme: [] as { jour: string; contenu: string }[],
+        prerequis: "Sur demande",
+        certification: "Sur demande",
+      },
+    ],
   },
   {
-    id: "solaire",
-    label: "Énergie Solaire",
-    description: "Dimensionnement, installation et maintenance des systèmes photovoltaïques.",
-    locked: true,
-    formations: [],
+    id: "irve",
+    label: "Bornes de Recharge (IRVE)",
+    description:
+      "Installation, raccordement et mise en service des bornes de recharge pour véhicules électriques (IRVE).",
+    locked: false,
+    formations: [
+      {
+        id: 7,
+        img: "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=1600&q=80",
+        titre: "IRVE — Fondamentaux",
+        duree: "Sur demande",
+        niveau: "Débutant",
+        places: "Sur demande",
+        format: "Formation mobile",
+        prix: "Sur demande",
+        description:
+          "Découvrez la réglementation IRVE, la technologie des véhicules électriques et le dimensionnement des bornes de recharge.",
+        objectifs: [
+          "Réglementation IRVE",
+          "Technologie des véhicules électriques",
+          "Choix et dimensionnement des bornes",
+        ],
+        programme: [] as { jour: string; contenu: string }[],
+        prerequis: "Sur demande",
+        certification: "Sur demande",
+      },
+      {
+        id: 8,
+        img: "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=1600&q=80",
+        titre: "IRVE — Installation & Mise en Service",
+        duree: "Sur demande",
+        niveau: "Intermédiaire",
+        places: "Sur demande",
+        format: "Formation mobile",
+        prix: "Sur demande",
+        description:
+          "Installez et raccordez des bornes de recharge : protections électriques, paramétrage et mise en service.",
+        objectifs: [
+          "Installation et raccordement",
+          "Protections électriques",
+          "Paramétrage et mise en service",
+        ],
+        programme: [] as { jour: string; contenu: string }[],
+        prerequis: "Sur demande",
+        certification: "Sur demande",
+      },
+      {
+        id: 9,
+        img: "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=1600&q=80",
+        titre: "IRVE — Maintenance & Diagnostic",
+        duree: "Sur demande",
+        niveau: "Avancé",
+        places: "Sur demande",
+        format: "Formation mobile",
+        prix: "Sur demande",
+        description:
+          "Diagnostiquez et maintenez les bornes de recharge en toute sécurité, avec études de cas pratiques.",
+        objectifs: [
+          "Maintenance et diagnostic des pannes",
+          "Sécurité des installations",
+          "Études de cas pratiques",
+        ],
+        programme: [] as { jour: string; contenu: string }[],
+        prerequis: "Sur demande",
+        certification: "Sur demande",
+      },
+    ],
   },
 ];

@@ -1,37 +1,13 @@
 import { ProgramGalleryCarousel } from "@/components/ui/gallery-carousel";
+import { CATEGORIES } from "@/constants";
 
-const slides = [
-  {
-    src: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1600&q=80&auto=format&fit=crop",
-    alt: "Installation fibre optique",
-    label: "Fibre Optique",
-    caption: "Installation Fibre Optique FTTH",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1600&q=80&auto=format&fit=crop",
-    alt: "Installation photovoltaïque",
-    label: "Énergie Solaire",
-    caption: "Installation Photovoltaïque",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1600&q=80&auto=format&fit=crop",
-    alt: "Habilitations électriques",
-    label: "Électricité",
-    caption: "Habilitations Électriques BR/BC/B1",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1600&q=80&auto=format&fit=crop",
-    alt: "Réseaux télécoms",
-    label: "Télécoms",
-    caption: "Réseaux Télécoms & Infrastructure",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=1600&q=80&auto=format&fit=crop",
-    alt: "Efficacité énergétique",
-    label: "Énergie",
-    caption: "Efficacité Énergétique Entreprise",
-  },
-];
+// Derived from the single source of truth (CATEGORIES): one slide per domain,
+// using its formation's image + title. Add a formation in constants and it
+// shows up here automatically.
+const slides = CATEGORIES.filter((c) => c.formations.length > 0).map((c) => {
+  const f = c.formations[0];
+  return { src: f.img, alt: c.label, label: c.label, caption: f.titre };
+});
 
 export default function Slideshow() {
   return (
