@@ -1,6 +1,9 @@
 import { GLSLHills } from "@/components/ui/glsl-hills";
 import { CircularTestimonials } from "@/components/ui/circular-testimonials";
 import MobilityMapCard from "@/components/apropos/MobilityMapCard";
+import CountUp from "@/components/apropos/CountUp";
+import RevealText from "@/components/apropos/RevealText";
+import Reveal from "@/components/ui/Reveal";
 import { values } from "@/constants";
 import {
   MapPin,
@@ -19,27 +22,37 @@ const VALUE_ICONS: Record<string, LucideIcon> = {
   "heart-handshake": HeartHandshake,
 };
 
-// Light card surface: a faint teal tint + thin teal border, no shadow — reads
-// as an intentional block on the seafoam bg instead of a stark white box.
+// Light card surface: a soft teal tint + thin teal border — reads as an
+// intentional block on the seafoam bg instead of a stark white box.
 const CARD = "border border-primary/15 bg-primary/5";
 
-const STATS = [
-  { value: "15+", label: "ans d'expérience en France" },
-  { value: "3", label: "domaines d'expertise" },
-  { value: "UE", label: "standards européens" },
-  { value: "Mobile", label: "partout en Tunisie" },
+// Larger elevated panel (wraps a whole section) — same tint but with a gentle
+// shadow so the section reads as one raised box.
+const PANEL = `${CARD} shadow-[0_24px_60px_-28px_rgba(16,58,44,0.45)]`;
+
+// Numeric stats (num/suffix) count up on scroll; text stats render as-is.
+const STATS: (
+  | { num: number; suffix: string; label: string }
+  | { text: string; label: string }
+)[] = [
+  { num: 15, suffix: "+", label: "ans d'expérience en France" },
+  { num: 3, suffix: "", label: "domaines d'expertise" },
+  { text: "UE", label: "standards européens" },
+  { text: "Mobile", label: "partout en Tunisie" },
 ];
 
 export default function AProposPage() {
   return (
     <div className="min-h-screen bg-transparent">
-      {/* Hero — server-rendered text over the animated GLSL hills (client island) */}
+      {/* Hero — text + trust stats over the animated GLSL hills (client island) */}
       <section
         data-dark-hero
-        className="relative flex min-h-[85vh] flex-col items-center justify-center overflow-hidden bg-gradient-to-br from-hero-from to-hero-to px-6 pb-20 pt-32 text-center sm:px-10 lg:px-16"
+        className="relative flex min-h-[92vh] flex-col overflow-hidden bg-gradient-to-br from-hero-from to-hero-to px-6 pb-12 pt-32 text-center sm:px-10 lg:px-16"
       >
         <GLSLHills className="absolute inset-0 z-0" />
-        <div className="relative z-10">
+
+        {/* Title block — centred in the space above the stats */}
+        <div className="relative z-10 flex flex-1 flex-col items-center justify-center">
           <p className="mb-4 flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-widest text-primary">
             <span className="h-[2px] w-5 bg-primary" />
             À propos de NovaLead
@@ -55,95 +68,103 @@ export default function AProposPage() {
             de 15 ans d&apos;expérience en France.
           </p>
         </div>
-      </section>
 
-      {/* Le concept — formation mobile (story, text + icons, fully server) */}
-      <section className="border-b border-black/10 px-6 py-20 sm:px-10 lg:px-16 lg:py-24">
-        <div className="mx-auto grid max-w-6xl grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center">
-          <div>
-            <p className="mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-primary">
-              <span className="h-[2px] w-5 bg-primary" />
-              Le concept
-            </p>
-            <h2 className="mb-6 text-3xl font-black tracking-tighter text-graphite lg:text-4xl">
-              La formation <span className="text-primary">vient à vous</span>
-            </h2>
-            <div className="flex flex-col gap-4 text-sm leading-relaxed text-faded">
-              <p>
-                Au lieu d&apos;attendre les stagiaires dans une salle de cours traditionnelle, nous
-                nous déplaçons directement dans les différentes régions de Tunisie afin de rendre la
-                formation accessible au plus grand nombre.
-              </p>
-              <p>
-                Avec plus de 15 ans d&apos;expérience en France dans la fibre optique, le
-                photovoltaïque et les bornes de recharge (IRVE), nous transmettons un savoir-faire
-                professionnel basé sur les méthodes et standards européens.
-              </p>
-              <p>
-                Notre objectif est simple : former des techniciens qualifiés grâce à des formations
-                pratiques, concrètes et adaptées aux besoins du marché.
-              </p>
-            </div>
-          </div>
-
-          {/* Icon-accent points — no boxes; rows separated by a subtle line */}
-          <div className="flex flex-col">
-            {[
-              {
-                Icon: Truck,
-                titre: "Formation mobile",
-                desc: "Nous venons à votre rencontre, dans votre région.",
-              },
-              {
-                Icon: Globe,
-                titre: "Standards européens",
-                desc: "Un savoir-faire hérité de 15+ ans d'expérience en France.",
-              },
-              {
-                Icon: Users,
-                titre: "Formateurs en activité",
-                desc: "Encadrement par des professionnels du terrain, sur matériel pro.",
-              },
-            ].map(({ Icon, titre, desc }, i, arr) => (
-              <div
-                key={titre}
-                className={`flex items-start gap-4 py-5 ${
-                  i < arr.length - 1 ? "border-b border-primary/15" : ""
-                }`}
-              >
-                <span className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-primary/10 text-primary">
-                  <Icon size={22} strokeWidth={2} />
-                </span>
-                <div>
-                  <h3 className="text-lg font-bold text-graphite">{titre}</h3>
-                  <p className="text-sm leading-relaxed text-faded">{desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Chiffres clés — stat strip */}
-      <section className="border-b border-black/10 px-6 py-16 sm:px-10 lg:px-16">
-        <div className="mx-auto grid max-w-5xl grid-cols-2 gap-5 md:grid-cols-4">
+        {/* Trust stats — merged into the hero, pinned near the bottom.
+            Glass tiles: backdrop-blur actually bites here, over the shader. */}
+        <div className="relative z-10 mx-auto grid w-full max-w-5xl grid-cols-2 gap-4 md:grid-cols-4">
           {STATS.map((s) => (
             <div
               key={s.label}
-              className={`flex flex-col items-center gap-1 rounded-2xl p-6 text-center ${CARD}`}
+              className="flex flex-col items-center gap-1 rounded-2xl border border-white/10 bg-white/5 p-5 text-center backdrop-blur-sm"
             >
-              <span className="text-3xl font-black tracking-tighter text-primary lg:text-4xl">
-                {s.value}
+              <span className="text-2xl font-black tracking-tighter text-white lg:text-3xl">
+                {"num" in s ? (
+                  <CountUp num={s.num} suffix={s.suffix} />
+                ) : (
+                  <RevealText>{s.text}</RevealText>
+                )}
               </span>
-              <span className="text-xs font-medium leading-snug text-faded">{s.label}</span>
+              <span className="text-xs font-medium leading-snug text-white/60">{s.label}</span>
             </div>
           ))}
         </div>
       </section>
 
+      {/* Le concept — formation mobile (story, text + icons, fully server) */}
+      <section className="border-b border-black/10 px-6 py-20 sm:px-10 lg:px-16 lg:py-24">
+        {/* Whole section wrapped in one elevated panel, revealed on scroll */}
+        <Reveal className="mx-auto max-w-6xl">
+          <div className={`rounded-3xl p-8 lg:p-12 ${PANEL}`}>
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center">
+            <div>
+              <p className="mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-primary">
+                <span className="h-[2px] w-5 bg-primary" />
+                Le concept
+              </p>
+              <h2 className="mb-6 text-3xl font-black tracking-tighter text-graphite lg:text-4xl">
+                La formation <span className="text-primary">vient à vous</span>
+              </h2>
+              <div className="flex flex-col gap-4 text-sm leading-relaxed text-faded">
+                <p>
+                  Au lieu d&apos;attendre les stagiaires dans une salle de cours traditionnelle, nous
+                  nous déplaçons directement dans les différentes régions de Tunisie afin de rendre la
+                  formation accessible au plus grand nombre.
+                </p>
+                <p>
+                  Avec plus de 15 ans d&apos;expérience en France dans la fibre optique, le
+                  photovoltaïque et les bornes de recharge (IRVE), nous transmettons un savoir-faire
+                  professionnel basé sur les méthodes et standards européens.
+                </p>
+                <p>
+                  Notre objectif est simple : former des techniciens qualifiés grâce à des formations
+                  pratiques, concrètes et adaptées aux besoins du marché.
+                </p>
+              </div>
+            </div>
+
+            {/* Icon-accent points — rows separated by a subtle line */}
+            <div className="flex flex-col">
+              {[
+                {
+                  Icon: Truck,
+                  titre: "Formation mobile",
+                  desc: "Nous venons à votre rencontre, dans votre région.",
+                },
+                {
+                  Icon: Globe,
+                  titre: "Standards européens",
+                  desc: "Un savoir-faire hérité de 15+ ans d'expérience en France.",
+                },
+                {
+                  Icon: Users,
+                  titre: "Formateurs en activité",
+                  desc: "Encadrement par des professionnels du terrain, sur matériel pro.",
+                },
+              ].map(({ Icon, titre, desc }, i, arr) => (
+                <div
+                  key={titre}
+                  className={`flex items-start gap-4 py-5 ${
+                    i < arr.length - 1 ? "border-b border-primary/15" : ""
+                  }`}
+                >
+                  <span className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-primary/10 text-primary">
+                    <Icon size={22} strokeWidth={2} />
+                  </span>
+                  <div>
+                    <h3 className="text-lg font-bold text-graphite">{titre}</h3>
+                    <p className="text-sm leading-relaxed text-faded">{desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+        </Reveal>
+      </section>
+
       {/* Nos Valeurs — bento (fully server) */}
       <section className="border-b border-black/10 px-6 py-20 sm:px-10 lg:px-16 lg:py-24">
-        <div className="mx-auto max-w-6xl">
+        <Reveal className="mx-auto max-w-6xl">
           <p className="mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-primary">
             <span className="h-[2px] w-5 bg-primary" />
             Nos Valeurs
@@ -166,7 +187,7 @@ export default function AProposPage() {
             {/* Accompagnement — full-width bottom */}
             <ValueCard value={values[3]} className="sm:col-span-2 md:col-span-3" />
           </div>
-        </div>
+        </Reveal>
       </section>
 
       {/* Notre Équipe */}
