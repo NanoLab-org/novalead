@@ -2,5 +2,27 @@
   "Meta": {
     "title": "NovaLead",
     "description": "Mobile training center specialized in fiber optics, photovoltaics and EV charging stations (IRVE)."
+  },
+  "Nav": {
+    "about": "About",
+    "catalogue": "Catalogue",
+    "location": "Location",
+    "contact": "Contact",
+    "cta": "Contact us",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+  "Footer": {
+    "tagline": "Mobile training center specialized in fiber optics, photovoltaics and EV charging stations (IRVE) in Tunisia.",
+    "cta": "Contact us",
+    "quickLinks": "Quick links",
+    "contactTitle": "Contact",
+    "hoursTitle": "Opening hours",
+    "rights": "All rights reserved.",
+    "legal": "Legal notice",
+    "privacy": "Privacy policy"
+  },
+  "LanguageSwitcher": {
+    "label": "Change language"
   }
 }

@@ -48,7 +48,8 @@ export default async function LocaleLayout({
   // Enables static rendering for this locale.
   setRequestLocale(locale);
 
-  const messages = await getMessages();
+  // Pass locale explicitly (reliable at prerender) — see src/i18n/request.ts.
+  const messages = await getMessages({ locale });
   const dir = locale === "ar" ? "rtl" : "ltr";
 
   return (
@@ -59,11 +60,11 @@ export default async function LocaleLayout({
       className={`${display.variable} ${sans.variable}`}
     >
       <body>
-        <NextIntlClientProvider messages={messages}>
+        <NextIntlClientProvider locale={locale} messages={messages}>
           <TransitionProvider>
             <Navbar />
             <main>{children}</main>
-            <Footer />
+            <Footer locale={locale} />
             <WhatsAppWidget />
             <ScrollNavigator />
           </TransitionProvider>

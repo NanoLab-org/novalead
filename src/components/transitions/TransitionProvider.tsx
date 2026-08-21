@@ -8,7 +8,9 @@ import {
   useRef,
   useState,
 } from "react";
-import { usePathname, useRouter } from "next/navigation";
+// Locale-aware: router.push auto-prefixes the active locale, and usePathname is
+// locale-less — so TransitionLink hrefs like "/catalogue" keep the current locale.
+import { usePathname, useRouter } from "@/i18n/navigation";
 
 type Phase = "idle" | "exiting" | "covering" | "entering";
 

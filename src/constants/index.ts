@@ -58,12 +58,13 @@ export const heroTags = [
 
 // ─── Navbar ───────────────────────────────────────────────────────────────────
 
+// `key` maps to the Nav namespace in the message catalogs (labels are translated).
 export const navLinks = [
-  { label: "À propos", href: "/apropos" },
-  { label: "Catalogue", href: "/catalogue" },
-  { label: "Localisation", href: "/location" },
-  { label: "Contact", href: "/contact" },
-];
+  { key: "about", href: "/apropos" },
+  { key: "catalogue", href: "/catalogue" },
+  { key: "location", href: "/location" },
+  { key: "contact", href: "/contact" },
+] as const;
 
 // ─── Footer ───────────────────────────────────────────────────────────────────
 

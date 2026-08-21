@@ -2,5 +2,27 @@
   "Meta": {
     "title": "NovaLead",
     "description": "Centre de formation mobile spécialisé en fibre optique, photovoltaïque et bornes de recharge (IRVE)."
+  },
+  "Nav": {
+    "about": "À propos",
+    "catalogue": "Catalogue",
+    "location": "Localisation",
+    "contact": "Contact",
+    "cta": "Nous contacter",
+    "openMenu": "Ouvrir le menu",
+    "closeMenu": "Fermer le menu"
+  },
+  "Footer": {
+    "tagline": "Centre de formation mobile spécialisé en fibre optique, photovoltaïque et bornes de recharge (IRVE) en Tunisie.",
+    "cta": "Nous contacter",
+    "quickLinks": "Liens rapides",
+    "contactTitle": "Contact",
+    "hoursTitle": "Horaires",
+    "rights": "Tous droits réservés.",
+    "legal": "Mentions légales",
+    "privacy": "Politique de confidentialité"
+  },
+  "LanguageSwitcher": {
+    "label": "Changer de langue"
   }
 }

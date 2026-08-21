@@ -1,12 +1,14 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { usePathname } from "next/navigation";
+import { useTranslations } from "next-intl";
+import { usePathname } from "@/i18n/navigation";
 import { AnimatePresence, motion , type Variants } from "framer-motion";
 import { Info, LayoutGrid, MapPin, Mail } from "lucide-react";
 import { FaLinkedinIn, FaFacebookF, FaInstagram } from "react-icons/fa";
 import { navLinks } from "@/constants";
 import TransitionLink from "@/components/TransitionLink";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 const LINK_ICONS: Record<string, React.ElementType> = {
   "/apropos": Info,
@@ -39,6 +41,7 @@ const itemVariants: Variants = {
 };
 
 export default function Navbar() {
+  const t = useTranslations("Nav");
   const pathname = usePathname();
   const [onHero, setOnHero] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -86,25 +89,28 @@ export default function Navbar() {
 
         <ul className={`hidden md:flex gap-8 text-sm font-medium transition-colors duration-300 ${lightText ? "text-white/80" : "text-muted"}`}>
           {navLinks.map((link) => (
-            <li key={link.label}>
+            <li key={link.href}>
               <TransitionLink href={link.href} className={`transition-colors ${lightText ? "hover:text-white" : "hover:text-graphite"}`}>
-                {link.label}
+                {t(link.key)}
               </TransitionLink>
             </li>
           ))}
         </ul>
 
-        <TransitionLink
-          href="/contact"
-          className="hidden md:inline-block bg-primary text-white text-sm font-semibold px-5 py-2 rounded-full hover:opacity-90 transition-opacity"
-        >
-          Nous contacter
-        </TransitionLink>
+        <div className={`hidden md:flex items-center gap-3 ${lightText ? "text-white" : "text-graphite"}`}>
+          <LanguageSwitcher />
+          <TransitionLink
+            href="/contact"
+            className="inline-block bg-primary text-white text-sm font-semibold px-5 py-2 rounded-full hover:opacity-90 transition-opacity"
+          >
+            {t("cta")}
+          </TransitionLink>
+        </div>
 
         <button
           type="button"
           onClick={() => setMenuOpen((v) => !v)}
-          aria-label={menuOpen ? "Fermer le menu" : "Ouvrir le menu"}
+          aria-label={menuOpen ? t("closeMenu") : t("openMenu")}
           aria-expanded={menuOpen}
           className="md:hidden relative flex items-center justify-center w-9 h-9"
         >
@@ -148,7 +154,7 @@ export default function Navbar() {
                   const Icon = LINK_ICONS[link.href];
                   const active = pathname === link.href;
                   return (
-                    <motion.div key={link.label} variants={itemVariants}>
+                    <motion.div key={link.href} variants={itemVariants}>
                       <TransitionLink
                         href={link.href}
                         onClick={() => setMenuOpen(false)}
@@ -157,7 +163,7 @@ export default function Navbar() {
                         }`}
                       >
                         {Icon && <Icon size={20} strokeWidth={2.25} className={active ? "text-primary" : "text-faint"} />}
-                        {link.label}
+                        {t(link.key)}
                       </TransitionLink>
                     </motion.div>
                   );
@@ -169,8 +175,12 @@ export default function Navbar() {
                     onClick={() => setMenuOpen(false)}
                     className="bg-primary text-white font-semibold text-sm px-8 py-3.5 rounded-full hover:opacity-90 transition-opacity inline-block"
                   >
-                    Nous contacter
+                    {t("cta")}
                   </TransitionLink>
+                </motion.div>
+
+                <motion.div variants={itemVariants} className="mt-4">
+                  <LanguageSwitcher className="text-graphite" />
                 </motion.div>
               </div>
 
