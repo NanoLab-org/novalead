@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Reveal from "@/components/ui/Reveal";
 
 type Tab = "b2c" | "b2b";
 
@@ -192,7 +193,8 @@ export default function ContactPage() {
 </div>
       {/* Contact Form Section */}
       <section className="px-5 sm:px-10 lg:px-16 py-12 sm:py-16 lg:py-24 bg-gradient-to-b from-deep to-base">
-        <div className="max-w-2xl mx-auto bg-surface shadow-card rounded-2xl p-6 md:p-10">
+        <Reveal className="max-w-2xl mx-auto">
+        <div className="bg-surface shadow-card rounded-2xl p-6 md:p-10">
           {/* Tab Switcher */}
           <div className="flex gap-2 sm:gap-4 mb-8 border-b border-black/10 overflow-x-auto">
             <button
@@ -444,6 +446,7 @@ export default function ContactPage() {
             </form>
           )}
         </div>
+        </Reveal>
       </section>
     </div>
   );
