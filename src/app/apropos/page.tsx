@@ -3,6 +3,7 @@ import { CircularTestimonials } from "@/components/ui/circular-testimonials";
 import MobilityMapCard from "@/components/apropos/MobilityMapCard";
 import CountUp from "@/components/apropos/CountUp";
 import RevealText from "@/components/apropos/RevealText";
+import Reveal from "@/components/ui/Reveal";
 import { values } from "@/constants";
 import {
   MapPin,
@@ -91,8 +92,9 @@ export default function AProposPage() {
 
       {/* Le concept — formation mobile (story, text + icons, fully server) */}
       <section className="border-b border-black/10 px-6 py-20 sm:px-10 lg:px-16 lg:py-24">
-        {/* Whole section wrapped in one elevated panel */}
-        <div className={`mx-auto max-w-6xl rounded-3xl p-8 lg:p-12 ${PANEL}`}>
+        {/* Whole section wrapped in one elevated panel, revealed on scroll */}
+        <Reveal className="mx-auto max-w-6xl">
+          <div className={`rounded-3xl p-8 lg:p-12 ${PANEL}`}>
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center">
             <div>
               <p className="mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-primary">
@@ -157,11 +159,12 @@ export default function AProposPage() {
             </div>
           </div>
         </div>
+        </Reveal>
       </section>
 
       {/* Nos Valeurs — bento (fully server) */}
       <section className="border-b border-black/10 px-6 py-20 sm:px-10 lg:px-16 lg:py-24">
-        <div className="mx-auto max-w-6xl">
+        <Reveal className="mx-auto max-w-6xl">
           <p className="mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-primary">
             <span className="h-[2px] w-5 bg-primary" />
             Nos Valeurs
@@ -184,7 +187,7 @@ export default function AProposPage() {
             {/* Accompagnement — full-width bottom */}
             <ValueCard value={values[3]} className="sm:col-span-2 md:col-span-3" />
           </div>
-        </div>
+        </Reveal>
       </section>
 
       {/* Notre Équipe */}
