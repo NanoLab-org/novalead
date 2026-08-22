@@ -42,7 +42,7 @@ export default function MobilityMapCard({
             className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-primary transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
           >
             {ctaLabel}
-            <span aria-hidden="true">→</span>
+            <span aria-hidden="true" className="inline-block rtl-flip">→</span>
           </TransitionLink>
         </div>
       </div>

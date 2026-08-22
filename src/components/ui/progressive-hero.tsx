@@ -90,7 +90,7 @@ function ProgressiveHero() {
           {/* Eyebrow */}
           <div>
             <Button variant="secondary" size="sm" className="gap-3">
-              {t("heroEyebrow")} <MoveRight className="h-4 w-4" />
+              {t("heroEyebrow")} <MoveRight className="h-4 w-4 rtl-flip" />
             </Button>
           </div>
 
@@ -127,7 +127,7 @@ function ProgressiveHero() {
           <div className="flex flex-row flex-wrap items-center justify-center gap-3">
             <Button asChild size="lg" className="gap-3">
               <Link href="/catalogue">
-                {t("ctaCatalogue")} <MoveRight className="h-4 w-4" />
+                {t("ctaCatalogue")} <MoveRight className="h-4 w-4 rtl-flip" />
               </Link>
             </Button>
             <Button asChild size="lg" variant="outline" className="gap-3">

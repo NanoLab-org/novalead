@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Space_Grotesk, Manrope } from "next/font/google";
+import { Space_Grotesk, Manrope, Cairo } from "next/font/google";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { setRequestLocale, getTranslations, getMessages } from "next-intl/server";
 import { routing } from "@/i18n/routing";
@@ -18,6 +18,12 @@ const display = Space_Grotesk({
 const sans = Manrope({
   subsets: ["latin"],
   variable: "--font-sans",
+});
+// Arabic-capable face; sits in the font stacks so Arabic glyphs render nicely
+// while Latin text keeps Space Grotesk / Manrope.
+const arabic = Cairo({
+  subsets: ["arabic"],
+  variable: "--font-arabic",
 });
 
 // Pre-render every locale at build time.
@@ -57,7 +63,7 @@ export default async function LocaleLayout({
       lang={locale}
       dir={dir}
       data-scroll-behavior="smooth"
-      className={`${display.variable} ${sans.variable}`}
+      className={`${display.variable} ${sans.variable} ${arabic.variable}`}
     >
       <body>
         <NextIntlClientProvider locale={locale} messages={messages}>

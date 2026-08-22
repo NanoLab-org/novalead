@@ -56,7 +56,7 @@ export default async function FormationFiche({ params }: Props) {
   {/* Content */}
   <div className="relative z-10 text-center">
     <Link href="/catalogue" className="text-white/70 text-sm hover:text-graphite transition-colors mb-8 inline-block">
-      ← {t("back")}
+      <span className="inline-block rtl-flip">←</span> {t("back")}
     </Link>
     <div className="flex gap-3 mb-6 text-center justify-center">
       <span className="text-xs font-semibold px-3 py-1 rounded-full bg-primary/20 text-primary border border-primary/30 text-center">{formation.niveau}</span>

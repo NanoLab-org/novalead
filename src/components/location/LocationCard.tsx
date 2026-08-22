@@ -41,7 +41,7 @@ export default function LocationCard({
           className="w-full sm:hidden"
         >
           <span className="mx-auto mt-2.5 block h-1.5 w-10 rounded-full bg-graphite/20" />
-          <span className="flex items-center gap-3 px-5 py-3 text-left">
+          <span className="flex items-center gap-3 px-5 py-3 text-start">
             <span>
               <span className="block text-[11px] font-bold uppercase tracking-widest text-primary">
                 {t("heroEyebrow")}
@@ -49,7 +49,7 @@ export default function LocationCard({
               <span className="block font-bold">{address.name}</span>
             </span>
             <ChevronUp
-              className={`ml-auto h-5 w-5 shrink-0 text-faint transition-transform duration-300 ${
+              className={`ms-auto h-5 w-5 shrink-0 text-faint transition-transform duration-300 ${
                 open ? "" : "rotate-180"
               }`}
             />
