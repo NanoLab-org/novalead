@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { usePathname } from "next/navigation";
+// Locale-less pathname so it matches the locale-less ROUTES below.
+import { usePathname } from "@/i18n/navigation";
 import { usePageTransition } from "./TransitionProvider";
 
 // Scroll-through order for the site. Adjust as routes change.

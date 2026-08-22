@@ -58,33 +58,31 @@ export const heroTags = [
 
 // ─── Navbar ───────────────────────────────────────────────────────────────────
 
+// `key` maps to the Nav namespace in the message catalogs (labels are translated).
 export const navLinks = [
-  { label: "À propos", href: "/apropos" },
-  { label: "Catalogue", href: "/catalogue" },
-  { label: "Localisation", href: "/location" },
-  { label: "Contact", href: "/contact" },
-];
+  { key: "about", href: "/apropos" },
+  { key: "catalogue", href: "/catalogue" },
+  { key: "location", href: "/location" },
+  { key: "contact", href: "/contact" },
+] as const;
 
 // ─── Footer ───────────────────────────────────────────────────────────────────
 
 export const footerLinks = ["Catalogue", "À propos", "Localisation", "Contact"];
 
+// `key` maps to the Location.contactLabels / Location.days message keys.
+// Values (phone/email/hours) are locale-invariant and stay here.
 export const contactInfo = [
-  { label: "Tel", value: "+216 XX XXX XXX" },
-  { label: "Email", value: "contact@novalead.tn" },
-  { label: "WhatsApp", value: "+216 XX XXX XXX" },
+  { key: "tel", value: "+216 XX XXX XXX" },
+  { key: "email", value: "contact@novalead.tn" },
+  { key: "whatsapp", value: "+216 XX XXX XXX" },
 ];
 
-export const openingHours = [
-  { day: "Lundi - Vendredi", hours: "08h00 - 18h00", closed: false },
-  { day: "Samedi", hours: "09h00 - 13h00", closed: false },
-  { day: "Dimanche", hours: "Fermé", closed: true },
+export const openingHours: { key: string; hours?: string; closed: boolean }[] = [
+  { key: "weekdays", hours: "08h00 - 18h00", closed: false },
+  { key: "saturday", hours: "09h00 - 13h00", closed: false },
+  { key: "sunday", closed: true },
 ];
-
-export const address = {
-  name: "Centre NovaLead",
-  lines: ["Rue Lorem Ipsum, Immeuble Dolor Sit", "1000 Tunis, Tunisie"],
-};
 
 // Office coordinates — single source of truth for the map + the "Itinéraire" /
 // "Ouvrir dans Maps" links. Placeholder Tunis center for now; swap lat/lng/zoom.
@@ -109,217 +107,35 @@ export const mapEmbedUrl =
 
 // ─── Catalogue ───────────────────────────────────────────────────────────────
 
-// Real NovaLead offering. `duree`, `niveau`, `places`, `prix`, `prerequis` and
-// `certification` are "Sur demande" until the client provides them; `programme`
-// (day-by-day) is empty for now — only the topic list (`objectifs`) is known.
-// Images are placeholders (no real photos yet).
+// Structural data only — translatable text (category labels/descriptions,
+// formation titles/descriptions/objectives, levels, "Sur demande") lives in the
+// Formations message namespace, keyed by category id and formation id.
 export const CATEGORIES = [
   {
     id: "fibre",
-    label: "Fibre Optique",
-    description:
-      "Installation, raccordement, soudure et mesures des réseaux fibre optique FTTH, de la conception jusqu'au raccordement de l'abonné.",
     locked: false,
     formations: [
-      {
-        id: 1,
-        img: "https://images.unsplash.com/photo-1520869562399-e772f042f422?w=1600&q=80",
-        titre: "Fibre Optique — Initiation & Fondamentaux",
-        duree: "Sur demande",
-        niveau: "Débutant",
-        places: "Sur demande",
-        format: "Formation mobile",
-        prix: "Sur demande",
-        description:
-          "Comprenez l'architecture des réseaux FTTH et les bases du déploiement fibre, de la lecture de plans jusqu'au tirage des câbles.",
-        objectifs: [
-          "Fondamentaux : principe de la fibre, types de fibres, architecture FTTH (NRO, PM, PBO, PTO), normes",
-          "Lecture de plans : synoptiques, plans de boîtes, repérage terrain, codes couleurs",
-          "Tirage et déploiement : aérien, souterrain, façade et colonne montante",
-        ],
-        programme: [] as { jour: string; contenu: string }[],
-        prerequis: "Sur demande",
-        certification: "Sur demande",
-      },
-      {
-        id: 2,
-        img: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=1600&q=80",
-        titre: "Fibre Optique — Raccordement & Soudure",
-        duree: "Sur demande",
-        niveau: "Intermédiaire",
-        places: "Sur demande",
-        format: "Formation mobile",
-        prix: "Sur demande",
-        description:
-          "Maîtrisez le raccordement optique : préparation, clivage, soudure par fusion, connectorisation et raccordement client (D3).",
-        objectifs: [
-          "Raccordement : préparation, clivage, soudure par fusion, connectorisation, lovages",
-          "Raccordement client (D3) : pose de PTO, mise en service de la box, relation client",
-          "Sécurité : EPI, travaux en hauteur, AIPR, habilitations",
-        ],
-        programme: [] as { jour: string; contenu: string }[],
-        prerequis: "Sur demande",
-        certification: "Sur demande",
-      },
-      {
-        id: 3,
-        img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1600&q=80",
-        titre: "Fibre Optique — Mesures & Recette",
-        duree: "Sur demande",
-        niveau: "Avancé",
-        places: "Sur demande",
-        format: "Formation mobile",
-        prix: "Sur demande",
-        description:
-          "Contrôlez la qualité du réseau : photométrie, réflectométrie OTDR, bilan optique et livrables de recette.",
-        objectifs: [
-          "Mesures et contrôles : photométrie, réflectométrie (OTDR), bilan optique",
-          "Recette et livrables : PV de recette, comptes rendus, reportage photo",
-          "Interprétation des courbes et diagnostic des défauts",
-        ],
-        programme: [] as { jour: string; contenu: string }[],
-        prerequis: "Sur demande",
-        certification: "Sur demande",
-      },
+      { id: 1, img: "https://images.unsplash.com/photo-1520869562399-e772f042f422?w=1600&q=80", niveau: "beginner" },
+      { id: 2, img: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=1600&q=80", niveau: "intermediate" },
+      { id: 3, img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1600&q=80", niveau: "advanced" },
     ],
   },
   {
     id: "photovoltaique",
-    label: "Photovoltaïque",
-    description:
-      "Conception, pose et maintenance des installations solaires photovoltaïques résidentielles et professionnelles.",
     locked: false,
     formations: [
-      {
-        id: 4,
-        img: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1600&q=80",
-        titre: "Photovoltaïque — Conception & Dimensionnement",
-        duree: "Sur demande",
-        niveau: "Débutant",
-        places: "Sur demande",
-        format: "Formation mobile",
-        prix: "Sur demande",
-        description:
-          "Étudiez et dimensionnez une installation solaire, des bases de l'énergie solaire jusqu'à la lecture des plans électriques.",
-        objectifs: [
-          "Bases de l'énergie solaire",
-          "Étude et dimensionnement d'une installation",
-          "Lecture de plans électriques",
-        ],
-        programme: [] as { jour: string; contenu: string }[],
-        prerequis: "Sur demande",
-        certification: "Sur demande",
-      },
-      {
-        id: 5,
-        img: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1600&q=80",
-        titre: "Photovoltaïque — Installation & Raccordement",
-        duree: "Sur demande",
-        niveau: "Intermédiaire",
-        places: "Sur demande",
-        format: "Formation mobile",
-        prix: "Sur demande",
-        description:
-          "Posez et raccordez une installation photovoltaïque : panneaux, onduleurs, systèmes de stockage et mise en service.",
-        objectifs: [
-          "Pose des panneaux photovoltaïques",
-          "Raccordement électrique",
-          "Onduleurs et systèmes de stockage",
-          "Mise en service",
-        ],
-        programme: [] as { jour: string; contenu: string }[],
-        prerequis: "Sur demande",
-        certification: "Sur demande",
-      },
-      {
-        id: 6,
-        img: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1600&q=80",
-        titre: "Photovoltaïque — Maintenance & Sécurité",
-        duree: "Sur demande",
-        niveau: "Avancé",
-        places: "Sur demande",
-        format: "Formation mobile",
-        prix: "Sur demande",
-        description:
-          "Assurez la maintenance et le dépannage des installations solaires dans le respect des normes et de la sécurité.",
-        objectifs: [
-          "Maintenance et dépannage",
-          "Normes et sécurité",
-          "Diagnostic des pannes et optimisation du rendement",
-        ],
-        programme: [] as { jour: string; contenu: string }[],
-        prerequis: "Sur demande",
-        certification: "Sur demande",
-      },
+      { id: 4, img: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1600&q=80", niveau: "beginner" },
+      { id: 5, img: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1600&q=80", niveau: "intermediate" },
+      { id: 6, img: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1600&q=80", niveau: "advanced" },
     ],
   },
   {
     id: "irve",
-    label: "Bornes de Recharge (IRVE)",
-    description:
-      "Installation, raccordement et mise en service des bornes de recharge pour véhicules électriques (IRVE).",
     locked: false,
     formations: [
-      {
-        id: 7,
-        img: "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=1600&q=80",
-        titre: "IRVE — Fondamentaux",
-        duree: "Sur demande",
-        niveau: "Débutant",
-        places: "Sur demande",
-        format: "Formation mobile",
-        prix: "Sur demande",
-        description:
-          "Découvrez la réglementation IRVE, la technologie des véhicules électriques et le dimensionnement des bornes de recharge.",
-        objectifs: [
-          "Réglementation IRVE",
-          "Technologie des véhicules électriques",
-          "Choix et dimensionnement des bornes",
-        ],
-        programme: [] as { jour: string; contenu: string }[],
-        prerequis: "Sur demande",
-        certification: "Sur demande",
-      },
-      {
-        id: 8,
-        img: "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=1600&q=80",
-        titre: "IRVE — Installation & Mise en Service",
-        duree: "Sur demande",
-        niveau: "Intermédiaire",
-        places: "Sur demande",
-        format: "Formation mobile",
-        prix: "Sur demande",
-        description:
-          "Installez et raccordez des bornes de recharge : protections électriques, paramétrage et mise en service.",
-        objectifs: [
-          "Installation et raccordement",
-          "Protections électriques",
-          "Paramétrage et mise en service",
-        ],
-        programme: [] as { jour: string; contenu: string }[],
-        prerequis: "Sur demande",
-        certification: "Sur demande",
-      },
-      {
-        id: 9,
-        img: "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=1600&q=80",
-        titre: "IRVE — Maintenance & Diagnostic",
-        duree: "Sur demande",
-        niveau: "Avancé",
-        places: "Sur demande",
-        format: "Formation mobile",
-        prix: "Sur demande",
-        description:
-          "Diagnostiquez et maintenez les bornes de recharge en toute sécurité, avec études de cas pratiques.",
-        objectifs: [
-          "Maintenance et diagnostic des pannes",
-          "Sécurité des installations",
-          "Études de cas pratiques",
-        ],
-        programme: [] as { jour: string; contenu: string }[],
-        prerequis: "Sur demande",
-        certification: "Sur demande",
-      },
+      { id: 7, img: "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=1600&q=80", niveau: "beginner" },
+      { id: 8, img: "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=1600&q=80", niveau: "intermediate" },
+      { id: 9, img: "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=1600&q=80", niveau: "advanced" },
     ],
   },
 ];

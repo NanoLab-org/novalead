@@ -54,7 +54,8 @@ body {
   background: linear-gradient(180deg, var(--color-base) 0%, var(--color-deep) 100%);
   background-attachment: fixed;
   color: var(--color-ink);
-  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  /* Latin from Manrope; Arabic glyphs fall through to Cairo (--font-arabic). */
+  font-family: var(--font-sans), var(--font-arabic), Arial, Helvetica, sans-serif;
   overflow-x: hidden;
 }
 @media (max-width: 767px) {
@@ -65,7 +66,19 @@ body {
 /* Titles, buttons & stats use the display face (Space Grotesk);
    paragraphs use the sans face (Manrope, on <body>). */
 h1, h2, h3, h4, h5, h6, button {
-  font-family: var(--font-display), var(--font-sans), sans-serif;
+  font-family: var(--font-display), var(--font-arabic), var(--font-sans), sans-serif;
+}
+
+/* Directional arrows/icons: flip horizontally under RTL so "→" points the
+   right way. Add class="rtl-flip" (with inline-block) to the arrow element. */
+[dir="rtl"] .rtl-flip {
+  transform: scaleX(-1);
+}
+
+/* Arabic script is cursive — letter-spacing breaks the letter joining, so the
+   tracking-* utilities (used on eyebrows/labels) must not apply under RTL. */
+[dir="rtl"] [class*="tracking-"] {
+  letter-spacing: normal;
 }
 
 /* Frosted teal glass card — reused across the site.

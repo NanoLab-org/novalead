@@ -1,0 +1,227 @@
+{
+  "Meta": {
+    "title": "NovaLead",
+    "description": "Mobile training center specialized in fiber optics, photovoltaics and EV charging stations (IRVE)."
+  },
+  "Nav": {
+    "about": "About",
+    "catalogue": "Catalogue",
+    "location": "Location",
+    "contact": "Contact",
+    "cta": "Contact us",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+  "Footer": {
+    "tagline": "Mobile training center specialized in fiber optics, photovoltaics and EV charging stations (IRVE) in Tunisia.",
+    "cta": "Contact us",
+    "quickLinks": "Quick links",
+    "contactTitle": "Contact",
+    "hoursTitle": "Opening hours",
+    "rights": "All rights reserved.",
+    "legal": "Legal notice",
+    "privacy": "Privacy policy"
+  },
+  "LanguageSwitcher": {
+    "label": "Change language"
+  },
+  "Home": {
+    "heroEyebrow": "Certified training center",
+    "heroTitlePrefix": "Become an expert in",
+    "heroTitles": ["fiber optics", "photovoltaics", "telecoms"],
+    "heroDescription": "NovaLead trains technicians and companies in fiber optics, photovoltaics and telecommunications in Tunisia — certified, field-focused programs.",
+    "ctaCatalogue": "View the catalogue",
+    "ctaContact": "Contact us",
+    "slidesEyebrow": "Featured programs",
+    "slidesTitle": "Our featured <hl>programs</hl>"
+  },
+  "About": {
+    "heroEyebrow": "About NovaLead",
+    "heroTitle": "Training technicians, <hl>across Tunisia</hl>",
+    "heroSubtitle": "A <b>mobile</b> training center specialized in fiber optics, photovoltaics and EV charging stations (IRVE) — backed by 15+ years of experience in France.",
+    "stats": {
+      "experienceLabel": "years of experience in France",
+      "domainsLabel": "areas of expertise",
+      "standardsValue": "EU",
+      "standardsLabel": "European standards",
+      "reachValue": "Mobile",
+      "reachLabel": "across Tunisia"
+    },
+    "conceptEyebrow": "The concept",
+    "conceptTitle": "Training that <hl>comes to you</hl>",
+    "conceptP1": "Instead of waiting for trainees in a traditional classroom, we travel directly to Tunisia's different regions to make training accessible to as many people as possible.",
+    "conceptP2": "With over 15 years of experience in France in fiber optics, photovoltaics and EV charging (IRVE), we pass on professional know-how based on European methods and standards.",
+    "conceptP3": "Our goal is simple: to train qualified technicians through practical, concrete programs adapted to market needs.",
+    "points": {
+      "mobileTitle": "Mobile training",
+      "mobileDesc": "We come to meet you, in your region.",
+      "standardsTitle": "European standards",
+      "standardsDesc": "Know-how from 15+ years of experience in France.",
+      "trainersTitle": "Active professionals",
+      "trainersDesc": "Guidance from field professionals, on professional equipment."
+    },
+    "valuesEyebrow": "Our Values",
+    "valuesTitle": "What <hl>defines us</hl>",
+    "values": {
+      "proximity": { "title": "Proximity", "description": "We come to meet you, across Tunisia, to make training accessible to as many people as possible." },
+      "mobility": { "title": "Mobility", "description": "A mobile training concept: we travel to the regions instead of waiting for trainees in a classroom." },
+      "expertise": { "title": "Expertise", "description": "Over 15 years of experience in France in fiber optics, photovoltaics and IRVE, following European standards." },
+      "accompaniment": { "title": "Support", "description": "Concrete, personalized guidance to build your professional future and meet market needs." }
+    },
+    "mapCta": "Follow our route",
+    "teamEyebrow": "Our Team",
+    "teamTitle": "Field <hl>experts</hl>",
+    "team": {
+      "m1": { "designation": "Director & Senior Trainer — Fiber Optics", "quote": "Passionate about passing on technical knowledge, I guide every trainee toward full mastery of FTTH fiber networks, from pulling to connection." },
+      "m2": { "designation": "Trainer — Solar Energy", "quote": "My goal is to make renewable energy accessible to every technician. Every successful photovoltaic installation is a win for the energy transition." },
+      "m3": { "designation": "Trainer — EV Charging (IRVE)", "quote": "Electric mobility is booming. My mission is to prepare technicians to install and maintain charging stations to current standards." }
+    }
+  },
+  "Catalogue": {
+    "heroEyebrow": "Our programs",
+    "heroTitleWord": "Catalogue",
+    "heroSubtitle": "Field-focused programs designed for tomorrow's technicians — fiber optics, photovoltaics and EV charging (IRVE).",
+    "browseByDomain": "Browse by domain",
+    "formationsCount": "{count, plural, one {# program} other {# programs}}",
+    "comingSoonBadge": "Coming soon",
+    "comingSoon": "These programs are coming soon.",
+    "notify": "Get notified",
+    "places": "{count, plural, one {# seat} other {# seats}}",
+    "viewFormation": "View program"
+  },
+  "Formation": {
+    "back": "Back to catalogue",
+    "notFoundTitle": "Program not found",
+    "objectives": "Program objectives",
+    "programme": "Day-by-day schedule",
+    "prerequisites": "Prerequisites",
+    "practicalInfo": "Practical info",
+    "duration": "Duration",
+    "format": "Format",
+    "level": "Level",
+    "seats": "Available seats",
+    "seatsValue": "{count, plural, one {# seat} other {# seats}}",
+    "certification": "Certification",
+    "price": "Price",
+    "enroll": "Enroll in this program",
+    "moreInfo": "Request more info",
+    "ctaEyebrow": "Ready to train?",
+    "ctaTitle": "Join the next session",
+    "ctaText": "Limited seats — sign up now to secure your spot in the next session.",
+    "ctaEnroll": "Enroll now",
+    "ctaOther": "See other programs"
+  },
+  "Contact": {
+    "heroEyebrow": "Contact us",
+    "heroTitle": "Let's talk about <hl>your project</hl>",
+    "heroSubtitle": "Individual or company — fill in the form that matches your profile and our team will reply within 24h.",
+    "tabB2C": "Individual (B2C)",
+    "tabB2B": "Company (B2B)",
+    "sending": "Sending…",
+    "select": "Select",
+    "selectFormation": "Select a program",
+    "alertSend": "Something went wrong while sending. Please try again.",
+    "alertNetwork": "Network error. Please try again.",
+    "errors": {
+      "required": "Required field",
+      "invalidEmail": "Invalid email address",
+      "describeRequest": "Please describe your request",
+      "describeNeed": "Please describe your need"
+    },
+    "success": {
+      "title": "Request sent!",
+      "text": "Thanks for your message. Our team will contact you within 24 business hours.",
+      "again": "Send another request"
+    },
+    "b2c": {
+      "firstName": "First name",
+      "firstNamePlaceholder": "Your first name",
+      "lastName": "Last name",
+      "lastNamePlaceholder": "Your last name",
+      "email": "Email",
+      "emailPlaceholder": "your@email.com",
+      "phone": "Phone",
+      "phonePlaceholder": "+216 XX XXX XXX",
+      "formation": "Desired program",
+      "message": "Message",
+      "messagePlaceholder": "Describe your project, questions or availability…",
+      "submit": "Send my request"
+    },
+    "b2b": {
+      "company": "Company name",
+      "companyPlaceholder": "Company name",
+      "sector": "Business sector",
+      "sectorPlaceholder": "e.g. Construction, Energy, Telecom…",
+      "contactFirstName": "Contact first name",
+      "contactLastName": "Contact last name",
+      "firstNamePlaceholder": "First name",
+      "lastNamePlaceholder": "Last name",
+      "email": "Business email",
+      "emailPlaceholder": "contact@company.com",
+      "phone": "Phone",
+      "peopleToTrain": "People to train",
+      "domain": "Training domain",
+      "specificNeed": "Specific need",
+      "messagePlaceholder": "Describe your training project, goals, scheduling constraints…",
+      "submit": "Request a quote"
+    },
+    "formationOptions": {
+      "ftth": "FTTH Fiber Optic Installation",
+      "soudure": "Fiber Splicing & Measurement",
+      "maintenance": "Fiber Network Maintenance",
+      "telecom": "Telecoms (coming soon)",
+      "solaire": "Solar Energy (coming soon)",
+      "autre": "Other / Not sure yet"
+    },
+    "peopleOptions": {
+      "1-5": "1 – 5 people",
+      "6-15": "6 – 15 people",
+      "16-30": "16 – 30 people",
+      "30+": "More than 30 people"
+    },
+    "domainOptions": {
+      "fibre": "Fiber Optics",
+      "telecom": "Telecommunications",
+      "solaire": "Solar Energy",
+      "multiple": "Several domains"
+    }
+  },
+  "Location": {
+    "heroEyebrow": "Find us",
+    "address": "Address",
+    "contactDirect": "Direct contact",
+    "hours": "Opening hours",
+    "itinerary": "Route",
+    "hideItinerary": "Hide route",
+    "openInMaps": "Open in Maps",
+    "itineraryAria": "Show the bus route on the map",
+    "hideItineraryAria": "Hide the bus route on the map",
+    "openInMapsAria": "Open the center's location in Google Maps",
+    "contactLabels": { "tel": "Phone", "email": "Email", "whatsapp": "WhatsApp" },
+    "days": { "weekdays": "Monday - Friday", "saturday": "Saturday", "sunday": "Sunday" },
+    "closed": "Closed",
+    "addressName": "NovaLead Center",
+    "addressLines": ["Rue Lorem Ipsum, Immeuble Dolor Sit", "1000 Tunis, Tunisia"]
+  },
+  "Formations": {
+    "onRequest": "On request",
+    "format": "Mobile training",
+    "levels": { "beginner": "Beginner", "intermediate": "Intermediate", "advanced": "Advanced", "all": "All levels" },
+    "categories": {
+      "fibre": { "label": "Fiber Optics", "description": "Installation, connection, splicing and measurement of FTTH fiber networks, from design to the subscriber connection." },
+      "photovoltaique": { "label": "Photovoltaics", "description": "Design, installation and maintenance of residential and professional solar photovoltaic systems." },
+      "irve": { "label": "EV Charging (IRVE)", "description": "Installation, connection and commissioning of charging stations for electric vehicles (IRVE)." }
+    },
+    "items": {
+      "1": { "titre": "Fiber Optics — Introduction & Fundamentals", "description": "Understand FTTH network architecture and the basics of fiber deployment, from reading plans to pulling cables.", "objectives": ["Fundamentals: fiber principles, fiber types, FTTH architecture (NRO, PM, PBO, PTO), standards", "Reading plans: schematics, box layouts, field surveying, color codes", "Pulling & deployment: aerial, underground, façade and riser"] },
+      "2": { "titre": "Fiber Optics — Connection & Splicing", "description": "Master optical connection: preparation, cleaving, fusion splicing, connectorization and subscriber connection (D3).", "objectives": ["Connection: preparation, cleaving, fusion splicing, connectorization, slack management", "Subscriber connection (D3): PTO installation, box commissioning, customer relations", "Safety: PPE, work at height, AIPR, certifications"] },
+      "3": { "titre": "Fiber Optics — Measurement & Acceptance", "description": "Check network quality: photometry, OTDR reflectometry, optical budget and acceptance deliverables.", "objectives": ["Measurement & testing: photometry, reflectometry (OTDR), optical budget", "Acceptance & deliverables: acceptance reports, work logs, photo reports", "Trace interpretation and fault diagnosis"] },
+      "4": { "titre": "Photovoltaics — Design & Sizing", "description": "Study and size a solar installation, from solar energy basics to reading electrical plans.", "objectives": ["Solar energy fundamentals", "Study and sizing of an installation", "Reading electrical plans"] },
+      "5": { "titre": "Photovoltaics — Installation & Connection", "description": "Install and connect a photovoltaic system: panels, inverters, storage systems and commissioning.", "objectives": ["Installing photovoltaic panels", "Electrical connection", "Inverters and storage systems", "Commissioning"] },
+      "6": { "titre": "Photovoltaics — Maintenance & Safety", "description": "Maintain and troubleshoot solar installations in compliance with standards and safety.", "objectives": ["Maintenance and troubleshooting", "Standards and safety", "Fault diagnosis and yield optimization"] },
+      "7": { "titre": "IRVE — Fundamentals", "description": "Discover IRVE regulations, electric-vehicle technology and the sizing of charging stations.", "objectives": ["IRVE regulations", "Electric-vehicle technology", "Selecting and sizing charging stations"] },
+      "8": { "titre": "IRVE — Installation & Commissioning", "description": "Install and connect charging stations: electrical protections, configuration and commissioning.", "objectives": ["Installation and connection", "Electrical protections", "Configuration and commissioning"] },
+      "9": { "titre": "IRVE — Maintenance & Diagnostics", "description": "Diagnose and maintain charging stations safely, with hands-on case studies.", "objectives": ["Maintenance and fault diagnosis", "Installation safety", "Hands-on case studies"] }
+    }
+  }
+}

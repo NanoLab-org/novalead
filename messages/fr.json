@@ -1,0 +1,227 @@
+{
+  "Meta": {
+    "title": "NovaLead",
+    "description": "Centre de formation mobile spécialisé en fibre optique, photovoltaïque et bornes de recharge (IRVE)."
+  },
+  "Nav": {
+    "about": "À propos",
+    "catalogue": "Catalogue",
+    "location": "Localisation",
+    "contact": "Contact",
+    "cta": "Nous contacter",
+    "openMenu": "Ouvrir le menu",
+    "closeMenu": "Fermer le menu"
+  },
+  "Footer": {
+    "tagline": "Centre de formation mobile spécialisé en fibre optique, photovoltaïque et bornes de recharge (IRVE) en Tunisie.",
+    "cta": "Nous contacter",
+    "quickLinks": "Liens rapides",
+    "contactTitle": "Contact",
+    "hoursTitle": "Horaires",
+    "rights": "Tous droits réservés.",
+    "legal": "Mentions légales",
+    "privacy": "Politique de confidentialité"
+  },
+  "LanguageSwitcher": {
+    "label": "Changer de langue"
+  },
+  "Home": {
+    "heroEyebrow": "Centre de formation certifié",
+    "heroTitlePrefix": "Devenez expert en",
+    "heroTitles": ["fibre optique", "photovoltaïque", "télécoms"],
+    "heroDescription": "NovaLead forme les techniciens et les entreprises aux métiers de la fibre optique, du photovoltaïque et des télécommunications en Tunisie — des formations certifiantes, ancrées dans le terrain.",
+    "ctaCatalogue": "Voir le catalogue",
+    "ctaContact": "Nous contacter",
+    "slidesEyebrow": "Formations phares",
+    "slidesTitle": "Nos formations <hl>phares</hl>"
+  },
+  "About": {
+    "heroEyebrow": "À propos de NovaLead",
+    "heroTitle": "Former les techniciens, <hl>partout en Tunisie</hl>",
+    "heroSubtitle": "Un centre de formation <b>mobile</b> spécialisé en fibre optique, photovoltaïque et bornes de recharge (IRVE) — fort de plus de 15 ans d'expérience en France.",
+    "stats": {
+      "experienceLabel": "ans d'expérience en France",
+      "domainsLabel": "domaines d'expertise",
+      "standardsValue": "UE",
+      "standardsLabel": "standards européens",
+      "reachValue": "Mobile",
+      "reachLabel": "partout en Tunisie"
+    },
+    "conceptEyebrow": "Le concept",
+    "conceptTitle": "La formation <hl>vient à vous</hl>",
+    "conceptP1": "Au lieu d'attendre les stagiaires dans une salle de cours traditionnelle, nous nous déplaçons directement dans les différentes régions de Tunisie afin de rendre la formation accessible au plus grand nombre.",
+    "conceptP2": "Avec plus de 15 ans d'expérience en France dans la fibre optique, le photovoltaïque et les bornes de recharge (IRVE), nous transmettons un savoir-faire professionnel basé sur les méthodes et standards européens.",
+    "conceptP3": "Notre objectif est simple : former des techniciens qualifiés grâce à des formations pratiques, concrètes et adaptées aux besoins du marché.",
+    "points": {
+      "mobileTitle": "Formation mobile",
+      "mobileDesc": "Nous venons à votre rencontre, dans votre région.",
+      "standardsTitle": "Standards européens",
+      "standardsDesc": "Un savoir-faire hérité de 15+ ans d'expérience en France.",
+      "trainersTitle": "Formateurs en activité",
+      "trainersDesc": "Encadrement par des professionnels du terrain, sur matériel pro."
+    },
+    "valuesEyebrow": "Nos Valeurs",
+    "valuesTitle": "Ce qui nous <hl>définit</hl>",
+    "values": {
+      "proximity": { "title": "Proximité", "description": "Nous venons à votre rencontre, partout en Tunisie, pour rendre la formation accessible au plus grand nombre." },
+      "mobility": { "title": "Mobilité", "description": "Un concept de formation mobile : nous nous déplaçons dans les régions au lieu d'attendre les stagiaires en salle." },
+      "expertise": { "title": "Expertise", "description": "Plus de 15 ans d'expérience en France en fibre optique, photovoltaïque et IRVE, selon les standards européens." },
+      "accompaniment": { "title": "Accompagnement", "description": "Un suivi concret et personnalisé pour construire votre avenir professionnel et répondre aux besoins du marché." }
+    },
+    "mapCta": "Suivre notre itinéraire",
+    "teamEyebrow": "Notre Équipe",
+    "teamTitle": "Des experts <hl>du terrain</hl>",
+    "team": {
+      "m1": { "designation": "Directeur & Formateur Senior — Fibre Optique", "quote": "Passionné par la transmission du savoir technique, j'accompagne chaque stagiaire vers une maîtrise complète des réseaux fibre optique FTTH, du tirage jusqu'au raccordement." },
+      "m2": { "designation": "Formatrice — Énergie Solaire", "quote": "Mon objectif est de rendre les énergies renouvelables accessibles à tous les techniciens. Chaque installation photovoltaïque réussie est une victoire pour la transition énergétique." },
+      "m3": { "designation": "Formateur — Bornes de Recharge (IRVE)", "quote": "La mobilité électrique explose. Ma mission est de préparer les techniciens à installer et maintenir les bornes de recharge selon les normes en vigueur." }
+    }
+  },
+  "Catalogue": {
+    "heroEyebrow": "Nos formations",
+    "heroTitleWord": "Catalogue",
+    "heroSubtitle": "Des formations terrain pensées pour les techniciens de demain — fibre optique, photovoltaïque et bornes de recharge (IRVE).",
+    "browseByDomain": "Parcourir par domaine",
+    "formationsCount": "{count, plural, one {# formation} other {# formations}}",
+    "comingSoonBadge": "Bientôt",
+    "comingSoon": "Ces formations arrivent bientôt.",
+    "notify": "Être notifié",
+    "places": "{count, plural, one {# place} other {# places}}",
+    "viewFormation": "Voir la formation"
+  },
+  "Formation": {
+    "back": "Retour au catalogue",
+    "notFoundTitle": "Formation introuvable",
+    "objectives": "Objectifs de la formation",
+    "programme": "Programme jour par jour",
+    "prerequisites": "Prérequis",
+    "practicalInfo": "Infos pratiques",
+    "duration": "Durée",
+    "format": "Format",
+    "level": "Niveau",
+    "seats": "Places disponibles",
+    "seatsValue": "{count, plural, one {# place} other {# places}}",
+    "certification": "Certification",
+    "price": "Prix",
+    "enroll": "S'inscrire à cette formation",
+    "moreInfo": "Demander plus d'infos",
+    "ctaEyebrow": "Prêt à vous former ?",
+    "ctaTitle": "Rejoignez la prochaine session",
+    "ctaText": "Places limitées — inscrivez-vous dès maintenant pour garantir votre place dans la prochaine session.",
+    "ctaEnroll": "S'inscrire maintenant",
+    "ctaOther": "Voir d'autres formations"
+  },
+  "Contact": {
+    "heroEyebrow": "Nous contacter",
+    "heroTitle": "Parlons de <hl>votre projet</hl>",
+    "heroSubtitle": "Particulier ou entreprise — remplissez le formulaire adapté à votre profil et notre équipe vous répond sous 24h.",
+    "tabB2C": "Particulier (B2C)",
+    "tabB2B": "Entreprise (B2B)",
+    "sending": "Envoi en cours…",
+    "select": "Sélectionner",
+    "selectFormation": "Sélectionner une formation",
+    "alertSend": "Erreur lors de l'envoi. Veuillez réessayer.",
+    "alertNetwork": "Erreur réseau. Veuillez réessayer.",
+    "errors": {
+      "required": "Champ requis",
+      "invalidEmail": "Adresse email invalide",
+      "describeRequest": "Veuillez décrire votre demande",
+      "describeNeed": "Veuillez décrire votre besoin"
+    },
+    "success": {
+      "title": "Demande envoyée !",
+      "text": "Merci pour votre message. Notre équipe vous contactera dans les 24 heures ouvrées.",
+      "again": "Envoyer une autre demande"
+    },
+    "b2c": {
+      "firstName": "Prénom",
+      "firstNamePlaceholder": "Votre prénom",
+      "lastName": "Nom",
+      "lastNamePlaceholder": "Votre nom",
+      "email": "Email",
+      "emailPlaceholder": "votre@email.com",
+      "phone": "Téléphone",
+      "phonePlaceholder": "+216 XX XXX XXX",
+      "formation": "Formation souhaitée",
+      "message": "Message",
+      "messagePlaceholder": "Décrivez votre projet, vos questions ou vos disponibilités…",
+      "submit": "Envoyer ma demande"
+    },
+    "b2b": {
+      "company": "Raison sociale",
+      "companyPlaceholder": "Nom de l'entreprise",
+      "sector": "Secteur d'activité",
+      "sectorPlaceholder": "ex : BTP, Énergie, Télécom…",
+      "contactFirstName": "Prénom du contact",
+      "contactLastName": "Nom du contact",
+      "firstNamePlaceholder": "Prénom",
+      "lastNamePlaceholder": "Nom",
+      "email": "Email professionnel",
+      "emailPlaceholder": "contact@entreprise.com",
+      "phone": "Téléphone",
+      "peopleToTrain": "Personnes à former",
+      "domain": "Domaine de formation",
+      "specificNeed": "Besoin spécifique",
+      "messagePlaceholder": "Décrivez votre projet de formation, vos objectifs, vos contraintes de calendrier…",
+      "submit": "Demander un devis"
+    },
+    "formationOptions": {
+      "ftth": "Installation Fibre Optique FTTH",
+      "soudure": "Soudure et Mesure Fibre",
+      "maintenance": "Maintenance Réseau Fibre",
+      "telecom": "Télécoms (bientôt disponible)",
+      "solaire": "Énergie Solaire (bientôt disponible)",
+      "autre": "Autre / Je ne sais pas encore"
+    },
+    "peopleOptions": {
+      "1-5": "1 – 5 personnes",
+      "6-15": "6 – 15 personnes",
+      "16-30": "16 – 30 personnes",
+      "30+": "Plus de 30 personnes"
+    },
+    "domainOptions": {
+      "fibre": "Fibre Optique",
+      "telecom": "Télécommunications",
+      "solaire": "Énergie Solaire",
+      "multiple": "Plusieurs domaines"
+    }
+  },
+  "Location": {
+    "heroEyebrow": "Nous trouver",
+    "address": "Adresse",
+    "contactDirect": "Contact direct",
+    "hours": "Horaires d'ouverture",
+    "itinerary": "Itinéraire",
+    "hideItinerary": "Masquer l'itinéraire",
+    "openInMaps": "Ouvrir dans Maps",
+    "itineraryAria": "Afficher l'itinéraire du bus sur la carte",
+    "hideItineraryAria": "Masquer l'itinéraire du bus sur la carte",
+    "openInMapsAria": "Ouvrir la localisation du centre dans Google Maps",
+    "contactLabels": { "tel": "Tél", "email": "Email", "whatsapp": "WhatsApp" },
+    "days": { "weekdays": "Lundi - Vendredi", "saturday": "Samedi", "sunday": "Dimanche" },
+    "closed": "Fermé",
+    "addressName": "Centre NovaLead",
+    "addressLines": ["Rue Lorem Ipsum, Immeuble Dolor Sit", "1000 Tunis, Tunisie"]
+  },
+  "Formations": {
+    "onRequest": "Sur demande",
+    "format": "Formation mobile",
+    "levels": { "beginner": "Débutant", "intermediate": "Intermédiaire", "advanced": "Avancé", "all": "Tous niveaux" },
+    "categories": {
+      "fibre": { "label": "Fibre Optique", "description": "Installation, raccordement, soudure et mesures des réseaux fibre optique FTTH, de la conception jusqu'au raccordement de l'abonné." },
+      "photovoltaique": { "label": "Photovoltaïque", "description": "Conception, pose et maintenance des installations solaires photovoltaïques résidentielles et professionnelles." },
+      "irve": { "label": "Bornes de Recharge (IRVE)", "description": "Installation, raccordement et mise en service des bornes de recharge pour véhicules électriques (IRVE)." }
+    },
+    "items": {
+      "1": { "titre": "Fibre Optique — Initiation & Fondamentaux", "description": "Comprenez l'architecture des réseaux FTTH et les bases du déploiement fibre, de la lecture de plans jusqu'au tirage des câbles.", "objectives": ["Fondamentaux : principe de la fibre, types de fibres, architecture FTTH (NRO, PM, PBO, PTO), normes", "Lecture de plans : synoptiques, plans de boîtes, repérage terrain, codes couleurs", "Tirage et déploiement : aérien, souterrain, façade et colonne montante"] },
+      "2": { "titre": "Fibre Optique — Raccordement & Soudure", "description": "Maîtrisez le raccordement optique : préparation, clivage, soudure par fusion, connectorisation et raccordement client (D3).", "objectives": ["Raccordement : préparation, clivage, soudure par fusion, connectorisation, lovages", "Raccordement client (D3) : pose de PTO, mise en service de la box, relation client", "Sécurité : EPI, travaux en hauteur, AIPR, habilitations"] },
+      "3": { "titre": "Fibre Optique — Mesures & Recette", "description": "Contrôlez la qualité du réseau : photométrie, réflectométrie OTDR, bilan optique et livrables de recette.", "objectives": ["Mesures et contrôles : photométrie, réflectométrie (OTDR), bilan optique", "Recette et livrables : PV de recette, comptes rendus, reportage photo", "Interprétation des courbes et diagnostic des défauts"] },
+      "4": { "titre": "Photovoltaïque — Conception & Dimensionnement", "description": "Étudiez et dimensionnez une installation solaire, des bases de l'énergie solaire jusqu'à la lecture des plans électriques.", "objectives": ["Bases de l'énergie solaire", "Étude et dimensionnement d'une installation", "Lecture de plans électriques"] },
+      "5": { "titre": "Photovoltaïque — Installation & Raccordement", "description": "Posez et raccordez une installation photovoltaïque : panneaux, onduleurs, systèmes de stockage et mise en service.", "objectives": ["Pose des panneaux photovoltaïques", "Raccordement électrique", "Onduleurs et systèmes de stockage", "Mise en service"] },
+      "6": { "titre": "Photovoltaïque — Maintenance & Sécurité", "description": "Assurez la maintenance et le dépannage des installations solaires dans le respect des normes et de la sécurité.", "objectives": ["Maintenance et dépannage", "Normes et sécurité", "Diagnostic des pannes et optimisation du rendement"] },
+      "7": { "titre": "IRVE — Fondamentaux", "description": "Découvrez la réglementation IRVE, la technologie des véhicules électriques et le dimensionnement des bornes de recharge.", "objectives": ["Réglementation IRVE", "Technologie des véhicules électriques", "Choix et dimensionnement des bornes"] },
+      "8": { "titre": "IRVE — Installation & Mise en Service", "description": "Installez et raccordez des bornes de recharge : protections électriques, paramétrage et mise en service.", "objectives": ["Installation et raccordement", "Protections électriques", "Paramétrage et mise en service"] },
+      "9": { "titre": "IRVE — Maintenance & Diagnostic", "description": "Diagnostiquez et maintenez les bornes de recharge en toute sécurité, avec études de cas pratiques.", "objectives": ["Maintenance et diagnostic des pannes", "Sécurité des installations", "Études de cas pratiques"] }
+    }
+  }
+}
