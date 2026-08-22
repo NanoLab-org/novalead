@@ -2,7 +2,8 @@
 
 import * as React from "react";
 import { useEffect, useMemo, useState } from "react";
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
 import { motion } from "framer-motion";
@@ -57,11 +58,9 @@ Button.displayName = "Button";
 
 // ProgressiveHero: animated video hero for the NovaLead landing page
 function ProgressiveHero() {
+  const t = useTranslations("Home");
   const [titleNumber, setTitleNumber] = useState(0);
-  const titles = useMemo(
-    () => ["fibre optique", "photovoltaïque", "télécoms"],
-    []
-  );
+  const titles = useMemo(() => t.raw("heroTitles") as string[], [t]);
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
@@ -91,14 +90,14 @@ function ProgressiveHero() {
           {/* Eyebrow */}
           <div>
             <Button variant="secondary" size="sm" className="gap-3">
-              Centre de formation certifié <MoveRight className="h-4 w-4" />
+              {t("heroEyebrow")} <MoveRight className="h-4 w-4" />
             </Button>
           </div>
 
           {/* Animated headline + description */}
           <div className="flex flex-col gap-4">
             <h1 className="max-w-2xl text-center text-5xl font-extrabold tracking-tight text-white md:text-7xl">
-              <span>Devenez expert en</span>
+              <span>{t("heroTitlePrefix")}</span>
               <span className="relative flex w-full justify-center overflow-hidden text-center md:pb-4 md:pt-1">
                 &nbsp;
                 {titles.map((title, index) => (
@@ -120,9 +119,7 @@ function ProgressiveHero() {
             </h1>
 
             <p className="max-w-2xl text-center text-lg leading-relaxed tracking-tight text-white/85 md:text-xl">
-              NovaLead forme les techniciens et les entreprises aux métiers de la
-              fibre optique, du photovoltaïque et des télécommunications en
-              Tunisie — des formations certifiantes, ancrées dans le terrain.
+              {t("heroDescription")}
             </p>
           </div>
 
@@ -130,12 +127,12 @@ function ProgressiveHero() {
           <div className="flex flex-row flex-wrap items-center justify-center gap-3">
             <Button asChild size="lg" className="gap-3">
               <Link href="/catalogue">
-                Voir le catalogue <MoveRight className="h-4 w-4" />
+                {t("ctaCatalogue")} <MoveRight className="h-4 w-4" />
               </Link>
             </Button>
             <Button asChild size="lg" variant="outline" className="gap-3">
   <Link href="/contact">
-    Nous contacter <PhoneCall className="h-4 w-4" />
+    {t("ctaContact")} <PhoneCall className="h-4 w-4" />
   </Link>
 </Button>
           </div>

@@ -24,5 +24,15 @@
   },
   "LanguageSwitcher": {
     "label": "Changer de langue"
+  },
+  "Home": {
+    "heroEyebrow": "Centre de formation certifié",
+    "heroTitlePrefix": "Devenez expert en",
+    "heroTitles": ["fibre optique", "photovoltaïque", "télécoms"],
+    "heroDescription": "NovaLead forme les techniciens et les entreprises aux métiers de la fibre optique, du photovoltaïque et des télécommunications en Tunisie — des formations certifiantes, ancrées dans le terrain.",
+    "ctaCatalogue": "Voir le catalogue",
+    "ctaContact": "Nous contacter",
+    "slidesEyebrow": "Formations phares",
+    "slidesTitle": "Nos formations <hl>phares</hl>"
   }
 }

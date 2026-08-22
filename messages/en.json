@@ -24,5 +24,15 @@
   },
   "LanguageSwitcher": {
     "label": "Change language"
+  },
+  "Home": {
+    "heroEyebrow": "Certified training center",
+    "heroTitlePrefix": "Become an expert in",
+    "heroTitles": ["fiber optics", "photovoltaics", "telecoms"],
+    "heroDescription": "NovaLead trains technicians and companies in fiber optics, photovoltaics and telecommunications in Tunisia — certified, field-focused programs.",
+    "ctaCatalogue": "View the catalogue",
+    "ctaContact": "Contact us",
+    "slidesEyebrow": "Featured programs",
+    "slidesTitle": "Our featured <hl>programs</hl>"
   }
 }
