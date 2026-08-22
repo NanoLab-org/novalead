@@ -34,5 +34,42 @@
     "ctaContact": "Contact us",
     "slidesEyebrow": "Featured programs",
     "slidesTitle": "Our featured <hl>programs</hl>"
+  },
+  "About": {
+    "heroEyebrow": "About NovaLead",
+    "heroTitle": "Training technicians, <hl>across Tunisia</hl>",
+    "heroSubtitle": "A <b>mobile</b> training center specialized in fiber optics, photovoltaics and EV charging stations (IRVE) — backed by 15+ years of experience in France.",
+    "stats": {
+      "experienceLabel": "years of experience in France",
+      "domainsLabel": "areas of expertise",
+      "standardsValue": "EU",
+      "standardsLabel": "European standards",
+      "reachValue": "Mobile",
+      "reachLabel": "across Tunisia"
+    },
+    "conceptEyebrow": "The concept",
+    "conceptTitle": "Training that <hl>comes to you</hl>",
+    "conceptP1": "Instead of waiting for trainees in a traditional classroom, we travel directly to Tunisia's different regions to make training accessible to as many people as possible.",
+    "conceptP2": "With over 15 years of experience in France in fiber optics, photovoltaics and EV charging (IRVE), we pass on professional know-how based on European methods and standards.",
+    "conceptP3": "Our goal is simple: to train qualified technicians through practical, concrete programs adapted to market needs.",
+    "points": {
+      "mobileTitle": "Mobile training",
+      "mobileDesc": "We come to meet you, in your region.",
+      "standardsTitle": "European standards",
+      "standardsDesc": "Know-how from 15+ years of experience in France.",
+      "trainersTitle": "Active professionals",
+      "trainersDesc": "Guidance from field professionals, on professional equipment."
+    },
+    "valuesEyebrow": "Our Values",
+    "valuesTitle": "What <hl>defines us</hl>",
+    "values": {
+      "proximity": { "title": "Proximity", "description": "We come to meet you, across Tunisia, to make training accessible to as many people as possible." },
+      "mobility": { "title": "Mobility", "description": "A mobile training concept: we travel to the regions instead of waiting for trainees in a classroom." },
+      "expertise": { "title": "Expertise", "description": "Over 15 years of experience in France in fiber optics, photovoltaics and IRVE, following European standards." },
+      "accompaniment": { "title": "Support", "description": "Concrete, personalized guidance to build your professional future and meet market needs." }
+    },
+    "mapCta": "Follow our route",
+    "teamEyebrow": "Our Team",
+    "teamTitle": "Field <hl>experts</hl>"
   }
 }

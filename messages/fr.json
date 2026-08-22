@@ -34,5 +34,42 @@
     "ctaContact": "Nous contacter",
     "slidesEyebrow": "Formations phares",
     "slidesTitle": "Nos formations <hl>phares</hl>"
+  },
+  "About": {
+    "heroEyebrow": "À propos de NovaLead",
+    "heroTitle": "Former les techniciens, <hl>partout en Tunisie</hl>",
+    "heroSubtitle": "Un centre de formation <b>mobile</b> spécialisé en fibre optique, photovoltaïque et bornes de recharge (IRVE) — fort de plus de 15 ans d'expérience en France.",
+    "stats": {
+      "experienceLabel": "ans d'expérience en France",
+      "domainsLabel": "domaines d'expertise",
+      "standardsValue": "UE",
+      "standardsLabel": "standards européens",
+      "reachValue": "Mobile",
+      "reachLabel": "partout en Tunisie"
+    },
+    "conceptEyebrow": "Le concept",
+    "conceptTitle": "La formation <hl>vient à vous</hl>",
+    "conceptP1": "Au lieu d'attendre les stagiaires dans une salle de cours traditionnelle, nous nous déplaçons directement dans les différentes régions de Tunisie afin de rendre la formation accessible au plus grand nombre.",
+    "conceptP2": "Avec plus de 15 ans d'expérience en France dans la fibre optique, le photovoltaïque et les bornes de recharge (IRVE), nous transmettons un savoir-faire professionnel basé sur les méthodes et standards européens.",
+    "conceptP3": "Notre objectif est simple : former des techniciens qualifiés grâce à des formations pratiques, concrètes et adaptées aux besoins du marché.",
+    "points": {
+      "mobileTitle": "Formation mobile",
+      "mobileDesc": "Nous venons à votre rencontre, dans votre région.",
+      "standardsTitle": "Standards européens",
+      "standardsDesc": "Un savoir-faire hérité de 15+ ans d'expérience en France.",
+      "trainersTitle": "Formateurs en activité",
+      "trainersDesc": "Encadrement par des professionnels du terrain, sur matériel pro."
+    },
+    "valuesEyebrow": "Nos Valeurs",
+    "valuesTitle": "Ce qui nous <hl>définit</hl>",
+    "values": {
+      "proximity": { "title": "Proximité", "description": "Nous venons à votre rencontre, partout en Tunisie, pour rendre la formation accessible au plus grand nombre." },
+      "mobility": { "title": "Mobilité", "description": "Un concept de formation mobile : nous nous déplaçons dans les régions au lieu d'attendre les stagiaires en salle." },
+      "expertise": { "title": "Expertise", "description": "Plus de 15 ans d'expérience en France en fibre optique, photovoltaïque et IRVE, selon les standards européens." },
+      "accompaniment": { "title": "Accompagnement", "description": "Un suivi concret et personnalisé pour construire votre avenir professionnel et répondre aux besoins du marché." }
+    },
+    "mapCta": "Suivre notre itinéraire",
+    "teamEyebrow": "Notre Équipe",
+    "teamTitle": "Des experts <hl>du terrain</hl>"
   }
 }

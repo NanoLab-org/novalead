@@ -1,10 +1,11 @@
+import type { ReactNode } from "react";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { GLSLHills } from "@/components/ui/glsl-hills";
 import { CircularTestimonials } from "@/components/ui/circular-testimonials";
 import MobilityMapCard from "@/components/apropos/MobilityMapCard";
 import CountUp from "@/components/apropos/CountUp";
 import RevealText from "@/components/apropos/RevealText";
 import Reveal from "@/components/ui/Reveal";
-import { values } from "@/constants";
 import {
   MapPin,
   Truck,
@@ -15,13 +16,6 @@ import {
   type LucideIcon,
 } from "lucide-react";
 
-const VALUE_ICONS: Record<string, LucideIcon> = {
-  "map-pin": MapPin,
-  truck: Truck,
-  award: Award,
-  "heart-handshake": HeartHandshake,
-};
-
 // Light card surface: a soft teal tint + thin teal border — reads as an
 // intentional block on the seafoam bg instead of a stark white box.
 const CARD = "border border-primary/15 bg-primary/5";
@@ -30,18 +24,34 @@ const CARD = "border border-primary/15 bg-primary/5";
 // shadow so the section reads as one raised box.
 const PANEL = `${CARD} shadow-[0_24px_60px_-28px_rgba(16,58,44,0.45)]`;
 
-// Numeric stats (num/suffix) count up on scroll; text stats render as-is.
-const STATS: (
-  | { num: number; suffix: string; label: string }
-  | { text: string; label: string }
-)[] = [
-  { num: 15, suffix: "+", label: "ans d'expérience en France" },
-  { num: 3, suffix: "", label: "domaines d'expertise" },
-  { text: "UE", label: "standards européens" },
-  { text: "Mobile", label: "partout en Tunisie" },
-];
+// Highlight chunk for t.rich <hl> tags.
+const hl = (chunks: ReactNode) => <span className="text-primary">{chunks}</span>;
 
-export default function AProposPage() {
+export default async function AProposPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations({ locale, namespace: "About" });
+
+  const stats: (
+    | { num: number; suffix: string; label: string }
+    | { text: string; label: string }
+  )[] = [
+    { num: 15, suffix: "+", label: t("stats.experienceLabel") },
+    { num: 3, suffix: "", label: t("stats.domainsLabel") },
+    { text: t("stats.standardsValue"), label: t("stats.standardsLabel") },
+    { text: t("stats.reachValue"), label: t("stats.reachLabel") },
+  ];
+
+  const points = [
+    { Icon: Truck, title: t("points.mobileTitle"), desc: t("points.mobileDesc") },
+    { Icon: Globe, title: t("points.standardsTitle"), desc: t("points.standardsDesc") },
+    { Icon: Users, title: t("points.trainersTitle"), desc: t("points.trainersDesc") },
+  ];
+
   return (
     <div className="min-h-screen bg-transparent">
       {/* Hero — text + trust stats over the animated GLSL hills (client island) */}
@@ -55,24 +65,24 @@ export default function AProposPage() {
         <div className="relative z-10 flex flex-1 flex-col items-center justify-center">
           <p className="mb-4 flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-widest text-primary">
             <span className="h-[2px] w-5 bg-primary" />
-            À propos de NovaLead
+            {t("heroEyebrow")}
             <span className="h-[2px] w-5 bg-primary" />
           </p>
           <h1 className="mb-6 text-4xl font-black tracking-tighter text-white sm:text-5xl lg:text-7xl">
-            Former les techniciens, <br />
-            <span className="text-primary">partout en Tunisie</span>
+            {t.rich("heroTitle", { hl })}
           </h1>
           <p className="mx-auto max-w-2xl text-base leading-relaxed text-white/70">
-            Un centre de formation <strong className="font-semibold text-white">mobile</strong>{" "}
-            spécialisé en fibre optique, photovoltaïque et bornes de recharge (IRVE) — fort de plus
-            de 15 ans d&apos;expérience en France.
+            {t.rich("heroSubtitle", {
+              b: (chunks) => (
+                <strong className="font-semibold text-white">{chunks}</strong>
+              ),
+            })}
           </p>
         </div>
 
-        {/* Trust stats — merged into the hero, pinned near the bottom.
-            Glass tiles: backdrop-blur actually bites here, over the shader. */}
+        {/* Trust stats — merged into the hero, pinned near the bottom. */}
         <div className="relative z-10 mx-auto grid w-full max-w-5xl grid-cols-2 gap-4 md:grid-cols-4">
-          {STATS.map((s) => (
+          {stats.map((s) => (
             <div
               key={s.label}
               className="flex flex-col items-center gap-1 rounded-2xl border border-white/10 bg-white/5 p-5 text-center backdrop-blur-sm"
@@ -90,114 +100,100 @@ export default function AProposPage() {
         </div>
       </section>
 
-      {/* Le concept — formation mobile (story, text + icons, fully server) */}
+      {/* Le concept — formation mobile (story, text + icons) */}
       <section className="border-b border-black/10 px-6 py-20 sm:px-10 lg:px-16 lg:py-24">
-        {/* Whole section wrapped in one elevated panel, revealed on scroll */}
         <Reveal className="mx-auto max-w-6xl">
           <div className={`rounded-3xl p-8 lg:p-12 ${PANEL}`}>
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center">
-            <div>
-              <p className="mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-primary">
-                <span className="h-[2px] w-5 bg-primary" />
-                Le concept
-              </p>
-              <h2 className="mb-6 text-3xl font-black tracking-tighter text-graphite lg:text-4xl">
-                La formation <span className="text-primary">vient à vous</span>
-              </h2>
-              <div className="flex flex-col gap-4 text-sm leading-relaxed text-faded">
-                <p>
-                  Au lieu d&apos;attendre les stagiaires dans une salle de cours traditionnelle, nous
-                  nous déplaçons directement dans les différentes régions de Tunisie afin de rendre la
-                  formation accessible au plus grand nombre.
+            <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center">
+              <div>
+                <p className="mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-primary">
+                  <span className="h-[2px] w-5 bg-primary" />
+                  {t("conceptEyebrow")}
                 </p>
-                <p>
-                  Avec plus de 15 ans d&apos;expérience en France dans la fibre optique, le
-                  photovoltaïque et les bornes de recharge (IRVE), nous transmettons un savoir-faire
-                  professionnel basé sur les méthodes et standards européens.
-                </p>
-                <p>
-                  Notre objectif est simple : former des techniciens qualifiés grâce à des formations
-                  pratiques, concrètes et adaptées aux besoins du marché.
-                </p>
+                <h2 className="mb-6 text-3xl font-black tracking-tighter text-graphite lg:text-4xl">
+                  {t.rich("conceptTitle", { hl })}
+                </h2>
+                <div className="flex flex-col gap-4 text-sm leading-relaxed text-faded">
+                  <p>{t("conceptP1")}</p>
+                  <p>{t("conceptP2")}</p>
+                  <p>{t("conceptP3")}</p>
+                </div>
+              </div>
+
+              {/* Icon-accent points — rows separated by a subtle line */}
+              <div className="flex flex-col">
+                {points.map(({ Icon, title, desc }, i, arr) => (
+                  <div
+                    key={title}
+                    className={`flex items-start gap-4 py-5 ${
+                      i < arr.length - 1 ? "border-b border-primary/15" : ""
+                    }`}
+                  >
+                    <span className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-primary/10 text-primary">
+                      <Icon size={22} strokeWidth={2} />
+                    </span>
+                    <div>
+                      <h3 className="text-lg font-bold text-graphite">{title}</h3>
+                      <p className="text-sm leading-relaxed text-faded">{desc}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
-
-            {/* Icon-accent points — rows separated by a subtle line */}
-            <div className="flex flex-col">
-              {[
-                {
-                  Icon: Truck,
-                  titre: "Formation mobile",
-                  desc: "Nous venons à votre rencontre, dans votre région.",
-                },
-                {
-                  Icon: Globe,
-                  titre: "Standards européens",
-                  desc: "Un savoir-faire hérité de 15+ ans d'expérience en France.",
-                },
-                {
-                  Icon: Users,
-                  titre: "Formateurs en activité",
-                  desc: "Encadrement par des professionnels du terrain, sur matériel pro.",
-                },
-              ].map(({ Icon, titre, desc }, i, arr) => (
-                <div
-                  key={titre}
-                  className={`flex items-start gap-4 py-5 ${
-                    i < arr.length - 1 ? "border-b border-primary/15" : ""
-                  }`}
-                >
-                  <span className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-primary/10 text-primary">
-                    <Icon size={22} strokeWidth={2} />
-                  </span>
-                  <div>
-                    <h3 className="text-lg font-bold text-graphite">{titre}</h3>
-                    <p className="text-sm leading-relaxed text-faded">{desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
           </div>
-        </div>
         </Reveal>
       </section>
 
-      {/* Nos Valeurs — bento (fully server) */}
+      {/* Nos Valeurs — bento */}
       <section className="border-b border-black/10 px-6 py-20 sm:px-10 lg:px-16 lg:py-24">
         <Reveal className="mx-auto max-w-6xl">
           <p className="mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-primary">
             <span className="h-[2px] w-5 bg-primary" />
-            Nos Valeurs
+            {t("valuesEyebrow")}
           </p>
           <h2 className="mb-12 text-3xl font-black tracking-tighter text-graphite lg:text-4xl">
-            Ce qui nous <span className="text-primary">définit</span>
+            {t.rich("valuesTitle", { hl })}
           </h2>
 
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3 md:auto-rows-[minmax(11rem,1fr)]">
             {/* Proximité — top-left */}
-            <ValueCard value={values[0]} />
+            <ValueCard
+              icon={MapPin}
+              title={t("values.proximity.title")}
+              description={t("values.proximity.description")}
+            />
             {/* Mobilité — feature card: live bus-route mini-map (2×2) */}
             <MobilityMapCard
-              title={values[1].titre}
-              description={values[1].description}
+              title={t("values.mobility.title")}
+              description={t("values.mobility.description")}
+              ctaLabel={t("mapCta")}
               className="sm:col-span-2 md:col-span-2 md:row-span-2"
             />
             {/* Expertise — under Proximité */}
-            <ValueCard value={values[2]} />
+            <ValueCard
+              icon={Award}
+              title={t("values.expertise.title")}
+              description={t("values.expertise.description")}
+            />
             {/* Accompagnement — full-width bottom */}
-            <ValueCard value={values[3]} className="sm:col-span-2 md:col-span-3" />
+            <ValueCard
+              icon={HeartHandshake}
+              title={t("values.accompaniment.title")}
+              description={t("values.accompaniment.description")}
+              className="sm:col-span-2 md:col-span-3"
+            />
           </div>
         </Reveal>
       </section>
 
-      {/* Notre Équipe */}
+      {/* Notre Équipe — testimonials (member data localized in a later step) */}
       <section className="border-b border-black/10 px-6 py-20 sm:px-10 lg:px-16 lg:py-24">
         <p className="mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-primary">
           <span className="h-[2px] w-5 bg-primary" />
-          Notre Équipe
+          {t("teamEyebrow")}
         </p>
         <h2 className="mb-12 text-3xl font-black tracking-tighter text-graphite lg:text-4xl">
-          Des experts <span className="text-primary">du terrain</span>
+          {t.rich("teamTitle", { hl })}
         </h2>
         <div className="flex justify-center">
           <CircularTestimonials
@@ -241,47 +237,26 @@ export default function AProposPage() {
   );
 }
 
-// Single bento card. `feature` makes it the larger, centered highlight tile.
+// Single bento card.
 function ValueCard({
-  value,
-  feature = false,
+  icon: Icon,
+  title,
+  description,
   className = "",
 }: {
-  value: { titre: string; icon: string; description: string };
-  feature?: boolean;
+  icon: LucideIcon;
+  title: string;
+  description: string;
   className?: string;
 }) {
-  const Icon = VALUE_ICONS[value.icon] ?? MapPin;
   return (
-    <div
-      className={`flex flex-col gap-4 rounded-2xl ${
-        feature
-          ? "justify-center bg-gradient-to-br from-primary to-primary-dark p-8 text-white shadow-[0_18px_40px_-22px_rgba(13,148,136,0.55)]"
-          : `${CARD} p-6`
-      } ${className}`}
-    >
-      <span
-        className={`grid shrink-0 place-items-center rounded-xl ${
-          feature ? "h-14 w-14 bg-white/15 text-white" : "h-11 w-11 bg-primary/10 text-primary"
-        }`}
-      >
-        <Icon size={feature ? 28 : 22} strokeWidth={2} />
+    <div className={`flex flex-col gap-4 rounded-2xl p-6 ${CARD} ${className}`}>
+      <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-primary/10 text-primary">
+        <Icon size={22} strokeWidth={2} />
       </span>
       <div>
-        <h3
-          className={`font-black tracking-tight ${
-            feature ? "mb-2 text-2xl text-white" : "mb-1 text-lg text-graphite"
-          }`}
-        >
-          {value.titre}
-        </h3>
-        <p
-          className={`leading-relaxed ${
-            feature ? "text-base text-white/75" : "text-sm text-faded"
-          }`}
-        >
-          {value.description}
-        </p>
+        <h3 className="mb-1 text-lg font-black tracking-tight text-graphite">{title}</h3>
+        <p className="text-sm leading-relaxed text-faded">{description}</p>
       </div>
     </div>
   );
