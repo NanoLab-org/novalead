@@ -105,5 +105,92 @@
     "ctaText": "المقاعد محدودة — سجّل الآن لتضمن مكانك في الجلسة القادمة.",
     "ctaEnroll": "سجّل الآن",
     "ctaOther": "شاهد دورات أخرى"
+  },
+  "Contact": {
+    "heroEyebrow": "اتصل بنا",
+    "heroTitle": "لنتحدّث عن <hl>مشروعك</hl>",
+    "heroSubtitle": "فرد أو شركة — املأ النموذج المناسب لملفك وسيردّ فريقنا خلال 24 ساعة.",
+    "tabB2C": "فرد (B2C)",
+    "tabB2B": "شركة (B2B)",
+    "sending": "جارٍ الإرسال…",
+    "select": "اختر",
+    "selectFormation": "اختر دورة",
+    "alertSend": "حدث خطأ أثناء الإرسال. يرجى المحاولة مرة أخرى.",
+    "alertNetwork": "خطأ في الشبكة. يرجى المحاولة مرة أخرى.",
+    "errors": {
+      "required": "حقل مطلوب",
+      "invalidEmail": "عنوان بريد إلكتروني غير صالح",
+      "describeRequest": "يرجى وصف طلبك",
+      "describeNeed": "يرجى وصف حاجتك"
+    },
+    "success": {
+      "title": "تم إرسال الطلب!",
+      "text": "شكرًا على رسالتك. سيتواصل معك فريقنا خلال 24 ساعة عمل.",
+      "again": "إرسال طلب آخر"
+    },
+    "b2c": {
+      "firstName": "الاسم",
+      "firstNamePlaceholder": "اسمك",
+      "lastName": "اللقب",
+      "lastNamePlaceholder": "لقبك",
+      "email": "البريد الإلكتروني",
+      "emailPlaceholder": "your@email.com",
+      "phone": "الهاتف",
+      "phonePlaceholder": "+216 XX XXX XXX",
+      "formation": "الدورة المرغوبة",
+      "message": "الرسالة",
+      "messagePlaceholder": "صِف مشروعك أو أسئلتك أو أوقات توفّرك…",
+      "submit": "أرسل طلبي"
+    },
+    "b2b": {
+      "company": "اسم الشركة",
+      "companyPlaceholder": "اسم الشركة",
+      "sector": "قطاع النشاط",
+      "sectorPlaceholder": "مثال: البناء، الطاقة، الاتصالات…",
+      "contactFirstName": "اسم جهة الاتصال",
+      "contactLastName": "لقب جهة الاتصال",
+      "firstNamePlaceholder": "الاسم",
+      "lastNamePlaceholder": "اللقب",
+      "email": "البريد الإلكتروني المهني",
+      "emailPlaceholder": "contact@company.com",
+      "phone": "الهاتف",
+      "peopleToTrain": "عدد الأشخاص المراد تدريبهم",
+      "domain": "مجال التدريب",
+      "specificNeed": "حاجة محدّدة",
+      "messagePlaceholder": "صِف مشروع التدريب وأهدافك وقيود جدولك الزمني…",
+      "submit": "اطلب عرض سعر"
+    },
+    "formationOptions": {
+      "ftth": "تركيب الألياف البصرية FTTH",
+      "soudure": "لحام وقياس الألياف",
+      "maintenance": "صيانة شبكة الألياف",
+      "telecom": "الاتصالات (قريبًا)",
+      "solaire": "الطاقة الشمسية (قريبًا)",
+      "autre": "أخرى / لست متأكّدًا بعد"
+    },
+    "peopleOptions": {
+      "1-5": "1 – 5 أشخاص",
+      "6-15": "6 – 15 شخصًا",
+      "16-30": "16 – 30 شخصًا",
+      "30+": "أكثر من 30 شخصًا"
+    },
+    "domainOptions": {
+      "fibre": "الألياف البصرية",
+      "telecom": "الاتصالات",
+      "solaire": "الطاقة الشمسية",
+      "multiple": "عدّة مجالات"
+    }
+  },
+  "Location": {
+    "heroEyebrow": "اعثر علينا",
+    "address": "العنوان",
+    "contactDirect": "اتصال مباشر",
+    "hours": "ساعات العمل",
+    "itinerary": "المسار",
+    "hideItinerary": "إخفاء المسار",
+    "openInMaps": "افتح في الخرائط",
+    "itineraryAria": "عرض مسار الحافلة على الخريطة",
+    "hideItineraryAria": "إخفاء مسار الحافلة على الخريطة",
+    "openInMapsAria": "افتح موقع المركز في خرائط جوجل"
   }
 }

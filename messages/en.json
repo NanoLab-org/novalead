@@ -105,5 +105,92 @@
     "ctaText": "Limited seats — sign up now to secure your spot in the next session.",
     "ctaEnroll": "Enroll now",
     "ctaOther": "See other programs"
+  },
+  "Contact": {
+    "heroEyebrow": "Contact us",
+    "heroTitle": "Let's talk about <hl>your project</hl>",
+    "heroSubtitle": "Individual or company — fill in the form that matches your profile and our team will reply within 24h.",
+    "tabB2C": "Individual (B2C)",
+    "tabB2B": "Company (B2B)",
+    "sending": "Sending…",
+    "select": "Select",
+    "selectFormation": "Select a program",
+    "alertSend": "Something went wrong while sending. Please try again.",
+    "alertNetwork": "Network error. Please try again.",
+    "errors": {
+      "required": "Required field",
+      "invalidEmail": "Invalid email address",
+      "describeRequest": "Please describe your request",
+      "describeNeed": "Please describe your need"
+    },
+    "success": {
+      "title": "Request sent!",
+      "text": "Thanks for your message. Our team will contact you within 24 business hours.",
+      "again": "Send another request"
+    },
+    "b2c": {
+      "firstName": "First name",
+      "firstNamePlaceholder": "Your first name",
+      "lastName": "Last name",
+      "lastNamePlaceholder": "Your last name",
+      "email": "Email",
+      "emailPlaceholder": "your@email.com",
+      "phone": "Phone",
+      "phonePlaceholder": "+216 XX XXX XXX",
+      "formation": "Desired program",
+      "message": "Message",
+      "messagePlaceholder": "Describe your project, questions or availability…",
+      "submit": "Send my request"
+    },
+    "b2b": {
+      "company": "Company name",
+      "companyPlaceholder": "Company name",
+      "sector": "Business sector",
+      "sectorPlaceholder": "e.g. Construction, Energy, Telecom…",
+      "contactFirstName": "Contact first name",
+      "contactLastName": "Contact last name",
+      "firstNamePlaceholder": "First name",
+      "lastNamePlaceholder": "Last name",
+      "email": "Business email",
+      "emailPlaceholder": "contact@company.com",
+      "phone": "Phone",
+      "peopleToTrain": "People to train",
+      "domain": "Training domain",
+      "specificNeed": "Specific need",
+      "messagePlaceholder": "Describe your training project, goals, scheduling constraints…",
+      "submit": "Request a quote"
+    },
+    "formationOptions": {
+      "ftth": "FTTH Fiber Optic Installation",
+      "soudure": "Fiber Splicing & Measurement",
+      "maintenance": "Fiber Network Maintenance",
+      "telecom": "Telecoms (coming soon)",
+      "solaire": "Solar Energy (coming soon)",
+      "autre": "Other / Not sure yet"
+    },
+    "peopleOptions": {
+      "1-5": "1 – 5 people",
+      "6-15": "6 – 15 people",
+      "16-30": "16 – 30 people",
+      "30+": "More than 30 people"
+    },
+    "domainOptions": {
+      "fibre": "Fiber Optics",
+      "telecom": "Telecommunications",
+      "solaire": "Solar Energy",
+      "multiple": "Several domains"
+    }
+  },
+  "Location": {
+    "heroEyebrow": "Find us",
+    "address": "Address",
+    "contactDirect": "Direct contact",
+    "hours": "Opening hours",
+    "itinerary": "Route",
+    "hideItinerary": "Hide route",
+    "openInMaps": "Open in Maps",
+    "itineraryAria": "Show the bus route on the map",
+    "hideItineraryAria": "Hide the bus route on the map",
+    "openInMapsAria": "Open the center's location in Google Maps"
   }
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import { ChevronUp } from "lucide-react";
 import { address, contactInfo, openingHours, officeLocation } from "@/constants";
 
@@ -23,6 +24,7 @@ export default function LocationCard({
   itineraryActive: boolean;
   onToggleItinerary: () => void;
 }) {
+  const t = useTranslations("Location");
   // Collapsed on mobile by default; on desktop the body is always shown (the
   // sm: classes below force it open regardless of this state).
   const [open, setOpen] = useState(false);
@@ -42,7 +44,7 @@ export default function LocationCard({
           <span className="flex items-center gap-3 px-5 py-3 text-left">
             <span>
               <span className="block text-[11px] font-bold uppercase tracking-widest text-primary">
-                Nous trouver
+                {t("heroEyebrow")}
               </span>
               <span className="block font-bold">{address.name}</span>
             </span>
@@ -67,7 +69,7 @@ export default function LocationCard({
               {/* Adresse */}
               <div>
                 <p className="mb-2 text-xs font-bold uppercase tracking-widest text-primary">
-                  Adresse
+                  {t("address")}
                 </p>
                 <p className="font-bold">{address.name}</p>
                 {address.lines.map((line) => (
@@ -80,7 +82,7 @@ export default function LocationCard({
               {/* Contact direct */}
               <div>
                 <p className="mb-2 text-xs font-bold uppercase tracking-widest text-primary">
-                  Contact direct
+                  {t("contactDirect")}
                 </p>
                 <ul className="flex flex-col gap-2">
                   {contactInfo.map((c) => {
@@ -111,7 +113,7 @@ export default function LocationCard({
               {/* Horaires d'ouverture */}
               <div>
                 <p className="mb-2 text-xs font-bold uppercase tracking-widest text-primary">
-                  Horaires d&apos;ouverture
+                  {t("hours")}
                 </p>
                 <ul className="flex flex-col gap-1.5 text-sm">
                   {openingHours.map((h) => (
@@ -135,23 +137,19 @@ export default function LocationCard({
                   type="button"
                   onClick={onToggleItinerary}
                   aria-pressed={itineraryActive}
-                  aria-label={
-                    itineraryActive
-                      ? "Masquer l'itinéraire du bus sur la carte"
-                      : "Afficher l'itinéraire du bus sur la carte"
-                  }
+                  aria-label={itineraryActive ? t("hideItineraryAria") : t("itineraryAria")}
                   className="flex-1 rounded-full bg-primary px-4 py-2.5 text-center text-sm font-semibold text-white transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary aria-pressed:bg-primary-dark"
                 >
-                  {itineraryActive ? "Masquer l'itinéraire" : "Itinéraire"}
+                  {itineraryActive ? t("hideItinerary") : t("itinerary")}
                 </button>
                 <a
                   href={openInMapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="Ouvrir la localisation du centre dans Google Maps"
+                  aria-label={t("openInMapsAria")}
                   className="flex-1 rounded-full border border-primary/40 px-4 py-2.5 text-center text-sm font-semibold text-primary transition-colors hover:bg-primary/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
                 >
-                  Ouvrir dans Maps
+                  {t("openInMaps")}
                 </a>
               </div>
             </div>

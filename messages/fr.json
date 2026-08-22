@@ -105,5 +105,92 @@
     "ctaText": "Places limitées — inscrivez-vous dès maintenant pour garantir votre place dans la prochaine session.",
     "ctaEnroll": "S'inscrire maintenant",
     "ctaOther": "Voir d'autres formations"
+  },
+  "Contact": {
+    "heroEyebrow": "Nous contacter",
+    "heroTitle": "Parlons de <hl>votre projet</hl>",
+    "heroSubtitle": "Particulier ou entreprise — remplissez le formulaire adapté à votre profil et notre équipe vous répond sous 24h.",
+    "tabB2C": "Particulier (B2C)",
+    "tabB2B": "Entreprise (B2B)",
+    "sending": "Envoi en cours…",
+    "select": "Sélectionner",
+    "selectFormation": "Sélectionner une formation",
+    "alertSend": "Erreur lors de l'envoi. Veuillez réessayer.",
+    "alertNetwork": "Erreur réseau. Veuillez réessayer.",
+    "errors": {
+      "required": "Champ requis",
+      "invalidEmail": "Adresse email invalide",
+      "describeRequest": "Veuillez décrire votre demande",
+      "describeNeed": "Veuillez décrire votre besoin"
+    },
+    "success": {
+      "title": "Demande envoyée !",
+      "text": "Merci pour votre message. Notre équipe vous contactera dans les 24 heures ouvrées.",
+      "again": "Envoyer une autre demande"
+    },
+    "b2c": {
+      "firstName": "Prénom",
+      "firstNamePlaceholder": "Votre prénom",
+      "lastName": "Nom",
+      "lastNamePlaceholder": "Votre nom",
+      "email": "Email",
+      "emailPlaceholder": "votre@email.com",
+      "phone": "Téléphone",
+      "phonePlaceholder": "+216 XX XXX XXX",
+      "formation": "Formation souhaitée",
+      "message": "Message",
+      "messagePlaceholder": "Décrivez votre projet, vos questions ou vos disponibilités…",
+      "submit": "Envoyer ma demande"
+    },
+    "b2b": {
+      "company": "Raison sociale",
+      "companyPlaceholder": "Nom de l'entreprise",
+      "sector": "Secteur d'activité",
+      "sectorPlaceholder": "ex : BTP, Énergie, Télécom…",
+      "contactFirstName": "Prénom du contact",
+      "contactLastName": "Nom du contact",
+      "firstNamePlaceholder": "Prénom",
+      "lastNamePlaceholder": "Nom",
+      "email": "Email professionnel",
+      "emailPlaceholder": "contact@entreprise.com",
+      "phone": "Téléphone",
+      "peopleToTrain": "Personnes à former",
+      "domain": "Domaine de formation",
+      "specificNeed": "Besoin spécifique",
+      "messagePlaceholder": "Décrivez votre projet de formation, vos objectifs, vos contraintes de calendrier…",
+      "submit": "Demander un devis"
+    },
+    "formationOptions": {
+      "ftth": "Installation Fibre Optique FTTH",
+      "soudure": "Soudure et Mesure Fibre",
+      "maintenance": "Maintenance Réseau Fibre",
+      "telecom": "Télécoms (bientôt disponible)",
+      "solaire": "Énergie Solaire (bientôt disponible)",
+      "autre": "Autre / Je ne sais pas encore"
+    },
+    "peopleOptions": {
+      "1-5": "1 – 5 personnes",
+      "6-15": "6 – 15 personnes",
+      "16-30": "16 – 30 personnes",
+      "30+": "Plus de 30 personnes"
+    },
+    "domainOptions": {
+      "fibre": "Fibre Optique",
+      "telecom": "Télécommunications",
+      "solaire": "Énergie Solaire",
+      "multiple": "Plusieurs domaines"
+    }
+  },
+  "Location": {
+    "heroEyebrow": "Nous trouver",
+    "address": "Adresse",
+    "contactDirect": "Contact direct",
+    "hours": "Horaires d'ouverture",
+    "itinerary": "Itinéraire",
+    "hideItinerary": "Masquer l'itinéraire",
+    "openInMaps": "Ouvrir dans Maps",
+    "itineraryAria": "Afficher l'itinéraire du bus sur la carte",
+    "hideItineraryAria": "Masquer l'itinéraire du bus sur la carte",
+    "openInMapsAria": "Ouvrir la localisation du centre dans Google Maps"
   }
 }
