@@ -2,16 +2,16 @@ import { useTranslations } from "next-intl";
 import { ProgramGalleryCarousel } from "@/components/ui/gallery-carousel";
 import { CATEGORIES } from "@/constants";
 
-// Derived from the single source of truth (CATEGORIES): one slide per domain,
-// using its formation's image + title. Add a formation in constants and it
-// shows up here automatically.
-const slides = CATEGORIES.filter((c) => c.formations.length > 0).map((c) => {
-  const f = c.formations[0];
-  return { src: f.img, alt: c.label, label: c.label, caption: f.titre };
-});
-
 export default function Slideshow() {
   const t = useTranslations("Home");
+  const tf = useTranslations("Formations");
+
+  // One slide per domain: category label + first formation's image & title.
+  const slides = CATEGORIES.filter((c) => c.formations.length > 0).map((c) => {
+    const f = c.formations[0];
+    const label = tf(`categories.${c.id}.label`);
+    return { src: f.img, alt: label, label, caption: tf(`items.${f.id}.titre`) };
+  });
   return (
     <section className="relative bg-gradient-to-b from-[#04211e] via-[#2a6a55] via-[40%] to-[#f5f0e8] pb-16 sm:pb-24 min-h-[600px] sm:min-h-[700px] lg:min-h-[800px]">
       <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-[#04211e] to-transparent pointer-events-none z-10" />

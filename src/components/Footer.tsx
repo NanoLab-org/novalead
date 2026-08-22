@@ -12,6 +12,7 @@ const footerLinks = [
 export default async function Footer({ locale }: { locale: string }) {
   const t = await getTranslations({ locale, namespace: "Footer" });
   const tNav = await getTranslations({ locale, namespace: "Nav" });
+  const tLoc = await getTranslations({ locale, namespace: "Location" });
   return (
     <footer
       id="contact"
@@ -58,8 +59,8 @@ export default async function Footer({ locale }: { locale: string }) {
           <p className="text-white font-bold text-sm mb-4">{t("contactTitle")}</p>
           <ul className="flex flex-col gap-3">
             {contactInfo.map((c) => (
-              <li key={c.label} className="text-sm">
-                <span className="block text-primary text-xs uppercase tracking-wide mb-0.5">{c.label}</span>
+              <li key={c.key} className="text-sm">
+                <span className="block text-primary text-xs uppercase tracking-wide mb-0.5">{tLoc(`contactLabels.${c.key}`)}</span>
                 <span className="text-white/70">{c.value}</span>
               </li>
             ))}
@@ -70,10 +71,10 @@ export default async function Footer({ locale }: { locale: string }) {
         <div>
           <p className="text-white font-bold text-sm mb-4">{t("hoursTitle")}</p>
           <ul className="flex flex-col gap-2.5 text-sm">
-            {openingHours.map((h, i) => (
-              <li key={i} className="flex justify-between gap-4 text-white/70">
-                <span>{h.day}</span>
-                <span className={h.closed ? "text-primary font-medium" : "text-white font-medium"}>{h.hours}</span>
+            {openingHours.map((h) => (
+              <li key={h.key} className="flex justify-between gap-4 text-white/70">
+                <span>{tLoc(`days.${h.key}`)}</span>
+                <span className={h.closed ? "text-primary font-medium" : "text-white font-medium"}>{h.closed ? tLoc("closed") : h.hours}</span>
               </li>
             ))}
           </ul>

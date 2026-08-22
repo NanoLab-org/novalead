@@ -210,23 +210,20 @@ export default async function AProposPage({
             testimonials={[
               {
                 name: "Mohamed Ben Ali",
-                designation: "Directeur & Formateur Senior — Fibre Optique",
-                quote:
-                  "Passionné par la transmission du savoir technique, j'accompagne chaque stagiaire vers une maîtrise complète des réseaux fibre optique FTTH, du tirage jusqu'au raccordement.",
+                designation: t("team.m1.designation"),
+                quote: t("team.m1.quote"),
                 src: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&auto=format&fit=crop",
               },
               {
                 name: "Sarra Mansouri",
-                designation: "Formatrice — Énergie Solaire",
-                quote:
-                  "Mon objectif est de rendre les énergies renouvelables accessibles à tous les techniciens. Chaque installation photovoltaïque réussie est une victoire pour la transition énergétique.",
+                designation: t("team.m2.designation"),
+                quote: t("team.m2.quote"),
                 src: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&auto=format&fit=crop",
               },
               {
                 name: "Karim Trabelsi",
-                designation: "Formateur — Bornes de Recharge (IRVE)",
-                quote:
-                  "La mobilité électrique explose. Ma mission est de préparer les techniciens à installer et maintenir les bornes de recharge selon les normes en vigueur.",
+                designation: t("team.m3.designation"),
+                quote: t("team.m3.quote"),
                 src: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600&auto=format&fit=crop",
               },
             ]}

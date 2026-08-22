@@ -70,7 +70,12 @@
     },
     "mapCta": "Suivre notre itinéraire",
     "teamEyebrow": "Notre Équipe",
-    "teamTitle": "Des experts <hl>du terrain</hl>"
+    "teamTitle": "Des experts <hl>du terrain</hl>",
+    "team": {
+      "m1": { "designation": "Directeur & Formateur Senior — Fibre Optique", "quote": "Passionné par la transmission du savoir technique, j'accompagne chaque stagiaire vers une maîtrise complète des réseaux fibre optique FTTH, du tirage jusqu'au raccordement." },
+      "m2": { "designation": "Formatrice — Énergie Solaire", "quote": "Mon objectif est de rendre les énergies renouvelables accessibles à tous les techniciens. Chaque installation photovoltaïque réussie est une victoire pour la transition énergétique." },
+      "m3": { "designation": "Formateur — Bornes de Recharge (IRVE)", "quote": "La mobilité électrique explose. Ma mission est de préparer les techniciens à installer et maintenir les bornes de recharge selon les normes en vigueur." }
+    }
   },
   "Catalogue": {
     "heroEyebrow": "Nos formations",
@@ -191,6 +196,32 @@
     "openInMaps": "Ouvrir dans Maps",
     "itineraryAria": "Afficher l'itinéraire du bus sur la carte",
     "hideItineraryAria": "Masquer l'itinéraire du bus sur la carte",
-    "openInMapsAria": "Ouvrir la localisation du centre dans Google Maps"
+    "openInMapsAria": "Ouvrir la localisation du centre dans Google Maps",
+    "contactLabels": { "tel": "Tél", "email": "Email", "whatsapp": "WhatsApp" },
+    "days": { "weekdays": "Lundi - Vendredi", "saturday": "Samedi", "sunday": "Dimanche" },
+    "closed": "Fermé",
+    "addressName": "Centre NovaLead",
+    "addressLines": ["Rue Lorem Ipsum, Immeuble Dolor Sit", "1000 Tunis, Tunisie"]
+  },
+  "Formations": {
+    "onRequest": "Sur demande",
+    "format": "Formation mobile",
+    "levels": { "beginner": "Débutant", "intermediate": "Intermédiaire", "advanced": "Avancé", "all": "Tous niveaux" },
+    "categories": {
+      "fibre": { "label": "Fibre Optique", "description": "Installation, raccordement, soudure et mesures des réseaux fibre optique FTTH, de la conception jusqu'au raccordement de l'abonné." },
+      "photovoltaique": { "label": "Photovoltaïque", "description": "Conception, pose et maintenance des installations solaires photovoltaïques résidentielles et professionnelles." },
+      "irve": { "label": "Bornes de Recharge (IRVE)", "description": "Installation, raccordement et mise en service des bornes de recharge pour véhicules électriques (IRVE)." }
+    },
+    "items": {
+      "1": { "titre": "Fibre Optique — Initiation & Fondamentaux", "description": "Comprenez l'architecture des réseaux FTTH et les bases du déploiement fibre, de la lecture de plans jusqu'au tirage des câbles.", "objectives": ["Fondamentaux : principe de la fibre, types de fibres, architecture FTTH (NRO, PM, PBO, PTO), normes", "Lecture de plans : synoptiques, plans de boîtes, repérage terrain, codes couleurs", "Tirage et déploiement : aérien, souterrain, façade et colonne montante"] },
+      "2": { "titre": "Fibre Optique — Raccordement & Soudure", "description": "Maîtrisez le raccordement optique : préparation, clivage, soudure par fusion, connectorisation et raccordement client (D3).", "objectives": ["Raccordement : préparation, clivage, soudure par fusion, connectorisation, lovages", "Raccordement client (D3) : pose de PTO, mise en service de la box, relation client", "Sécurité : EPI, travaux en hauteur, AIPR, habilitations"] },
+      "3": { "titre": "Fibre Optique — Mesures & Recette", "description": "Contrôlez la qualité du réseau : photométrie, réflectométrie OTDR, bilan optique et livrables de recette.", "objectives": ["Mesures et contrôles : photométrie, réflectométrie (OTDR), bilan optique", "Recette et livrables : PV de recette, comptes rendus, reportage photo", "Interprétation des courbes et diagnostic des défauts"] },
+      "4": { "titre": "Photovoltaïque — Conception & Dimensionnement", "description": "Étudiez et dimensionnez une installation solaire, des bases de l'énergie solaire jusqu'à la lecture des plans électriques.", "objectives": ["Bases de l'énergie solaire", "Étude et dimensionnement d'une installation", "Lecture de plans électriques"] },
+      "5": { "titre": "Photovoltaïque — Installation & Raccordement", "description": "Posez et raccordez une installation photovoltaïque : panneaux, onduleurs, systèmes de stockage et mise en service.", "objectives": ["Pose des panneaux photovoltaïques", "Raccordement électrique", "Onduleurs et systèmes de stockage", "Mise en service"] },
+      "6": { "titre": "Photovoltaïque — Maintenance & Sécurité", "description": "Assurez la maintenance et le dépannage des installations solaires dans le respect des normes et de la sécurité.", "objectives": ["Maintenance et dépannage", "Normes et sécurité", "Diagnostic des pannes et optimisation du rendement"] },
+      "7": { "titre": "IRVE — Fondamentaux", "description": "Découvrez la réglementation IRVE, la technologie des véhicules électriques et le dimensionnement des bornes de recharge.", "objectives": ["Réglementation IRVE", "Technologie des véhicules électriques", "Choix et dimensionnement des bornes"] },
+      "8": { "titre": "IRVE — Installation & Mise en Service", "description": "Installez et raccordez des bornes de recharge : protections électriques, paramétrage et mise en service.", "objectives": ["Installation et raccordement", "Protections électriques", "Paramétrage et mise en service"] },
+      "9": { "titre": "IRVE — Maintenance & Diagnostic", "description": "Diagnostiquez et maintenez les bornes de recharge en toute sécurité, avec études de cas pratiques.", "objectives": ["Maintenance et diagnostic des pannes", "Sécurité des installations", "Études de cas pratiques"] }
+    }
   }
 }

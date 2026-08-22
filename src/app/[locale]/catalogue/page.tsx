@@ -6,34 +6,22 @@ import { Link } from "@/i18n/navigation";
 import { LampContainer } from "@/components/ui/lamp";
 import { motion } from "framer-motion";
 
-type Niveau = "Débutant" | "Intermédiaire" | "Avancé" | "Tous niveaux";
-
-type Formation = {
-  id: number | string;
-  titre: string;
-  duree: string;
-  niveau: Niveau | string;
-  places: number | string;
-  format: string;
-  description: string;
-};
+// Structural shape (text comes from the Formations message namespace by id).
+type Formation = { id: number; img: string; niveau: string };
 
 type Category = {
   id: string;
-  label: string;
-  description: string;
   locked: boolean;
   formations: Formation[];
 };
 
-
-
 // Full class strings as literals so Tailwind generates them at build time.
+// Keyed by the canonical niveau key stored in constants.
 const NIVEAU_CLASS: Record<string, string> = {
-  "Débutant":      "bg-primary/15 text-level-beginner",
-  "Intermédiaire": "bg-primary/15 text-level-intermediate",
-  "Avancé":        "bg-level-advanced/15 text-level-advanced",
-  "Tous niveaux":  "bg-primary/15 text-level-beginner",
+  beginner:     "bg-primary/15 text-level-beginner",
+  intermediate: "bg-primary/15 text-level-intermediate",
+  advanced:     "bg-level-advanced/15 text-level-advanced",
+  all:          "bg-primary/15 text-level-beginner",
 };
 
 
@@ -42,23 +30,24 @@ const NIVEAU_CLASS: Record<string, string> = {
 
 function FormationCard({ f }: { f: Formation }) {
   const t = useTranslations("Catalogue");
+  const tf = useTranslations("Formations");
   return (
     <div className="group flex flex-col gap-3 bg-surface p-[22px] min-[900px]:py-7 min-[900px]:px-[30px] cursor-pointer transition-colors duration-200 hover:bg-surface-hover">
       <div className="flex justify-between items-center">
         <span className={`text-[11px] font-bold px-2.5 py-1 rounded-full ${NIVEAU_CLASS[f.niveau]}`}>
-          {f.niveau}
+          {tf(`levels.${f.niveau}`)}
         </span>
         <span className="flex items-center gap-[5px] text-xs text-faint">
           <svg width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm64-88a8,8,0,0,1-8,8H128a8,8,0,0,1-8-8V72a8,8,0,0,1,16,0v48h48A8,8,0,0,1,192,128Z"/></svg>
-          {f.duree}
+          {tf("onRequest")}
         </span>
       </div>
-      <h4 className="text-[15px] font-bold text-strong leading-[1.35]">{f.titre}</h4>
-      <p className="text-[13px] text-faded leading-[1.65] grow">{f.description}</p>
+      <h4 className="text-[15px] font-bold text-strong leading-[1.35]">{tf(`items.${f.id}.titre`)}</h4>
+      <p className="text-[13px] text-faded leading-[1.65] grow">{tf(`items.${f.id}.description`)}</p>
       <div className="flex justify-between items-center mt-1 pt-3.5 border-t border-black/5">
         <span className="flex items-center gap-1.5 text-xs text-faint">
           <svg width="13" height="13" viewBox="0 0 256 256" fill="currentColor"><path d="M117.25,157.92a60,60,0,1,0-66.5,0A95.83,95.83,0,0,0,3.53,195.63a8,8,0,1,0,13.4,8.74,80,80,0,0,1,134.14,0,8,8,0,0,0,13.4-8.74A95.83,95.83,0,0,0,117.25,157.92ZM40,108a44,44,0,1,1,44,44A44.05,44.05,0,0,1,40,108Zm210.14,98.7a8,8,0,0,1-11.07-2.33A79.83,79.83,0,0,0,172,168a8,8,0,0,1,0-16,44,44,0,1,0-16.34-84.87,8,8,0,1,1-5.94-14.85,60,60,0,0,1,16.28,116.39,95.83,95.83,0,0,1,47.22,37.71A8,8,0,0,1,250.14,206.7Z"/></svg>
-          {typeof f.places === "number" ? t("places", { count: f.places }) : f.places}
+          {tf("onRequest")}
         </span>
         <Link href={`/formations/${f.id}`} className="fcard-btn">{t("viewFormation")}</Link>
       </div>
@@ -68,6 +57,7 @@ function FormationCard({ f }: { f: Formation }) {
 
 function CategoryContainer({ cat, index }: { cat: Category; index: number }) {
   const t = useTranslations("Catalogue");
+  const tf = useTranslations("Formations");
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -100,7 +90,7 @@ function CategoryContainer({ cat, index }: { cat: Category; index: number }) {
       <div className="px-5 pt-[22px] pb-[18px] min-[900px]:px-8 min-[900px]:pt-7 min-[900px]:pb-6 border-b border-black/[0.055]">
         <div className="flex items-center gap-3.5 mb-2">
           <h2 className={`text-xl font-bold ${cat.locked ? "text-locked" : "text-heading"}`}>
-            {cat.label}
+            {tf(`categories.${cat.id}.label`)}
           </h2>
           {cat.locked ? (
             <span className="inline-flex items-center gap-1.5 text-xs font-semibold bg-black/5 text-faded px-3 py-1 rounded-full">
@@ -113,7 +103,7 @@ function CategoryContainer({ cat, index }: { cat: Category; index: number }) {
             </span>
           )}
         </div>
-        <p className="text-[13.5px] text-faded leading-[1.6]">{cat.description}</p>
+        <p className="text-[13.5px] text-faded leading-[1.6]">{tf(`categories.${cat.id}.description`)}</p>
       </div>
 
       {cat.locked ? (

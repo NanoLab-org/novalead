@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { ChevronUp } from "lucide-react";
-import { address, contactInfo, openingHours, officeLocation } from "@/constants";
+import { contactInfo, openingHours, officeLocation } from "@/constants";
 
 const { lat, lng } = officeLocation;
 const openInMapsUrl = `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`;
@@ -46,7 +46,7 @@ export default function LocationCard({
               <span className="block text-[11px] font-bold uppercase tracking-widest text-primary">
                 {t("heroEyebrow")}
               </span>
-              <span className="block font-bold">{address.name}</span>
+              <span className="block font-bold">{t("addressName")}</span>
             </span>
             <ChevronUp
               className={`ms-auto h-5 w-5 shrink-0 text-faint transition-transform duration-300 ${
@@ -71,8 +71,8 @@ export default function LocationCard({
                 <p className="mb-2 text-xs font-bold uppercase tracking-widest text-primary">
                   {t("address")}
                 </p>
-                <p className="font-bold">{address.name}</p>
-                {address.lines.map((line) => (
+                <p className="font-bold">{t("addressName")}</p>
+                {(t.raw("addressLines") as string[]).map((line) => (
                   <p key={line} className="text-sm text-muted">
                     {line}
                   </p>
@@ -86,15 +86,15 @@ export default function LocationCard({
                 </p>
                 <ul className="flex flex-col gap-2">
                   {contactInfo.map((c) => {
-                    const href = contactHref(c.label, c.value);
+                    const href = contactHref(c.key, c.value);
                     const external = href.startsWith("http");
                     return (
                       <li
-                        key={c.label}
+                        key={c.key}
                         className="flex items-center justify-between gap-3"
                       >
                         <span className="text-xs font-semibold uppercase tracking-wide text-faint">
-                          {c.label}
+                          {t(`contactLabels.${c.key}`)}
                         </span>
                         <a
                           href={href}
@@ -117,14 +117,14 @@ export default function LocationCard({
                 </p>
                 <ul className="flex flex-col gap-1.5 text-sm">
                   {openingHours.map((h) => (
-                    <li key={h.day} className="flex justify-between gap-4">
-                      <span className="text-muted">{h.day}</span>
+                    <li key={h.key} className="flex justify-between gap-4">
+                      <span className="text-muted">{t(`days.${h.key}`)}</span>
                       <span
                         className={
                           h.closed ? "font-semibold text-error" : "font-semibold"
                         }
                       >
-                        {h.hours}
+                        {h.closed ? t("closed") : h.hours}
                       </span>
                     </li>
                   ))}

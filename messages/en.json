@@ -70,7 +70,12 @@
     },
     "mapCta": "Follow our route",
     "teamEyebrow": "Our Team",
-    "teamTitle": "Field <hl>experts</hl>"
+    "teamTitle": "Field <hl>experts</hl>",
+    "team": {
+      "m1": { "designation": "Director & Senior Trainer — Fiber Optics", "quote": "Passionate about passing on technical knowledge, I guide every trainee toward full mastery of FTTH fiber networks, from pulling to connection." },
+      "m2": { "designation": "Trainer — Solar Energy", "quote": "My goal is to make renewable energy accessible to every technician. Every successful photovoltaic installation is a win for the energy transition." },
+      "m3": { "designation": "Trainer — EV Charging (IRVE)", "quote": "Electric mobility is booming. My mission is to prepare technicians to install and maintain charging stations to current standards." }
+    }
   },
   "Catalogue": {
     "heroEyebrow": "Our programs",
@@ -191,6 +196,32 @@
     "openInMaps": "Open in Maps",
     "itineraryAria": "Show the bus route on the map",
     "hideItineraryAria": "Hide the bus route on the map",
-    "openInMapsAria": "Open the center's location in Google Maps"
+    "openInMapsAria": "Open the center's location in Google Maps",
+    "contactLabels": { "tel": "Phone", "email": "Email", "whatsapp": "WhatsApp" },
+    "days": { "weekdays": "Monday - Friday", "saturday": "Saturday", "sunday": "Sunday" },
+    "closed": "Closed",
+    "addressName": "NovaLead Center",
+    "addressLines": ["Rue Lorem Ipsum, Immeuble Dolor Sit", "1000 Tunis, Tunisia"]
+  },
+  "Formations": {
+    "onRequest": "On request",
+    "format": "Mobile training",
+    "levels": { "beginner": "Beginner", "intermediate": "Intermediate", "advanced": "Advanced", "all": "All levels" },
+    "categories": {
+      "fibre": { "label": "Fiber Optics", "description": "Installation, connection, splicing and measurement of FTTH fiber networks, from design to the subscriber connection." },
+      "photovoltaique": { "label": "Photovoltaics", "description": "Design, installation and maintenance of residential and professional solar photovoltaic systems." },
+      "irve": { "label": "EV Charging (IRVE)", "description": "Installation, connection and commissioning of charging stations for electric vehicles (IRVE)." }
+    },
+    "items": {
+      "1": { "titre": "Fiber Optics — Introduction & Fundamentals", "description": "Understand FTTH network architecture and the basics of fiber deployment, from reading plans to pulling cables.", "objectives": ["Fundamentals: fiber principles, fiber types, FTTH architecture (NRO, PM, PBO, PTO), standards", "Reading plans: schematics, box layouts, field surveying, color codes", "Pulling & deployment: aerial, underground, façade and riser"] },
+      "2": { "titre": "Fiber Optics — Connection & Splicing", "description": "Master optical connection: preparation, cleaving, fusion splicing, connectorization and subscriber connection (D3).", "objectives": ["Connection: preparation, cleaving, fusion splicing, connectorization, slack management", "Subscriber connection (D3): PTO installation, box commissioning, customer relations", "Safety: PPE, work at height, AIPR, certifications"] },
+      "3": { "titre": "Fiber Optics — Measurement & Acceptance", "description": "Check network quality: photometry, OTDR reflectometry, optical budget and acceptance deliverables.", "objectives": ["Measurement & testing: photometry, reflectometry (OTDR), optical budget", "Acceptance & deliverables: acceptance reports, work logs, photo reports", "Trace interpretation and fault diagnosis"] },
+      "4": { "titre": "Photovoltaics — Design & Sizing", "description": "Study and size a solar installation, from solar energy basics to reading electrical plans.", "objectives": ["Solar energy fundamentals", "Study and sizing of an installation", "Reading electrical plans"] },
+      "5": { "titre": "Photovoltaics — Installation & Connection", "description": "Install and connect a photovoltaic system: panels, inverters, storage systems and commissioning.", "objectives": ["Installing photovoltaic panels", "Electrical connection", "Inverters and storage systems", "Commissioning"] },
+      "6": { "titre": "Photovoltaics — Maintenance & Safety", "description": "Maintain and troubleshoot solar installations in compliance with standards and safety.", "objectives": ["Maintenance and troubleshooting", "Standards and safety", "Fault diagnosis and yield optimization"] },
+      "7": { "titre": "IRVE — Fundamentals", "description": "Discover IRVE regulations, electric-vehicle technology and the sizing of charging stations.", "objectives": ["IRVE regulations", "Electric-vehicle technology", "Selecting and sizing charging stations"] },
+      "8": { "titre": "IRVE — Installation & Commissioning", "description": "Install and connect charging stations: electrical protections, configuration and commissioning.", "objectives": ["Installation and connection", "Electrical protections", "Configuration and commissioning"] },
+      "9": { "titre": "IRVE — Maintenance & Diagnostics", "description": "Diagnose and maintain charging stations safely, with hands-on case studies.", "objectives": ["Maintenance and fault diagnosis", "Installation safety", "Hands-on case studies"] }
+    }
   }
 }
