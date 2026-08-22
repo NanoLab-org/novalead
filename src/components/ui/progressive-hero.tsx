@@ -74,11 +74,12 @@ function ProgressiveHero() {
       {/* Background video */}
       <video
         className="absolute inset-0 h-full w-full object-cover"
-        src="https://videos.pexels.com/video-files/18526841/uhd_30fps.mp4"
+        src="https://videos.pexels.com/video-files/18526841/18526841-hd_1920_1080_30fps.mp4"
         autoPlay
         loop
         muted
         playsInline
+        preload="auto"
       />
       {/* Recolor the footage toward the brand green — keeps the buildings visible */}
       <div className="absolute inset-0 bg-primary/70 mix-blend-color" />
