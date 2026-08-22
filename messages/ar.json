@@ -71,5 +71,39 @@
     "mapCta": "تابع مسارنا",
     "teamEyebrow": "فريقنا",
     "teamTitle": "خبراء <hl>الميدان</hl>"
+  },
+  "Catalogue": {
+    "heroEyebrow": "دوراتنا",
+    "heroTitleWord": "الكتالوج",
+    "heroSubtitle": "دورات ميدانية مصمّمة لتقنيي الغد — الألياف البصرية والطاقة الشمسية ومحطات الشحن (IRVE).",
+    "browseByDomain": "تصفّح حسب المجال",
+    "formationsCount": "{count, plural, zero {لا دورات} one {دورة واحدة} two {دورتان} few {# دورات} many {# دورة} other {# دورة}}",
+    "comingSoonBadge": "قريبًا",
+    "comingSoon": "هذه الدورات ستتوفّر قريبًا.",
+    "notify": "أعلمني",
+    "places": "{count, plural, zero {لا مقاعد} one {مقعد واحد} two {مقعدان} few {# مقاعد} many {# مقعدًا} other {# مقعد}}",
+    "viewFormation": "عرض الدورة"
+  },
+  "Formation": {
+    "back": "العودة إلى الكتالوج",
+    "notFoundTitle": "الدورة غير موجودة",
+    "objectives": "أهداف الدورة",
+    "programme": "البرنامج يومًا بيوم",
+    "prerequisites": "المتطلّبات المسبقة",
+    "practicalInfo": "معلومات عملية",
+    "duration": "المدّة",
+    "format": "الصيغة",
+    "level": "المستوى",
+    "seats": "المقاعد المتاحة",
+    "seatsValue": "{count, plural, zero {لا مقاعد} one {مقعد واحد} two {مقعدان} few {# مقاعد} many {# مقعدًا} other {# مقعد}}",
+    "certification": "الشهادة",
+    "price": "السعر",
+    "enroll": "سجّل في هذه الدورة",
+    "moreInfo": "اطلب مزيدًا من المعلومات",
+    "ctaEyebrow": "مستعدّ للتكوين؟",
+    "ctaTitle": "انضمّ إلى الجلسة القادمة",
+    "ctaText": "المقاعد محدودة — سجّل الآن لتضمن مكانك في الجلسة القادمة.",
+    "ctaEnroll": "سجّل الآن",
+    "ctaOther": "شاهد دورات أخرى"
   }
 }

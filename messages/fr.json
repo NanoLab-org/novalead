@@ -71,5 +71,39 @@
     "mapCta": "Suivre notre itinéraire",
     "teamEyebrow": "Notre Équipe",
     "teamTitle": "Des experts <hl>du terrain</hl>"
+  },
+  "Catalogue": {
+    "heroEyebrow": "Nos formations",
+    "heroTitleWord": "Catalogue",
+    "heroSubtitle": "Des formations terrain pensées pour les techniciens de demain — fibre optique, photovoltaïque et bornes de recharge (IRVE).",
+    "browseByDomain": "Parcourir par domaine",
+    "formationsCount": "{count, plural, one {# formation} other {# formations}}",
+    "comingSoonBadge": "Bientôt",
+    "comingSoon": "Ces formations arrivent bientôt.",
+    "notify": "Être notifié",
+    "places": "{count, plural, one {# place} other {# places}}",
+    "viewFormation": "Voir la formation"
+  },
+  "Formation": {
+    "back": "Retour au catalogue",
+    "notFoundTitle": "Formation introuvable",
+    "objectives": "Objectifs de la formation",
+    "programme": "Programme jour par jour",
+    "prerequisites": "Prérequis",
+    "practicalInfo": "Infos pratiques",
+    "duration": "Durée",
+    "format": "Format",
+    "level": "Niveau",
+    "seats": "Places disponibles",
+    "seatsValue": "{count, plural, one {# place} other {# places}}",
+    "certification": "Certification",
+    "price": "Prix",
+    "enroll": "S'inscrire à cette formation",
+    "moreInfo": "Demander plus d'infos",
+    "ctaEyebrow": "Prêt à vous former ?",
+    "ctaTitle": "Rejoignez la prochaine session",
+    "ctaText": "Places limitées — inscrivez-vous dès maintenant pour garantir votre place dans la prochaine session.",
+    "ctaEnroll": "S'inscrire maintenant",
+    "ctaOther": "Voir d'autres formations"
   }
 }

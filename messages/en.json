@@ -71,5 +71,39 @@
     "mapCta": "Follow our route",
     "teamEyebrow": "Our Team",
     "teamTitle": "Field <hl>experts</hl>"
+  },
+  "Catalogue": {
+    "heroEyebrow": "Our programs",
+    "heroTitleWord": "Catalogue",
+    "heroSubtitle": "Field-focused programs designed for tomorrow's technicians — fiber optics, photovoltaics and EV charging (IRVE).",
+    "browseByDomain": "Browse by domain",
+    "formationsCount": "{count, plural, one {# program} other {# programs}}",
+    "comingSoonBadge": "Coming soon",
+    "comingSoon": "These programs are coming soon.",
+    "notify": "Get notified",
+    "places": "{count, plural, one {# seat} other {# seats}}",
+    "viewFormation": "View program"
+  },
+  "Formation": {
+    "back": "Back to catalogue",
+    "notFoundTitle": "Program not found",
+    "objectives": "Program objectives",
+    "programme": "Day-by-day schedule",
+    "prerequisites": "Prerequisites",
+    "practicalInfo": "Practical info",
+    "duration": "Duration",
+    "format": "Format",
+    "level": "Level",
+    "seats": "Available seats",
+    "seatsValue": "{count, plural, one {# seat} other {# seats}}",
+    "certification": "Certification",
+    "price": "Price",
+    "enroll": "Enroll in this program",
+    "moreInfo": "Request more info",
+    "ctaEyebrow": "Ready to train?",
+    "ctaTitle": "Join the next session",
+    "ctaText": "Limited seats — sign up now to secure your spot in the next session.",
+    "ctaEnroll": "Enroll now",
+    "ctaOther": "See other programs"
   }
 }

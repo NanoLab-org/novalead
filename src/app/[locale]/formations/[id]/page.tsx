@@ -1,12 +1,26 @@
-import Link from "next/link";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
 import { CATEGORIES } from "@/constants";
+import { routing } from "@/i18n/routing";
 
 type Props = {
-  params: Promise<{ id: string }>;
+  params: Promise<{ locale: string; id: string }>;
 };
 
+// Prerender each formation per locale (locale comes from the parent segment) so
+// getTranslations({locale}) resolves at build time — request-time locale
+// resolution is unreliable on this Next/next-intl setup.
+export function generateStaticParams() {
+  const ids = CATEGORIES.flatMap((cat) => cat.formations).map((f) => String(f.id));
+  return routing.locales.flatMap((locale) =>
+    ids.map((id) => ({ locale, id }))
+  );
+}
+
 export default async function FormationFiche({ params }: Props) {
-  const { id } = await params;
+  const { locale, id } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations({ locale, namespace: "Formation" });
 
   const formation = CATEGORIES.flatMap((cat) => cat.formations).find(
     (f) => f.id === Number(id)
@@ -15,9 +29,9 @@ export default async function FormationFiche({ params }: Props) {
   if (!formation) {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen text-graphite">
-        <h1 className="text-3xl font-black mb-4">Formation introuvable</h1>
+        <h1 className="text-3xl font-black mb-4">{t("notFoundTitle")}</h1>
         <Link href="/catalogue" className="text-primary hover:underline">
-          Retour au catalogue
+          {t("back")}
         </Link>
       </div>
     );
@@ -27,7 +41,7 @@ export default async function FormationFiche({ params }: Props) {
     <div className="min-h-screen bg-transparent">
 
       {/* Hero Banner */}
-<div 
+<div
   className="relative px-16 pt-36 pb-16 overflow-hidden"
   style={{
     backgroundImage: `url(${formation.img})`,
@@ -38,11 +52,11 @@ export default async function FormationFiche({ params }: Props) {
   {/* Gradient overlay */}
   <div className="absolute inset-0 bg-gradient-to-r from-[#04211e]/95 via-[#04211e]/70 to-transparent" />
   <div className="absolute inset-0 bg-gradient-to-t from-[#04211e] via-transparent to-transparent" />
-  
+
   {/* Content */}
   <div className="relative z-10 text-center">
     <Link href="/catalogue" className="text-white/70 text-sm hover:text-graphite transition-colors mb-8 inline-block">
-      ← Retour au catalogue
+      ← {t("back")}
     </Link>
     <div className="flex gap-3 mb-6 text-center justify-center">
       <span className="text-xs font-semibold px-3 py-1 rounded-full bg-primary/20 text-primary border border-primary/30 text-center">{formation.niveau}</span>
@@ -69,7 +83,7 @@ export default async function FormationFiche({ params }: Props) {
           <div className="bg-surface shadow-card rounded-2xl p-8">
             <h2 className="text-graphite font-black text-lg mb-6 flex items-center gap-2">
               <span className="w-1 h-6 bg-primary rounded-full" />
-              Objectifs de la formation
+              {t("objectives")}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {formation.objectifs.map((obj, i) => (
@@ -86,7 +100,7 @@ export default async function FormationFiche({ params }: Props) {
           <div className="bg-surface shadow-card rounded-2xl p-8">
             <h2 className="text-graphite font-black text-lg mb-6 flex items-center gap-2">
               <span className="w-1 h-6 bg-primary rounded-full" />
-              Programme jour par jour
+              {t("programme")}
             </h2>
             <div className="flex flex-col gap-0">
               {formation.programme.map((p, i) => (
@@ -113,7 +127,7 @@ export default async function FormationFiche({ params }: Props) {
           <div className="bg-surface shadow-card rounded-2xl p-8">
             <h2 className="text-graphite font-black text-lg mb-4 flex items-center gap-2">
               <span className="w-1 h-6 bg-primary rounded-full" />
-              Prérequis
+              {t("prerequisites")}
             </h2>
             <p className="text-muted text-sm leading-relaxed">{formation.prerequis}</p>
           </div>
@@ -125,14 +139,14 @@ export default async function FormationFiche({ params }: Props) {
 
           {/* Infos pratiques */}
           <div className="bg-surface shadow-card rounded-2xl p-6 sticky top-28">
-            <h2 className="text-graphite font-black text-base mb-5">Infos pratiques</h2>
+            <h2 className="text-graphite font-black text-base mb-5">{t("practicalInfo")}</h2>
             <div className="flex flex-col gap-4 text-sm mb-6">
               {[
-                { label: "Durée", value: formation.duree },
-                { label: "Format", value: formation.format },
-                { label: "Niveau", value: formation.niveau },
-                { label: "Places disponibles", value: typeof formation.places === "number" ? `${formation.places} places` : formation.places },
-                { label: "Certification", value: formation.certification },
+                { label: t("duration"), value: formation.duree },
+                { label: t("format"), value: formation.format },
+                { label: t("level"), value: formation.niveau },
+                { label: t("seats"), value: typeof formation.places === "number" ? t("seatsValue", { count: formation.places }) : formation.places },
+                { label: t("certification"), value: formation.certification },
               ].map((item) => (
                 <div key={item.label} className="flex flex-col gap-1 pb-4 border-b border-black/5 last:border-0 last:pb-0">
                   <span className="text-faded text-xs uppercase tracking-widest">{item.label}</span>
@@ -140,7 +154,7 @@ export default async function FormationFiche({ params }: Props) {
                 </div>
               ))}
               <div className="flex flex-col gap-1">
-                <span className="text-faded text-xs uppercase tracking-widest">Prix</span>
+                <span className="text-faded text-xs uppercase tracking-widest">{t("price")}</span>
                 <span className="text-primary font-black text-2xl">{formation.prix}</span>
               </div>
             </div>
@@ -149,13 +163,13 @@ export default async function FormationFiche({ params }: Props) {
               href="/contact"
               className="block w-full bg-primary text-white font-semibold text-sm px-6 py-4 rounded-xl hover:opacity-90 transition-opacity text-center mb-3"
             >
-              S'inscrire à cette formation
+              {t("enroll")}
             </Link>
             <Link
               href="/contact"
               className="block w-full bg-transparent text-graphite font-medium text-sm px-6 py-3 rounded-xl border border-black/15 hover:border-primary hover:text-primary transition-colors text-center"
             >
-              Demander plus d'infos
+              {t("moreInfo")}
             </Link>
           </div>
 
@@ -164,17 +178,17 @@ export default async function FormationFiche({ params }: Props) {
 
       {/* Bottom CTA */}
       <div className="bg-gradient-to-br from-hero-from to-hero-to px-16 py-16 text-center">
-        <p className="text-primary text-xs font-bold uppercase tracking-widest mb-3">Prêt à vous former ?</p>
-        <h2 className="text-3xl font-black text-white mb-4">Rejoignez la prochaine session</h2>
+        <p className="text-primary text-xs font-bold uppercase tracking-widest mb-3">{t("ctaEyebrow")}</p>
+        <h2 className="text-3xl font-black text-white mb-4">{t("ctaTitle")}</h2>
         <p className="text-white/70 text-sm mb-8 max-w-md mx-auto">
-          Places limitées — inscrivez-vous dès maintenant pour garantir votre place dans la prochaine session.
+          {t("ctaText")}
         </p>
         <div className="flex gap-3 justify-center">
           <Link href="/contact" className="bg-primary text-white font-semibold px-8 py-3 rounded-full hover:opacity-90 transition-opacity">
-            S'inscrire maintenant
+            {t("ctaEnroll")}
           </Link>
           <Link href="/catalogue" className="bg-white/10 text-graphite font-medium px-8 py-3 rounded-full hover:bg-white/20 transition-colors">
-            Voir d'autres formations
+            {t("ctaOther")}
           </Link>
         </div>
       </div>
