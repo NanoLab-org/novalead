@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import Image from "next/image";
 import { motion } from "motion/react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -138,11 +139,13 @@ export function ProgramGalleryCarousel({
               if (position === "right") slideRight();
             }}
           >
-            <img
+            <Image
               src={image.src}
               alt={image.alt}
-              className="h-full w-full object-cover"
-              loading={index === 0 ? "eager" : "lazy"}
+              fill
+              sizes="(min-width: 768px) 700px, 85vw"
+              className="object-cover"
+              priority={index === 0}
               draggable={false}
             />
 

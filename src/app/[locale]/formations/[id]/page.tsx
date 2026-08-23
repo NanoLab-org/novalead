@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { CATEGORIES } from "@/constants";
@@ -42,14 +43,16 @@ export default async function FormationFiche({ params }: Props) {
     <div className="min-h-screen bg-transparent">
 
       {/* Hero Banner */}
-<div
-  className="relative px-16 pt-36 pb-16 overflow-hidden"
-  style={{
-    backgroundImage: `url(${formation.img})`,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-  }}
->
+<div className="relative px-16 pt-36 pb-16 overflow-hidden">
+  {/* Optimized background image */}
+  <Image
+    src={formation.img}
+    alt=""
+    fill
+    priority
+    sizes="100vw"
+    className="object-cover object-center"
+  />
   {/* Gradient overlay */}
   <div className="absolute inset-0 bg-gradient-to-r from-[#04211e]/95 via-[#04211e]/70 to-transparent" />
   <div className="absolute inset-0 bg-gradient-to-t from-[#04211e] via-transparent to-transparent" />
