@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { useTranslations } from "next-intl";
+import { CATEGORIES } from "@/constants";
 import Reveal from "@/components/ui/Reveal";
 
 type Tab = "b2c" | "b2b";
@@ -77,6 +78,7 @@ function SuccessPanel({ onReset }: { onReset: () => void }) {
 
 export default function ContactPage() {
   const t = useTranslations("Contact");
+  const tf = useTranslations("Formations");
   const [tab, setTab] = useState<Tab>("b2c");
   const [b2c, setB2c] = useState<B2CFields>(B2C_INIT);
   const [b2b, setB2b] = useState<B2BFields>(B2B_INIT);
@@ -252,11 +254,9 @@ export default function ContactPage() {
                 <Field label={t("b2c.formation")} error={b2cErr.formation}>
                   <select className={inputCls(b2cErr.formation)} value={b2c.formation} onChange={b2cChange("formation")}>
                     <option value="">{t("selectFormation")}</option>
-                    <option value="ftth">{t("formationOptions.ftth")}</option>
-                    <option value="soudure">{t("formationOptions.soudure")}</option>
-                    <option value="maintenance">{t("formationOptions.maintenance")}</option>
-                    <option value="telecom">{t("formationOptions.telecom")}</option>
-                    <option value="solaire">{t("formationOptions.solaire")}</option>
+                    {CATEGORIES.flatMap((c) => c.formations).map((f) => (
+                      <option key={f.id} value={f.id}>{tf(`items.${f.id}.titre`)}</option>
+                    ))}
                     <option value="autre">{t("formationOptions.autre")}</option>
                   </select>
                 </Field>
@@ -311,9 +311,9 @@ export default function ContactPage() {
                   <Field label={t("b2b.domain")} error={b2bErr.domaine}>
                     <select className={inputCls(b2bErr.domaine)} value={b2b.domaine} onChange={b2bChange("domaine")}>
                       <option value="">{t("select")}</option>
-                      <option value="fibre">{t("domainOptions.fibre")}</option>
-                      <option value="telecom">{t("domainOptions.telecom")}</option>
-                      <option value="solaire">{t("domainOptions.solaire")}</option>
+                      {CATEGORIES.map((c) => (
+                        <option key={c.id} value={c.id}>{tf(`categories.${c.id}.label`)}</option>
+                      ))}
                       <option value="multiple">{t("domainOptions.multiple")}</option>
                     </select>
                   </Field>
