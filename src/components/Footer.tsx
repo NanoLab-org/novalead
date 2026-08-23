@@ -1,5 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
+import TransitionLink from "@/components/TransitionLink";
 import { contactInfo, openingHours } from "@/constants";
 
 const footerLinks = [
@@ -28,12 +29,12 @@ export default async function Footer({ locale }: { locale: string }) {
           <p className="text-white/70 text-sm leading-relaxed mb-6 max-w-xs">
             {t("tagline")}
           </p>
-          <Link
+          <TransitionLink
             href="/contact"
             className="bg-primary text-white text-sm font-semibold px-5 py-2 rounded-full hover:opacity-90 transition-opacity inline-block mb-6"
           >
             {t("cta")} <span className="inline-block rtl-flip">→</span>
-          </Link>
+          </TransitionLink>
           <div className="flex gap-3">
             <a href="#" className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white/70 hover:text-white hover:border-white/40 transition-all text-xs">in</a>
             <a href="#" className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white/70 hover:text-white hover:border-white/40 transition-all text-xs">fb</a>

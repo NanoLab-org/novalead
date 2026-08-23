@@ -33,7 +33,22 @@
     "ctaCatalogue": "Voir le catalogue",
     "ctaContact": "Nous contacter",
     "slidesEyebrow": "Formations phares",
-    "slidesTitle": "Nos formations <hl>phares</hl>"
+    "slidesTitle": "Nos formations <hl>phares</hl>",
+    "about": {
+      "eyebrow": "À propos de NovaLead",
+      "title": "La référence en formation <hl>technique</hl> en Tunisie",
+      "p1": "NovaLead est un centre de formation spécialisé dans les métiers techniques de la fibre optique, du photovoltaïque et des télécommunications. Fondé par des professionnels du secteur, notre mission est de former les techniciens et les entreprises aux compétences de demain.",
+      "p2": "Nous proposons des formations certifiantes en présentiel et à distance, conçues pour répondre aux besoins réels du marché tunisien et international. Chaque programme est pensé pour être directement applicable sur le terrain dès le lendemain.",
+      "ctaFormations": "Nos formations",
+      "ctaContact": "Nous contacter"
+    },
+    "location": {
+      "eyebrow": "Nous trouver",
+      "title": "Où nous <hl>trouver</hl>",
+      "addressLabel": "Adresse",
+      "contactLabel": "Contact",
+      "hoursLabel": "Horaires"
+    }
   },
   "About": {
     "heroEyebrow": "À propos de NovaLead",

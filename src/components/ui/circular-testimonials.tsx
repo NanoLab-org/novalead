@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import React, { useEffect, useRef, useState, useMemo, useCallback } from "react";
 import { ArrowLeft as FaArrowLeft, ArrowRight as FaArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -209,10 +210,12 @@ export const CircularTestimonials = ({
           }}
         >
           {testimonials.map((testimonial, index) => (
-            <img
+            <Image
               key={testimonial.src}
               src={testimonial.src}
               alt={testimonial.name}
+              fill
+              sizes="(max-width: 768px) 80vw, 400px"
               style={getImageStyle(index)}
             />
           ))}

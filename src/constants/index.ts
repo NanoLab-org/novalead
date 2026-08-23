@@ -2,60 +2,6 @@
 //  CATEGORIES below, consumed by the catalogue, the detail page and the home
 //  slideshow.)
 
-export const domainColors: Record<string, string> = {
-  "Fibre Optique": "bg-secondary/20 text-secondary border-secondary/40",
-  Photovoltaïque: "bg-primary/10 text-primary border-primary/25",
-  Électricité: "bg-primary/10 text-primary border-primary/25",
-  Télécoms: "bg-secondary/20 text-secondary border-secondary/40",
-  Énergie: "bg-primary/10 text-primary border-primary/25",
-};
-
-
-// ─── About ───────────────────────────────────────────────────────────────────
-
-// The four values NovaLead is built on. Order is meaningful — the À propos
-// bento uses it (Mobilité is the feature card). `icon` maps to a lucide icon.
-export const values = [
-  {
-    titre: "Proximité",
-    icon: "map-pin",
-    color: "border-primary",
-    description:
-      "Nous venons à votre rencontre, partout en Tunisie, pour rendre la formation accessible au plus grand nombre.",
-  },
-  {
-    titre: "Mobilité",
-    icon: "truck",
-    color: "border-secondary",
-    description:
-      "Un concept de formation mobile : nous nous déplaçons dans les régions au lieu d'attendre les stagiaires en salle.",
-  },
-  {
-    titre: "Expertise",
-    icon: "award",
-    color: "border-primary",
-    description:
-      "Plus de 15 ans d'expérience en France en fibre optique, photovoltaïque et IRVE, selon les standards européens.",
-  },
-  {
-    titre: "Accompagnement",
-    icon: "heart-handshake",
-    color: "border-secondary",
-    description:
-      "Un suivi concret et personnalisé pour construire votre avenir professionnel et répondre aux besoins du marché.",
-  },
-];
-
-// ─── Hero ─────────────────────────────────────────────────────────────────────
-
-export const heroTags = [
-  "Photovoltaïque",
-  "Fibre optique",
-  "Télécoms",
-  "Certifiant",
-  "Éco-responsable",
-];
-
 // ─── Navbar ───────────────────────────────────────────────────────────────────
 
 // `key` maps to the Nav namespace in the message catalogs (labels are translated).
@@ -66,9 +12,7 @@ export const navLinks = [
   { key: "contact", href: "/contact" },
 ] as const;
 
-// ─── Footer ───────────────────────────────────────────────────────────────────
-
-export const footerLinks = ["Catalogue", "À propos", "Localisation", "Contact"];
+// ─── Contact / hours ─────────────────────────────────────────────────────────
 
 // `key` maps to the Location.contactLabels / Location.days message keys.
 // Values (phone/email/hours) are locale-invariant and stay here.
