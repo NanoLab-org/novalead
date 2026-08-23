@@ -33,7 +33,22 @@
     "ctaCatalogue": "View the catalogue",
     "ctaContact": "Contact us",
     "slidesEyebrow": "Featured programs",
-    "slidesTitle": "Our featured <hl>programs</hl>"
+    "slidesTitle": "Our featured <hl>programs</hl>",
+    "about": {
+      "eyebrow": "About NovaLead",
+      "title": "The reference in <hl>technical</hl> training in Tunisia",
+      "p1": "NovaLead is a training center specialized in the technical trades of fiber optics, photovoltaics and telecommunications. Founded by industry professionals, our mission is to train technicians and companies in the skills of tomorrow.",
+      "p2": "We offer certified programs, on-site and remote, designed to meet the real needs of the Tunisian and international market. Every program is built to be directly applicable in the field the very next day.",
+      "ctaFormations": "Our programs",
+      "ctaContact": "Contact us"
+    },
+    "location": {
+      "eyebrow": "Find us",
+      "title": "Where to <hl>find us</hl>",
+      "addressLabel": "Address",
+      "contactLabel": "Contact",
+      "hoursLabel": "Hours"
+    }
   },
   "About": {
     "heroEyebrow": "About NovaLead",
