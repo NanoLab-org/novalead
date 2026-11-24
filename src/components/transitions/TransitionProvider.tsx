@@ -8,6 +8,7 @@ import {
   useRef,
   useState,
 } from "react";
+import NovaLeadMark from "@/components/brand/NovaLeadMark";
 // Locale-aware: router.push auto-prefixes the active locale, and usePathname is
 // locale-less — so TransitionLink hrefs like "/catalogue" keep the current locale.
 import { usePathname, useRouter } from "@/i18n/navigation";
@@ -127,9 +128,9 @@ export default function TransitionProvider({
       {children}
       <div aria-hidden style={overlayStyle}>
         <div className="flex flex-col items-center gap-6">
-          <span className="text-3xl font-black tracking-tight text-white">
-            Nova<span className="text-primary">lead</span>
-          </span>
+          {/* Overlay is always dark, so the mark is pinned to white. */}
+          <NovaLeadMark className="h-12 w-auto text-white" />
+          <span className="sr-only">NovaLead</span>
           <span className="transition-loader" />
         </div>
       </div>

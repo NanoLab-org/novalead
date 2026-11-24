@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 
 const WHATSAPP_NUMBER = "21653558364";
 const WHATSAPP_MESSAGE = "Bonjour 👋 Besoin d'informations sur nos formations ? On est là !";
@@ -18,9 +19,16 @@ export default function WhatsAppWidget() {
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
       {open && (
           <div className="bg-surface border border-white/10 rounded-xl p-4 w-60 shadow-xl right-0">          <div className="flex items-center gap-3 mb-3">
-            <div className="w-9 h-9 rounded-full bg-[#25D366] flex items-center justify-center shrink-0">
-              <WhatsAppIcon />
-            </div>
+            {/* Card header identifies who you're messaging, so this is the
+                brand avatar. The launcher button below stays WhatsApp green —
+                that colour is the channel affordance, not ours to rebrand. */}
+            <Image
+              src="/brand/novalead-avatar.svg"
+              alt=""
+              width={36}
+              height={36}
+              className="w-9 h-9 rounded-full shrink-0"
+            />
             <div>
               <p className="text-graphite text-sm font-bold">NovaLead</p>
               <p className="text-[#25D366] text-xs">● En ligne</p>

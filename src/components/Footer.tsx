@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import TransitionLink from "@/components/TransitionLink";
@@ -23,9 +24,15 @@ export default async function Footer({ locale }: { locale: string }) {
 
         {/* Brand */}
         <div>
-          <div className="text-white font-bold text-xl tracking-tight mb-4">
-            Nova<span className="text-primary">lead</span>
-          </div>
+          {/* Dark-background lockup; the tagline is baked in, so the
+              text tagline below is intentionally the longer blurb. */}
+          <Image
+            src="/brand/novalead-logo-negatif.svg"
+            alt="NovaLead — Centre de formation fibre optique"
+            width={594}
+            height={100}
+            className="h-11 w-auto mb-4"
+          />
           <p className="text-white/70 text-sm leading-relaxed mb-6 max-w-xs">
             {t("tagline")}
           </p>
