@@ -26,6 +26,26 @@ const arabic = Cairo({
   variable: "--font-arabic",
 });
 
+/**
+ * Absolute origin for og:image / twitter:image — social crawlers reject
+ * relative URLs, so Next needs a metadataBase to resolve them against.
+ *
+ * Netlify injects these at build time; no .env file is required:
+ *   CONTEXT          "production" | "deploy-preview" | "branch-deploy"
+ *   URL              the site's primary URL (custom domain once attached)
+ *   DEPLOY_PRIME_URL this particular deploy's URL (previews/branch deploys)
+ *
+ * Production deploys share cards from the real domain; previews point at
+ * themselves so a preview's card isn't attributed to production. Set
+ * NEXT_PUBLIC_SITE_URL to override either (e.g. a domain fronted by a CDN).
+ */
+const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  (process.env.CONTEXT === "production"
+    ? process.env.URL
+    : process.env.DEPLOY_PRIME_URL ?? process.env.URL) ??
+  "http://localhost:3000";
+
 // Pre-render every locale at build time.
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -38,7 +58,39 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "Meta" });
-  return { title: t("title"), description: t("description") };
+  const title = t("title");
+  const description = t("description");
+  return {
+    metadataBase: new URL(SITE_URL),
+    title,
+    description,
+    // icon.svg and apple-icon.png are picked up from src/app by convention.
+    // The OG image must be listed explicitly: declaring `openGraph` in this
+    // nested layout REPLACES the root segment's object rather than merging
+    // into it, so the opengraph-image.png file convention gets dropped and
+    // no og:image is emitted at all.
+    openGraph: {
+      title,
+      description,
+      siteName: "NovaLead",
+      locale,
+      type: "website",
+      images: [
+        {
+          url: "/opengraph-image.png",
+          width: 1200,
+          height: 630,
+          alt: "NovaLead — Centre de formation fibre optique",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: ["/opengraph-image.png"],
+    },
+  };
 }
 
 export default async function LocaleLayout({
