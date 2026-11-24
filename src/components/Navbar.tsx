@@ -8,6 +8,7 @@ import { Info, LayoutGrid, MapPin, Mail } from "lucide-react";
 import { navLinks } from "@/constants";
 import TransitionLink from "@/components/TransitionLink";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
+import NovaLeadMark from "@/components/brand/NovaLeadMark";
 
 const LINK_ICONS: Record<string, React.ElementType> = {
   "/apropos": Info,
@@ -81,9 +82,14 @@ export default function Navbar() {
       <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-[90] w-[90%] max-w-5xl flex items-center justify-between px-5 md:px-8 py-3 rounded-full border border-white/40 bg-white/30 backdrop-blur-xl shadow-lg">
         <TransitionLink
           href="/"
-          className={`font-bold text-xl tracking-tight transition-colors duration-300 ${lightText ? "text-white" : "text-graphite"}`}
+          aria-label="NovaLead"
+          className={`flex items-center gap-2.5 font-bold text-xl tracking-tight transition-colors duration-300 ${lightText ? "text-white" : "text-graphite"}`}
         >
-          Nova<span className="text-primary">lead</span>
+          {/* The mark inherits the swap above via currentColor — its teal accent is fixed. */}
+          <NovaLeadMark className="h-7 w-auto shrink-0" />
+          <span>
+            Nova<span className="text-primary">lead</span>
+          </span>
         </TransitionLink>
 
         <ul className={`hidden md:flex gap-8 text-sm font-medium transition-colors duration-300 ${lightText ? "text-white/80" : "text-muted"}`}>
