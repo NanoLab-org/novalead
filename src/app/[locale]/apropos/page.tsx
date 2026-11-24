@@ -1,7 +1,8 @@
 import type { ReactNode } from "react";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { GLSLHills } from "@/components/ui/glsl-hills";
-import { CircularTestimonials } from "@/components/ui/circular-testimonials";
+// Restore alongside the deprecated "Notre Équipe" section near the bottom of this file.
+// import { CircularTestimonials } from "@/components/ui/circular-testimonials";
 import MobilityMapCard from "@/components/apropos/MobilityMapCard";
 import CountUp from "@/components/apropos/CountUp";
 import RevealText from "@/components/apropos/RevealText";
@@ -186,7 +187,21 @@ export default async function AProposPage({
         </Reveal>
       </section>
 
-      {/* Notre Équipe — testimonials (member data localized in a later step) */}
+      {/*
+        DEPRECATED — "Notre Équipe / Des experts du terrain" section.
+        Disabled on purpose: the member names, roles and photos were
+        placeholders (stock Unsplash portraits, invented people), so the
+        section claimed a named team that does not exist as shown.
+
+        Kept here rather than deleted so the layout can be restored once
+        real staff names, roles and photographs are available. To restore:
+        uncomment this block plus the CircularTestimonials import at the
+        top of the file, and swap in real member data.
+
+        The i18n keys it reads (Apropos.teamEyebrow, Apropos.teamTitle,
+        Apropos.team.m1-m3) are intentionally left in messages/{fr,en,ar}.json
+        so the translations survive for the restore.
+
       <section className="border-b border-black/10 px-6 py-20 sm:px-10 lg:px-16 lg:py-24">
         <p className="mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-primary">
           <span className="h-[2px] w-5 bg-primary" />
@@ -230,6 +245,7 @@ export default async function AProposPage({
           />
         </div>
       </section>
+      */}
     </div>
   );
 }
